@@ -1,59 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="AZERTY.AppTest" time="0.042" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="AZERTY.AppTest" time="0.022" tests="1" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="java.specification.version" value="14"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="D:\Trucardo\target\test-classes;D:\Trucardo\target\classes;C:\Users\bmksa\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\bmksa\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.class.path" value="C:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo\target\test-classes;C:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo\target\classes;C:\Users\nacho\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\nacho\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
-    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="user.timezone" value="America/Buenos_Aires"/>
+    <property name="java.vm.specification.version" value="1.8"/>
     <property name="os.name" value="Windows 10"/>
-    <property name="java.vm.specification.version" value="14"/>
+    <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="user.country" value="AR"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\bmksa\AppData\Local\Temp\surefire5532080944220933955\surefirebooter3892633476917314725.jar C:\Users\bmksa\AppData\Local\Temp\surefire5532080944220933955 2020-05-01T18-17-50_707-jvmRun1 surefire1638772513321342933tmp surefire_012934610476976520726tmp"/>
-    <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="D:\Trucardo\target\test-classes;D:\Trucardo\target\classes;C:\Users\bmksa\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\bmksa\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\nacho\AppData\Local\Temp\surefire4445881365180393275\surefirebooter5677906464415254077.jar C:\Users\nacho\AppData\Local\Temp\surefire4445881365180393275 2020-05-01T18-37-43_207-jvmRun1 surefire3253708675180985310tmp surefire_03074574436081246648tmp"/>
+    <property name="surefire.test.class.path" value="C:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo\target\test-classes;C:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo\target\classes;C:\Users\nacho\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\nacho\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="C:\Users\bmksa"/>
-    <property name="user.language" value="es"/>
+    <property name="user.home" value="C:\Users\nacho"/>
+    <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2020-04-14"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-14.0.1"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_241\jre"/>
+    <property name="basedir" value="C:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="D:\Trucardo"/>
-    <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\bmksa\AppData\Local\Temp\surefire5532080944220933955\surefirebooter3892633476917314725.jar"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\nacho\AppData\Local\Temp\surefire4445881365180393275\surefirebooter5677906464415254077.jar"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_241\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="14.0.1+7"/>
-    <property name="user.name" value="bmksa"/>
+    <property name="java.runtime.version" value="1.8.0_241-b07"/>
+    <property name="user.name" value="nacho"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
-    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_241\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="file.encoding" value="Cp1252"/>
-    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="localRepository" value="C:\Users\bmksa\.m2\repository"/>
-    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
-    <property name="java.io.tmpdir" value="C:\Users\bmksa\AppData\Local\Temp\"/>
-    <property name="java.version" value="14.0.1"/>
-    <property name="user.dir" value="D:\Trucardo"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\nacho\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\nacho\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_241"/>
+    <property name="user.dir" value="C:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-14.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Users\bmksa\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\bmksa\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\MATLAB\R2017b\runtime\win64;C:\Program Files\MATLAB\R2017b\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-14.0.1\bin;C:\Program Files\apache-maven-3.6.3\bin;C:\Users\bmksa\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;."/>
-    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Users\nacho\bin;D:\Programs\Git\mingw64\bin;D:\Programs\Git\usr\local\bin;D:\Programs\Git\usr\bin;D:\Programs\Git\usr\bin;D:\Programs\Git\mingw64\bin;D:\Programs\Git\usr\bin;C:\Users\nacho\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\Microchip\xc8\v2.10\bin;D:\Programs\Git\cmd;C:\Program Files\Java\jdk1.8.0_241\bin;C:\Program Files\apache-maven-3.6.3\bin;C:\Users\nacho\AppData\Local\Programs\Python\Python38-32\Scripts;C:\Users\nacho\AppData\Local\Programs\Python\Python38-32;C:\Users\nacho\AppData\Local\Microsoft\WindowsApps;D:\Programs\Git\usr\bin\vendor_perl;D:\Programs\Git\usr\bin\core_perl;."/>
+    <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="14.0.1+7"/>
+    <property name="java.vm.version" value="25.241-b07"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_241\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="58.0"/>
+    <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="AZERTY.AppTest" time="0.002"/>
+  <testcase name="shouldAnswerWithTrue" classname="AZERTY.AppTest" time="0.001"/>
 </testsuite>
