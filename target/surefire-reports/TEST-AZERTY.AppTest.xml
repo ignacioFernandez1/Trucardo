@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="AZERTY.AppTest" time="0.046" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="AZERTY.AppTest" time="0.042" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="AR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\bmksa\AppData\Local\Temp\surefire1452579730087089612\surefirebooter6716107017877727103.jar C:\Users\bmksa\AppData\Local\Temp\surefire1452579730087089612 2020-05-01T18-14-44_886-jvmRun1 surefire555245519974178407tmp surefire_01357710470412134506tmp"/>
+    <property name="sun.java.command" value="C:\Users\bmksa\AppData\Local\Temp\surefire5532080944220933955\surefirebooter3892633476917314725.jar C:\Users\bmksa\AppData\Local\Temp\surefire5532080944220933955 2020-05-01T18-17-50_707-jvmRun1 surefire1638772513321342933tmp surefire_012934610476976520726tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\Trucardo\target\test-classes;D:\Trucardo\target\classes;C:\Users\bmksa\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\bmksa\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\bmksa\AppData\Local\Temp\surefire1452579730087089612\surefirebooter6716107017877727103.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\bmksa\AppData\Local\Temp\surefire5532080944220933955\surefirebooter3892633476917314725.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="14.0.1+7"/>
