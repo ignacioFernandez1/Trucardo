@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: AZERTY.AppTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in AZERTY.AppTest
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in AZERTY.AppTest
->>>>>>> d1233a69c99a78febb46b4779533f12a19988a9f
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in AZERTY.AppTest
