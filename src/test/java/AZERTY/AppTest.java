@@ -17,7 +17,12 @@ public class AppTest
     public void testPaloCarta()
     {
        Carta carta = new Carta(2, 'c');
-       assertEquals(2, carta.getNumero());
        assertEquals("Copa", carta.getPalo());
+    }
+
+    @Test
+    public void testNumeroCarta() {
+        Carta carta = new Carta(2, 'c');
+        assertEquals(2, carta.getNumero());
     }
 }
