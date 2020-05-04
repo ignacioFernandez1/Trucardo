@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="AZERTY.AppTest" time="0.045" tests="1" errors="0" skipped="0" failures="0">
 =======
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="AZERTY.AppTest" time="0.025" tests="1" errors="0" skipped="0" failures="0">
 >>>>>>> 9246e9395c2b929bff7713e414cd5178abfd8fce
+=======
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="AZERTY.AppTest" time="0.024" tests="1" errors="0" skipped="0" failures="0">
+>>>>>>> d1233a69c99a78febb46b4779533f12a19988a9f
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -29,7 +33,7 @@
     <property name="surefire.test.class.path" value="D:\Trucardo\target\test-classes;D:\Trucardo\target\classes;C:\Users\bmksa\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\bmksa\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
 =======
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\nacho\AppData\Local\Temp\surefire633007034526517860\surefirebooter8081324696514740472.jar C:\Users\nacho\AppData\Local\Temp\surefire633007034526517860 2020-05-04T18-43-03_718-jvmRun1 surefire2114998975330099239tmp surefire_02388847294527793239tmp"/>
+    <property name="sun.java.command" value="C:\Users\nacho\AppData\Local\Temp\surefire3690186305348866181\surefirebooter6585684887231944268.jar C:\Users\nacho\AppData\Local\Temp\surefire3690186305348866181 2020-05-04T19-45-10_006-jvmRun1 surefire1159584067669066311tmp surefire_04493811754144200657tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo\target\test-classes;C:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo\target\classes;C:\Users\nacho\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\nacho\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
 >>>>>>> 9246e9395c2b929bff7713e414cd5178abfd8fce
     <property name="sun.cpu.endian" value="little"/>
@@ -46,7 +50,7 @@
     <property name="surefire.real.class.path" value="C:\Users\bmksa\AppData\Local\Temp\surefire15160448391956901919\surefirebooter5632844396429649557.jar"/>
 =======
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\nacho\AppData\Local\Temp\surefire633007034526517860\surefirebooter8081324696514740472.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\nacho\AppData\Local\Temp\surefire3690186305348866181\surefirebooter6585684887231944268.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_241\jre\classes"/>
 >>>>>>> 9246e9395c2b929bff7713e414cd5178abfd8fce
     <property name="user.script" value=""/>
@@ -76,5 +80,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="AZERTY.AppTest" time="0.001"/>
+  <testcase name="testPaloCarta" classname="AZERTY.AppTest" time="0.002"/>
 </testsuite>

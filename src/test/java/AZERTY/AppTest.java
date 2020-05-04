@@ -1,7 +1,8 @@
 package AZERTY;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
+import AZERTY.Carta;
 import org.junit.Test;
 
 /**
@@ -13,8 +14,15 @@ public class AppTest
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue()
+    public void testPaloCarta()
     {
-        assertTrue( true );
+       Carta carta = new Carta(2, 'c');
+       assertEquals("Copa", carta.getPalo());
+    }
+
+    @Test
+    public void testNumeroCarta() {
+        Carta carta = new Carta(2, 'c');
+        assertEquals(2, carta.getNumero());
     }
 }
