@@ -8,6 +8,12 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Mazo mazo = new Mazo();
+        System.out.println(mazo.toString());
+        System.out.println(mazo.getMazo().size());
+        mazo.shuffle();
+        System.out.println("-----------------------------------------");
+        System.out.println(mazo.toString());
+        System.out.println(mazo.getMazo().size());
     }
 }
