@@ -12,22 +12,22 @@ public class Mazo {
         for(int i = 0; i < 4; i++){
             for(int j = 1; j < 10; j++){
                 if(i == 0){
-                    mazo.add(new Carta(j, 'e'));
+                    mazo.add(new Carta(j, "Espada"));
                 }
                 else if(i == 1){
-                    mazo.add(new Carta(j, 'b'));
+                    mazo.add(new Carta(j, "Basto"));
                 }
                 else if(i == 2){
-                    mazo.add(new Carta(j, 'c'));
+                    mazo.add(new Carta(j, "Copa"));
                 }
                 else{
-                    mazo.add(new Carta(j, 'o'));
+                    mazo.add(new Carta(j, "Oro"));
                 }
             }
         }
     }
 
-    public void shuffle(){
+    public void mezclar(){
         Collections.shuffle(mazo);
     }
 

@@ -11,7 +11,7 @@ public class App
         Mazo mazo = new Mazo();
         System.out.println(mazo.toString());
         System.out.println(mazo.getMazo().size());
-        mazo.shuffle();
+        mazo.mezclar();
         System.out.println("-----------------------------------------");
         System.out.println(mazo.toString());
         System.out.println(mazo.getMazo().size());

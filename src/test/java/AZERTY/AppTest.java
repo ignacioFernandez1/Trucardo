@@ -16,13 +16,13 @@ public class AppTest
     @Test
     public void testPaloCarta()
     {
-       Carta carta = new Carta(2, 'c');
+       Carta carta = new Carta(2, "Copa");
        assertEquals("Copa", carta.getPalo());
     }
 
     @Test
     public void testNumeroCarta() {
-        Carta carta = new Carta(2, 'c');
+        Carta carta = new Carta(2, "Copa");
         assertEquals(2, carta.getNumero());
     }
 }
