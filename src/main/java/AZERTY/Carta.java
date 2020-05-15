@@ -2,9 +2,9 @@ package AZERTY;
 
 public class Carta {
     private int numero;
-    private char palo;
+    private String palo;
 
-    public Carta(int numero, char palo){
+    public Carta(int numero, String palo){
         if(numero > 7){
             this.numero = numero + 3;
         }
@@ -23,14 +23,10 @@ public class Carta {
     }
 
     public String getPalo() {
-        if (palo == 'c') {return "Copa";}
-        if (palo == 'e') {return "Espada";}
-        if (palo == 'b') {return "Basto";}
-        if (palo == 'o') {return "Oro";}
-        else{return "Carta no valida";}
+        return palo;
     }
 
-    public void setPalo(char palo) {
+    public void setPalo(String palo) {
         this.palo = palo;
     }
 }
