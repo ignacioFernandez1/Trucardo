@@ -1,11 +1,11 @@
 package AZERTY;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Mazo {
     private ArrayList<Carta> mazo;
-
 
     public Mazo() {
         mazo = new ArrayList<Carta>();
@@ -25,6 +25,7 @@ public class Mazo {
                 }
             }
         }
+        mezclar();
     }
 
     public void mezclar(){
@@ -44,5 +45,13 @@ public class Mazo {
         return mazo;
     }
 
+    public ArrayList<Carta> repartir3(int jugador) {
+        if(jugador == 0){return new ArrayList(mazo.subList(0,3));}
+        if(jugador == 1){return new ArrayList(mazo.subList(3,6));}
+        else {return new ArrayList(Collections.emptyList());}
+    }
+
 
 }
+
+
