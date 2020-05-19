@@ -10,6 +10,7 @@ public class Mazo {
     public Mazo() {
         mazo = new Carta[36];
         this.reiniciar();
+        this.mezclar();
     }
 
     public void reiniciar() {
@@ -17,9 +18,13 @@ public class Mazo {
         Carta.Palo[] palos = Carta.Palo.values();
         cartasEnMazo = 0;
 
+<<<<<<< HEAD
         for (int i = 0; i < palos.length; i++) {
             Carta.Palo palo = palos[i];
 
+=======
+        for (Carta.Palo palo : palos) {
+>>>>>>> 22084c93033b959431a7edfc6ffec4e37fc0a307
             for (int j = 0; j < 9; j++) {
 
                 mazo[cartasEnMazo++] = new Carta(Carta.Valor.getValor(j), palo);
