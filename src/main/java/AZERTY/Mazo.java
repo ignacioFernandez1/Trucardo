@@ -1,48 +1,58 @@
 package AZERTY;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import javax.swing.*;
+import java.util.*;
 
 public class Mazo {
-    private ArrayList<Carta> mazo;
-
+    private Carta[] mazo;
+    private int cartasEnMazo;
 
     public Mazo() {
-        mazo = new ArrayList<Carta>();
-        for(int i = 0; i < 4; i++){
-            for(int j = 1; j < 10; j++){
-                if(i == 0){
-                    mazo.add(new Carta(j, 'e'));
-                }
-                else if(i == 1){
-                    mazo.add(new Carta(j, 'b'));
-                }
-                else if(i == 2){
-                    mazo.add(new Carta(j, 'c'));
-                }
-                else{
-                    mazo.add(new Carta(j, 'o'));
-                }
+        mazo = new Carta[36];
+        this.reiniciar();
+    }
+
+    public void reiniciar() {
+
+        Carta.Palo[] palos = Carta.Palo.values();
+        cartasEnMazo = 0;
+
+        for(int i = 0; i < palos.length ; i++) {
+            Carta.Palo palo = palos[i];
+
+            for (int j = 0; j < 9; j++) {
+
+                mazo[cartasEnMazo++] = new Carta(Carta.Valor.getValor(j), palo);
+
             }
         }
     }
 
-    public void shuffle(){
-        Collections.shuffle(mazo);
+    public void mezclar(){
+        Random random = new Random();
+
+        for(int i = 0; i < mazo.length; i++){
+            //swap de elementos en posicion random
+            int rand = random.nextInt(mazo.length - 1);
+            Carta cartaRandom = mazo[rand];
+            mazo[rand] = mazo[i];
+            mazo[i] = cartaRandom;
+        }
+    }
+
+
+    public Carta sacarCarta(){
+        return mazo[--cartasEnMazo];
+    }
+
+    public ImageIcon sacarImagenCarta(){
+      return new ImageIcon(mazo[--cartasEnMazo].toString() + ".png");
     }
 
     @Override
     public String toString() {
-        String cartas = "";
-        for(Carta carta : mazo){
-            cartas += carta.getNumero() + " " + carta.getPalo() + " ; ";
-        }
-        return cartas;
+        return "Mazo{" + Arrays.toString(mazo) +'}';
     }
-
-    public ArrayList<Carta> getMazo() {
-        return mazo;
-    }
-
-
 }
+
+

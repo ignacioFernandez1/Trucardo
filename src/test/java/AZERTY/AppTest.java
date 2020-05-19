@@ -16,13 +16,13 @@ public class AppTest
     @Test
     public void testPaloCarta()
     {
-       Carta carta = new Carta(2, 'c');
-       assertEquals("Copa", carta.getPalo());
+        Carta carta = new Carta(Carta.Valor.getValor(5), Carta.Palo.Copa);
+        assertEquals(Carta.Palo.Copa, carta.getPalo());
     }
 
     @Test
     public void testNumeroCarta() {
-        Carta carta = new Carta(2, 'c');
-        assertEquals(2, carta.getNumero());
+        Carta carta = new Carta(Carta.Valor.getValor(5), Carta.Palo.Copa);
+        assertEquals(Carta.Valor.Seis, carta.getValor());
     }
 }

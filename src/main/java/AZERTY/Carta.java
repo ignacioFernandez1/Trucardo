@@ -1,36 +1,43 @@
 package AZERTY;
 
 public class Carta {
-    private int numero;
-    private char palo;
 
-    public Carta(int numero, char palo){
-        if(numero > 7){
-            this.numero = numero + 3;
+    enum Palo{
+        Oro, Espada, Basto, Copa;
+
+        private static final Palo[] palos = Palo.values();
+        public static Palo getPalo(int i){
+            return Palo.palos[i];
         }
-        else{
-            this.numero = numero;
+    }
+
+    enum Valor{
+        Uno, Dos, Tres, Cuatro, Cinco, Seis, Siete, Once, Doce;
+        private static final Valor[] valores = Valor.values();
+        public static Valor getValor(int i){
+            return Valor.valores[i];
         }
+
+    }
+
+    private final Valor valor;
+    private final Palo palo;
+
+    public Carta(Valor valor, Palo palo) {
+        this.valor = valor;
         this.palo = palo;
     }
 
-    public int getNumero() {
-        return numero;
+    public Valor getValor() {
+        return valor;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public Palo getPalo() {
+        return palo;
     }
 
-    public String getPalo() {
-        if (palo == 'c') {return "Copa";}
-        if (palo == 'e') {return "Espada";}
-        if (palo == 'b') {return "Basto";}
-        if (palo == 'o') {return "Oro";}
-        else{return "Carta no valida";}
-    }
-
-    public void setPalo(char palo) {
-        this.palo = palo;
+    @Override
+    public String toString() {
+        return valor + "de" + palo;
     }
 }
