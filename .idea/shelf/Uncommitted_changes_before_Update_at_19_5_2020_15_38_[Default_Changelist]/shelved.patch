@@ -1,0 +1,275 @@
+Index: src/test/java/AZERTY/AppTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AZERTY;\r\n\r\nimport static org.junit.Assert.assertEquals;\r\nimport static org.junit.Assert.assertTrue;\r\nimport AZERTY.Carta;\r\nimport org.junit.Test;\r\n\r\n/**\r\n * Unit test for simple App.\r\n */\r\npublic class AppTest \r\n{\r\n    /**\r\n     * Rigorous Test :-)\r\n     */\r\n    @Test\r\n    public void testPaloCarta()\r\n    {\r\n       Carta carta = new Carta(2, \"Copa\");\r\n       assertEquals(\"Copa\", carta.getPalo());\r\n    }\r\n\r\n    @Test\r\n    public void testNumeroCarta() {\r\n        Carta carta = new Carta(2, \"Copa\");\r\n        assertEquals(2, carta.getNumero());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/AZERTY/AppTest.java	(revision 45ae5360f9a1a39a4fff6f3b1e3c59879e890ef2)
++++ src/test/java/AZERTY/AppTest.java	(date 1589747038336)
+@@ -1,28 +1,0 @@
+-package AZERTY;
+-
+-import static org.junit.Assert.assertEquals;
+-import static org.junit.Assert.assertTrue;
+-import AZERTY.Carta;
+-import org.junit.Test;
+-
+-/**
+- * Unit test for simple App.
+- */
+-public class AppTest 
+-{
+-    /**
+-     * Rigorous Test :-)
+-     */
+-    @Test
+-    public void testPaloCarta()
+-    {
+-       Carta carta = new Carta(2, "Copa");
+-       assertEquals("Copa", carta.getPalo());
+-    }
+-
+-    @Test
+-    public void testNumeroCarta() {
+-        Carta carta = new Carta(2, "Copa");
+-        assertEquals(2, carta.getNumero());
+-    }
+-}
+Index: src/main/java/AZERTY/Mazo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AZERTY;\r\n\r\nimport java.util.List;\r\nimport java.util.ArrayList;\r\nimport java.util.Collections;\r\n\r\npublic class Mazo {\r\n    private ArrayList<Carta> mazo;\r\n\r\n    public Mazo() {\r\n        mazo = new ArrayList<Carta>();\r\n        for(int i = 0; i < 4; i++){\r\n            for(int j = 1; j < 10; j++){\r\n                if(i == 0){\r\n                    mazo.add(new Carta(j, \"Espada\"));\r\n                }\r\n                else if(i == 1){\r\n                    mazo.add(new Carta(j, \"Basto\"));\r\n                }\r\n                else if(i == 2){\r\n                    mazo.add(new Carta(j, \"Copa\"));\r\n                }\r\n                else{\r\n                    mazo.add(new Carta(j, \"Oro\"));\r\n                }\r\n            }\r\n        }\r\n        mezclar();\r\n    }\r\n\r\n    public void mezclar(){\r\n        Collections.shuffle(mazo);\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        String cartas = \"\";\r\n        for(Carta carta : mazo){\r\n            cartas += carta.getNumero() + \" \" + carta.getPalo() + \" ; \";\r\n        }\r\n        return cartas;\r\n    }\r\n\r\n    public ArrayList<Carta> getMazo() {\r\n        return mazo;\r\n    }\r\n\r\n    public ArrayList<Carta> repartir3(int jugador) {\r\n        if(jugador == 0){return new ArrayList(mazo.subList(0,3));}\r\n        if(jugador == 1){return new ArrayList(mazo.subList(3,6));}\r\n        else {return new ArrayList(Collections.emptyList());}\r\n    }\r\n\r\n\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/AZERTY/Mazo.java	(revision 45ae5360f9a1a39a4fff6f3b1e3c59879e890ef2)
++++ src/main/java/AZERTY/Mazo.java	(date 1589747180853)
+@@ -1,57 +1,47 @@
+ package AZERTY;
+ 
++import java.util.Arrays;
+ import java.util.List;
+ import java.util.ArrayList;
+ import java.util.Collections;
+ 
+ public class Mazo {
+-    private ArrayList<Carta> mazo;
++    private Carta[] mazo;
++    private int cartasEnMazo;
+ 
+     public Mazo() {
+-        mazo = new ArrayList<Carta>();
+-        for(int i = 0; i < 4; i++){
+-            for(int j = 1; j < 10; j++){
+-                if(i == 0){
+-                    mazo.add(new Carta(j, "Espada"));
+-                }
+-                else if(i == 1){
+-                    mazo.add(new Carta(j, "Basto"));
++        mazo = new Carta[36];
++
++    }
++
++    public void reiniciar() {
++
++        Carta.Palo[] palos = Carta.Palo.values();
++        cartasEnMazo = 0;
++
++        for(int i = 0; i < palos.length ; i++)
++            {
++              Carta.Palo palo = palos[i];
++
++              for(int j = 0;j < 9; j++) {
++
++                  mazo[cartasEnMazo++] = new Carta(Carta.Valor.getValor(j), palo);
++
+                 }
+-                else if(i == 2){
+-                    mazo.add(new Carta(j, "Copa"));
+-                }
+-                else{
+-                    mazo.add(new Carta(j, "Oro"));
+-                }
++
+             }
+-        }
+-        mezclar();
+-    }
++
++
++
+ 
+-    public void mezclar(){
+-        Collections.shuffle(mazo);
+     }
+ 
+     @Override
+     public String toString() {
+-        String cartas = "";
+-        for(Carta carta : mazo){
+-            cartas += carta.getNumero() + " " + carta.getPalo() + " ; ";
+-        }
+-        return cartas;
++        return "Mazo{" +
++                "mazo=" + Arrays.toString(mazo) +
++                '}';
+     }
+-
+-    public ArrayList<Carta> getMazo() {
+-        return mazo;
+-    }
+-
+-    public ArrayList<Carta> repartir3(int jugador) {
+-        if(jugador == 0){return new ArrayList(mazo.subList(0,3));}
+-        if(jugador == 1){return new ArrayList(mazo.subList(3,6));}
+-        else {return new ArrayList(Collections.emptyList());}
+-    }
+-
+-
+ }
+ 
+ 
+Index: src/main/java/AZERTY/Jugador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AZERTY;\r\n\r\nimport java.util.List;\r\nimport java.util.ArrayList;\r\n\r\npublic class Jugador {\r\n    private ArrayList<Carta> mano;\r\n    private Mazo mazo;\r\n    private int numero;\r\n\r\n    public Jugador(int numero,Mazo mazo) {\r\n        this.mazo = mazo;\r\n        this.numero = numero;\r\n        mano = mazo.repartir3(numero);\r\n\r\n    }\r\n\r\n    private List<Carta> getMano() {\r\n        return mano;\r\n    }\r\n\r\n    public String toString() {\r\n        String cartas = \"\";\r\n        for(Carta carta : mano){\r\n            cartas += carta.getNumero() + \" \" + carta.getPalo() + \" ; \";\r\n        }\r\n        return cartas;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/AZERTY/Jugador.java	(revision 45ae5360f9a1a39a4fff6f3b1e3c59879e890ef2)
++++ src/main/java/AZERTY/Jugador.java	(date 1589747033144)
+@@ -7,11 +7,13 @@
+     private ArrayList<Carta> mano;
+     private Mazo mazo;
+     private int numero;
++    private boolean primero;
+ 
+-    public Jugador(int numero,Mazo mazo) {
++    public Jugador(int numero,Mazo mazo,boolean primero) {
+         this.mazo = mazo;
+         this.numero = numero;
+-        mano = mazo.repartir3(numero);
++        this.primero=primero;
++
+ 
+     }
+ 
+@@ -22,7 +24,7 @@
+     public String toString() {
+         String cartas = "";
+         for(Carta carta : mano){
+-            cartas += carta.getNumero() + " " + carta.getPalo() + " ; ";
++
+         }
+         return cartas;
+     }
+Index: src/main/java/AZERTY/Carta.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AZERTY;\r\n\r\npublic class Carta {\r\n    private int numero;\r\n    private String palo;\r\n\r\n    public Carta(int numero, String palo){\r\n        if(numero > 7){\r\n            this.numero = numero + 3;\r\n        }\r\n        else{\r\n            this.numero = numero;\r\n        }\r\n        this.palo = palo;\r\n    }\r\n\r\n    public int getNumero() {\r\n        return numero;\r\n    }\r\n\r\n    public void setNumero(int numero) {\r\n        this.numero = numero;\r\n    }\r\n\r\n    public String getPalo() {\r\n        return palo;\r\n    }\r\n\r\n    public void setPalo(String palo) {\r\n        this.palo = palo;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/AZERTY/Carta.java	(revision 45ae5360f9a1a39a4fff6f3b1e3c59879e890ef2)
++++ src/main/java/AZERTY/Carta.java	(date 1589746563962)
+@@ -1,32 +1,46 @@
+ package AZERTY;
+ 
+ public class Carta {
+-    private int numero;
+-    private String palo;
++
++    enum Palo{
++        Oro, Espada, Basto, Copa;
+ 
+-    public Carta(int numero, String palo){
+-        if(numero > 7){
+-            this.numero = numero + 3;
++        private static final Palo[] palos = Palo.values();
++        public static Palo getPalo(int i){
++            return Palo.palos[i];
+         }
+-        else{
+-            this.numero = numero;
++    }
++
++    enum Valor{
++        Uno, Dos, Tres, Cuatro, Cinco, Seis, Siete, Once, Doce;
++        private static final Valor[] valores = Valor.values();
++        public static Valor getValor(int i){
++            return Valor.valores[i];
+         }
++
++    }
++
++    private final Valor valor;
++    private final Palo palo;
++
++    public Carta(Valor valor, Palo palo) {
++        this.valor = valor;
+         this.palo = palo;
+     }
+ 
+-    public int getNumero() {
+-        return numero;
+-    }
+-
+-    public void setNumero(int numero) {
+-        this.numero = numero;
++    public Valor getValor() {
++        return valor;
+     }
+ 
+-    public String getPalo() {
++    public Palo getPalo() {
+         return palo;
+     }
+ 
+-    public void setPalo(String palo) {
+-        this.palo = palo;
++    @Override
++    public String toString() {
++        return "Carta{" +
++                valor +
++                " de " + palo +
++                '}';
+     }
+-}
++}
+\ No newline at end of file
+Index: src/main/java/AZERTY/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AZERTY;\r\n\r\n/**\r\n * Hello world!\r\n *\r\n */\r\npublic class App \r\n{\r\n    public static void main( String[] args )\r\n    {\r\n        Mazo mazo = new Mazo();\r\n        Jugador jugador0 = new Jugador(0,mazo);\r\n        Jugador jugador1 = new Jugador(1,mazo);\r\n        System.out.println(mazo.toString());\r\n        System.out.println(mazo.getMazo().size());\r\n        System.out.println(jugador0.toString());\r\n        System.out.println(jugador1.toString());\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/AZERTY/App.java	(revision 45ae5360f9a1a39a4fff6f3b1e3c59879e890ef2)
++++ src/main/java/AZERTY/App.java	(date 1589747221401)
+@@ -1,20 +1,16 @@
+ package AZERTY;
+ 
+-/**
+- * Hello world!
+- *
+- */
++
+ public class App 
+ {
+     public static void main( String[] args )
+     {
+         Mazo mazo = new Mazo();
+-        Jugador jugador0 = new Jugador(0,mazo);
+-        Jugador jugador1 = new Jugador(1,mazo);
++        mazo.reiniciar();
++        Jugador jugador0 = new Jugador(0,mazo,true);
++        Jugador jugador1 = new Jugador(1,mazo,false);
+         System.out.println(mazo.toString());
+-        System.out.println(mazo.getMazo().size());
+-        System.out.println(jugador0.toString());
+-        System.out.println(jugador1.toString());
++
+ 
+ 
+     }
