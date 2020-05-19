@@ -12,7 +12,7 @@ public class Jugador {
     public Jugador(int numero,Mazo mazo,boolean primero) {
         this.mazo = mazo;
         this.numero = numero;
-        this.primero=primero;
+        this.primero = primero;
 
 
     }
