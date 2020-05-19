@@ -11,11 +11,9 @@ public class Mazo {
 
     public Mazo() {
         mazo = new Carta[36];
-
     }
 
     public void reiniciar() {
-
         Carta.Palo[] palos = Carta.Palo.values();
         cartasEnMazo = 0;
 
@@ -30,12 +28,7 @@ public class Mazo {
             }
 
         }
-
-
-
-
     }
-
     @Override
     public String toString() {
         return "Mazo{" +
