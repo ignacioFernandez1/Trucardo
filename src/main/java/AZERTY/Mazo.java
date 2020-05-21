@@ -45,9 +45,10 @@ public class Mazo {
         return mazo[--cartasEnMazo];
     }
 
+    /*
     public ImageIcon sacarImagenCarta(){
       return new ImageIcon(mazo[--cartasEnMazo].toString() + ".png");
-    }
+    }*/
 
     @Override
     public String toString() {

@@ -1,5 +1,7 @@
 package AZERTY;
 
+import javax.swing.*;
+
 public class Carta {
 
     enum Palo{
@@ -23,9 +25,12 @@ public class Carta {
     private final Valor valor;
     private final Palo palo;
 
+    private ImageIcon img;
+
     public Carta(Valor valor, Palo palo) {
         this.valor = valor;
         this.palo = palo;
+        img = new ImageIcon(this.toString() + ".png");
     }
 
     public Valor getValor() {
