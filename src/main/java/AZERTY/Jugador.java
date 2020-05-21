@@ -5,16 +5,33 @@ import java.util.ArrayList;
 
 public class Jugador {
     private ArrayList<Carta> mano;
+    private ArrayList<Carta> pila;
+    private int puntaje;
     private Mazo mazo;
-    private int numero;
-    private boolean primero;
+    private String nombre;
 
-    public Jugador(int numero,Mazo mazo,boolean primero) {
-        this.mazo = mazo;
-        this.numero = numero;
-        this.primero = primero;
+    public Jugador(String nombre) {
+        this.nombre = nombre;
+        mano = new ArrayList<>();
+        pila = new ArrayList<>();
 
 
+    }
+
+    public int getPuntaje() {
+        return puntaje;
+    }
+
+    public void addCarta (Carta carta) {
+
+        mano.add(carta);
+
+    }
+
+    public void clearMano () {
+
+        mano.clear();
+        pila.clear();
     }
 
     private List<Carta> getMano() {
@@ -23,9 +40,7 @@ public class Jugador {
 
     public String toString() {
         String cartas = "";
-        for(Carta carta : mano){
 
-        }
-        return cartas;
+        return nombre;
     }
 }
