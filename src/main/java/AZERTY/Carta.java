@@ -6,7 +6,7 @@ public class Carta {
         Oro, Espada, Basto, Copa;
 
         private static final Palo[] palos = Palo.values();
-        public static Palo getPalo(int i)throws{
+        public static Palo getPalo(int i){
             return Palo.palos[i];
         }
     }

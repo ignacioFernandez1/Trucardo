@@ -1,4 +1,4 @@
-package AZERTY;
+/*package AZERTY;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -44,3 +44,5 @@ public class Jugador {
         return nombre;
     }
 }
+
+*/

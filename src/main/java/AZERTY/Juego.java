@@ -1,4 +1,4 @@
-package AZERTY;
+/*package AZERTY;
 
 public class Juego {
    private Jugador jugador0;
@@ -49,3 +49,4 @@ public class Juego {
 
     }
 }
+*/
