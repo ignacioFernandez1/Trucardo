@@ -10,7 +10,7 @@ public class Mazo {
     public Mazo() {
         mazo = new Carta[36];
         this.reiniciar();
-        this.mezclar();
+        // this.mezclar();
     }
 
     public void reiniciar() {
@@ -18,7 +18,13 @@ public class Mazo {
         Carta.Palo[] palos = Carta.Palo.values();
         cartasEnMazo = 0;
 
+
+        for (int i = 0; i < palos.length; i++) {
+            Carta.Palo palo = palos[i];
+        }
+
         for (Carta.Palo palo : palos) {
+
             for (int j = 0; j < 9; j++) {
 
                 mazo[cartasEnMazo++] = new Carta(Carta.Valor.getValor(j), palo);
@@ -26,10 +32,10 @@ public class Mazo {
         }
     }
 
-    public void mezclar(){
+    public void mezclar() {
         Random random = new Random();
 
-        for(int i = 0; i < mazo.length; i++){
+        for (int i = 0; i < mazo.length; i++) {
             //swap de elementos en posicion random
             int rand = random.nextInt(mazo.length - 1);
             Carta cartaRandom = mazo[rand];
@@ -38,24 +44,27 @@ public class Mazo {
         }
     }
 
-
-    public Carta sacarCarta(){
+    public Carta sacarCarta() {
         return mazo[--cartasEnMazo];
     }
+
 
     /*
     public ImageIcon sacarImagenCarta(){
       return new ImageIcon(mazo[--cartasEnMazo].toString() + ".png");
     }*/
 
+    //public ImageIcon sacarImagenCarta(){
+    //  return new ImageIcon(mazo[--cartasEnMazo].toString() + ".png");
+    //}
+
+
     @Override
     public String toString() {
-        return "Mazo{" + Arrays.toString(mazo) +'}';
+        return "Mazo{" + Arrays.toString(mazo) + '}';
     }
-    
-    public int size(){
+
+    public int size() {
         return cartasEnMazo;
     }
 }
-
-
