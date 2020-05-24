@@ -22,7 +22,6 @@ public class Mazo {
             for (int j = 0; j < 9; j++) {
 
                 mazo[cartasEnMazo++] = new Carta(Carta.Valor.getValor(j), palo);
-
             }
         }
     }
@@ -52,6 +51,10 @@ public class Mazo {
     @Override
     public String toString() {
         return "Mazo{" + Arrays.toString(mazo) +'}';
+    }
+    
+    public int size(){
+        return cartasEnMazo;
     }
 }
 

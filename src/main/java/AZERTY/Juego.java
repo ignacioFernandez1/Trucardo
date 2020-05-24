@@ -7,8 +7,8 @@ public class Juego {
    private int puntajeMaximo;
    private Mazo mazo;
    private int ronda;
-    public Juego(int puntajeMax, String nombre, boolean flor) {
 
+   public Juego(int puntajeMax, String nombre, boolean flor) {
         puntajeMaximo = puntajeMax;
 
         mazo = new Mazo();
@@ -16,8 +16,6 @@ public class Juego {
         jugador1 = new Jugador("robot");
         jugadorActual = jugador0;
         ronda = 0;
-
-
     }
 
 
@@ -32,12 +30,9 @@ public class Juego {
             jugadorActual.addCarta(mazo.sacarCarta());
             cambiarJugador();
         }
-
-
     }
 
     public void cambiarJugador (){
-
         if(jugadorActual.equals(jugador0)){ jugadorActual = jugador1;}
         else { jugadorActual = jugador0;}
     }
@@ -46,6 +41,5 @@ public class Juego {
     public boolean termino(){
         if (jugador0.getPuntaje() >= puntajeMaximo || jugador1.getPuntaje() >= puntajeMaximo){return true;}
         else {return false;}
-
     }
 }
