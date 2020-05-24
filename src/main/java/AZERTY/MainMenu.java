@@ -35,11 +35,11 @@ public class MainMenu extends JFrame implements ActionListener{
         boton.setVerticalTextPosition(boton.CENTER);
         boton.setBounds(320-90,480-25,100,30);
         boton.setIcon(img);
-        //boton.setBackground(new Color(95,255, 80));
+        boton.setBackground(new Color(95,255, 80));
         boton.setFont(this.fuente);
-        //boton.setForeground(new Color(50,50,50));
+        boton.setForeground(new Color(50,50,50));
         boton.addActionListener(this);
-        //add(boton);
+        add(boton);
     }
 
     public void actionPerformed(ActionEvent e){
