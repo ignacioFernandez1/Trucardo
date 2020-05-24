@@ -20,6 +20,19 @@ public class MainMenu extends JFrame implements ActionListener{
         this.fuenteMinecraft();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        boton = new JButton("JUGAR");
+        boton.setHorizontalTextPosition(boton.CENTER);
+        boton.setVerticalTextPosition(boton.CENTER);
+        boton.setBounds(320-55,290-15,110,30);
+        boton.setFont(this.fuente);
+        boton.setForeground(new Color(50,50,50));
+        boton.addActionListener(this);
+        //boton.setOpaque(false);
+        boton.setContentAreaFilled(false);
+        //boton.setBorderPainted(false);
+        boton.setFocusPainted(false);
+        add(boton);
+
         ImageIcon back = new ImageIcon("images/GIFARDO.gif");
         background = new JLabel(back);
         background.setBounds(0,0,640,960);
@@ -29,23 +42,12 @@ public class MainMenu extends JFrame implements ActionListener{
         background_img = new JLabel(back_img);
         background_img.setBounds(0,0,640,960);
         add(background_img);
-
-        boton = new JButton("JUGAR");
-        boton.setHorizontalTextPosition(boton.CENTER);
-        boton.setVerticalTextPosition(boton.CENTER);
-        boton.setBounds(320-90,480-25,100,30);
-        boton.setBackground(new Color(95,255, 80));
-        boton.setFont(this.fuente);
-        boton.setForeground(new Color(50,50,50));
-        boton.addActionListener(this);
-        add(boton);
     }
 
     public void actionPerformed(ActionEvent e){
-        if(e.getSource() == boton){
-            System.exit(0);
-        }
-
+        String titleBar = "JUGAR";
+        String infoMessage = "El boton JUGAR funciona";
+        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void fuenteMinecraft() {
@@ -72,6 +74,5 @@ public class MainMenu extends JFrame implements ActionListener{
             e.printStackTrace();
         }
         menu.background.setVisible(false);
-
     }
 }
