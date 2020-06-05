@@ -19,6 +19,7 @@ public class PantallaConfig extends JFrame implements ActionListener{
     private JTextField nombre;
     private JLabel ingNombre;
     private JButton aceptar;
+    private JLabel fondo;
 
     public PantallaConfig() {
         //this.fuente = fuente;
@@ -55,6 +56,10 @@ public class PantallaConfig extends JFrame implements ActionListener{
         aceptar.setBounds(150, 160, 100, 30);
         aceptar.addActionListener(this);
 
+        ImageIcon fondo_img = new ImageIcon("images/CONFIG.png");
+        fondo = new JLabel(fondo_img);
+        fondo.setBounds(0,0,400,256);
+
 
         this.add(nombre);
         this.add(ingNombre);
@@ -65,11 +70,13 @@ public class PantallaConfig extends JFrame implements ActionListener{
         this.add(florSi);
         this.add(florNo);
         this.add(aceptar);
+        this.add(fondo);
     }
 
     public static void main(){
         PantallaConfig ventana= new PantallaConfig();
-        ventana.setBounds(500,500,400,250);
+        ventana.setBounds(0,0,415,290);
+        ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
     }
 
