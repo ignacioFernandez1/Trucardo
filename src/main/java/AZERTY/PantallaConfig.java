@@ -22,7 +22,7 @@ public class PantallaConfig extends JFrame implements ActionListener{
 
     public PantallaConfig() {
         //this.fuente = fuente;
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
         this.setResizable(false);
 
@@ -67,7 +67,7 @@ public class PantallaConfig extends JFrame implements ActionListener{
         this.add(aceptar);
     }
 
-    public static void main(String args[]){
+    public static void main(){
         PantallaConfig ventana= new PantallaConfig();
         ventana.setBounds(500,500,400,250);
         ventana.setVisible(true);
@@ -113,4 +113,6 @@ public class PantallaConfig extends JFrame implements ActionListener{
             }
         }
     }
+
+
 }

@@ -57,9 +57,7 @@ public class MainMenu extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
         JButton b = (JButton)e.getSource();
         if(b.equals(botonJugar)){
-            String titleBar = "JUGAR";
-            String infoMessage = "El boton JUGAR funciona";
-            JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+            new PantallaConfig().main();
         }
         else if(b.equals(botonSalir)){
             int confirmed = JOptionPane.showConfirmDialog(null,
