@@ -19,7 +19,6 @@ public class PantallaConfig extends JFrame implements ActionListener{
     private JTextField nombre;
     private JLabel ingNombre;
     private JButton aceptar;
-    private JLabel backgroundImg;
 
     public PantallaConfig() {
         //this.fuente = fuente;
@@ -66,11 +65,6 @@ public class PantallaConfig extends JFrame implements ActionListener{
         this.add(florSi);
         this.add(florNo);
         this.add(aceptar);
-
-        ImageIcon back_img = new ImageIcon("images/MENUU.png");
-        backgroundImg = new JLabel(back_img);
-        backgroundImg.setBounds(0,0,640,960);
-        this.add(backgroundImg);
     }
 
     public static void main(){
