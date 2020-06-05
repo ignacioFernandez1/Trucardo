@@ -77,7 +77,7 @@ public class PantallaConfig extends JFrame implements ActionListener{
 
         ImageIcon fondo_img = new ImageIcon("images/CONFIG.png");
         fondo = new JLabel(fondo_img);
-        fondo.setBounds(0,0,400,256);
+        fondo.setBounds(-20,-4,400,256);
 
 
         this.add(nombre);
@@ -94,7 +94,7 @@ public class PantallaConfig extends JFrame implements ActionListener{
 
     public static void main(){
         PantallaConfig ventana= new PantallaConfig();
-        ventana.setBounds(0,0,415,290);
+        ventana.setBounds(0,0,376,286);
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
     }

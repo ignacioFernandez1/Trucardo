@@ -16,6 +16,8 @@ public class MainMenu extends JFrame implements ActionListener{
     public MainMenu(){
         setLayout(null);
         setTitle("Trucardo");
+        ImageIcon icono = new ImageIcon("images/MATIENZO_BIG.png");
+        setIconImage(icono.getImage());
         this.fuenteMinecraft();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
