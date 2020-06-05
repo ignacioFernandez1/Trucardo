@@ -14,8 +14,6 @@ public class Jugador {
         this.nombre = nombre;
         mano = new ArrayList<>();
         pila = new ArrayList<>();
-
-
     }
 
     public int getPuntaje() {
@@ -23,13 +21,10 @@ public class Jugador {
     }
 
     public void addCarta (Carta carta) {
-
         mano.add(carta);
-
     }
 
     public void clearMano () {
-
         mano.clear();
         pila.clear();
     }
@@ -44,3 +39,4 @@ public class Jugador {
         return nombre;
     }
 }
+
