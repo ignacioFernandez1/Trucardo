@@ -31,9 +31,18 @@ public class PantallaConfig extends JFrame implements ActionListener{
         puntaje30 = new JRadioButton("30");
         puntaje = new ButtonGroup();
         puntMax = new JLabel("Puntaje Maximo: ");
-        puntaje15.setBounds(120, 10, 120, 50);
-        puntaje30.setBounds(250, 10, 80, 50);
-        puntMax.setBounds(20, 10, 150, 50);
+        puntaje15.setBounds(130+5, 10, 120, 50);
+        puntaje30.setBounds(260+5, 10, 80, 50);
+        puntMax.setBounds(30+5, 10, 150, 50);
+        puntaje15.setContentAreaFilled(false);
+        puntaje30.setContentAreaFilled(false);
+        puntaje15.setBorderPainted(false);
+        puntaje30.setBorderPainted(false);
+        puntaje15.setFocusPainted(false);
+        puntaje30.setFocusPainted(false);
+        puntaje30.setForeground(new Color(255,255,255));
+        puntaje15.setForeground(new Color(255,255,255));
+        puntMax.setForeground(new Color(255,255,255));
         puntaje.add(puntaje15);
         puntaje.add(puntaje30);
 
@@ -41,19 +50,29 @@ public class PantallaConfig extends JFrame implements ActionListener{
         florNo = new JRadioButton("Sin Flor");
         flor = new ButtonGroup();
         florSelect = new JLabel("Juega: ");
-        florSi.setBounds(120,60,80,30);
-        florNo.setBounds(250,60,80,30);
-        florSelect.setBounds(20,60,80,30);
+        florSi.setBounds(130+5,60,80,30);
+        florNo.setBounds(260+5,60,80,30);
+        florSelect.setBounds(30+5,60,80,30);
+        florNo.setContentAreaFilled(false);
+        florSi.setContentAreaFilled(false);
+        florNo.setBorderPainted(false);
+        florSi.setBorderPainted(false);
+        florSi.setFocusPainted(false);
+        florNo.setFocusPainted(false);
+        florSi.setForeground(new Color(255,255,255));
+        florNo.setForeground(new Color(255,255,255));
+        florSelect.setForeground(new Color(255,255,255));
         flor.add(florSi);
         flor.add(florNo);
 
         nombre = new JTextField();
-        nombre.setBounds(120, 110, 200,30);
+        nombre.setBounds(130+5, 110, 200,30);
         ingNombre = new JLabel("Nombre: ");
-        ingNombre.setBounds(20, 110, 80,30);
+        ingNombre.setBounds(30+5, 110, 80,30);
+        ingNombre.setForeground(new Color(255,255,255));
 
         aceptar = new JButton("ACEPTAR");
-        aceptar.setBounds(150, 160, 100, 30);
+        aceptar.setBounds(160+5, 160, 100, 30);
         aceptar.addActionListener(this);
 
         ImageIcon fondo_img = new ImageIcon("images/CONFIG.png");
