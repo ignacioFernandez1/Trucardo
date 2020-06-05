@@ -25,7 +25,7 @@ public class MainMenu extends JFrame implements ActionListener{
         botonJugar.setBounds(320-85,260-15,170,40);
         botonJugar.setFont(this.fuente);
         botonJugar.setForeground(new Color(50,50,50));
-        botonJugar.setBackground(new Color(249,234,195));
+        botonJugar.setBackground(new Color(230, 232, 249));
         botonJugar.addActionListener(this);
         botonJugar.setContentAreaFilled(true);
         botonJugar.setFocusPainted(false);
@@ -37,13 +37,13 @@ public class MainMenu extends JFrame implements ActionListener{
         botonSalir.setBounds(320-85, 330-15, 170, 40);
         botonSalir.setFont(this.fuente);
         botonSalir.setForeground(new Color(50,50,50));
-        botonSalir.setBackground(new Color(249,234,195));
+        botonSalir.setBackground(new Color(230, 232, 249));
         botonSalir.addActionListener(this);
         botonSalir.setContentAreaFilled(true);
         botonSalir.setFocusPainted(false);
         add(botonSalir);
 
-        ImageIcon back = new ImageIcon("images/GIFARDO.gif");
+        ImageIcon back = new ImageIcon("images/GIF_FONDO.gif");
         backgroundGIF = new JLabel(back);
         backgroundGIF.setBounds(0,0,640,960);
         add(backgroundGIF);
@@ -88,7 +88,7 @@ public class MainMenu extends JFrame implements ActionListener{
         menu.setLocationRelativeTo(null);
         menu.setResizable(false);
         try {
-            TimeUnit.SECONDS.sleep(4);
+            TimeUnit.MILLISECONDS.sleep(1700);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
