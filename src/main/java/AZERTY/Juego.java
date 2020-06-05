@@ -1,26 +1,36 @@
 package AZERTY;
 
 public class Juego {
-   private Jugador jugador0;
-   private Jugador jugador1;
-   private Jugador jugadorActual;
-   private int puntajeMaximo;
-   private Mazo mazo;
-   private int ronda;
+    private Jugador jugador0;
+    private Jugador jugador1;
+    private Jugador jugadorActual;
+    private int puntajeMaximo;
+    private Mazo mazo;
+    private boolean flor;
+    private int ronda;
 
-   public Juego(int puntajeMax, String nombre, boolean flor) {
+    public Juego(int puntajeMax,String nombre, boolean flor) {
+
         puntajeMaximo = puntajeMax;
-
+        this.flor=flor;
         mazo = new Mazo();
         jugador0 = new Jugador(nombre);
         jugador1 = new Jugador("robot");
-        jugadorActual = jugador0;
-        ronda = 0;
+        jugadorActual = jugador1; //Al iniciar la mano se ejecuta cambiar jugador para que en la ronda 1 empiece jugador0
+
     }
 
+    public void iniciarRonda(){
 
+
+
+
+
+    }
 
     public void iniciarMano() {
+        ronda = 0;
+        cambiarJugador();
         ronda = 1;
         mazo = new Mazo();
         jugador0.clearMano();
@@ -30,6 +40,8 @@ public class Juego {
             jugadorActual.addCarta(mazo.sacarCarta());
             cambiarJugador();
         }
+        iniciarRonda();
+
     }
 
     public void cambiarJugador (){

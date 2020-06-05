@@ -22,15 +22,26 @@ public class MainMenu extends JFrame implements ActionListener{
         botonJugar = new JButton("JUGAR");
         botonJugar.setHorizontalTextPosition(botonJugar.CENTER);
         botonJugar.setVerticalTextPosition(botonJugar.CENTER);
-        botonJugar.setBounds(280-55,290-15,170,30);
+        botonJugar.setBounds(320-85,260-15,170,40);
         botonJugar.setFont(this.fuente);
         botonJugar.setForeground(new Color(50,50,50));
+        botonJugar.setBackground(new Color(249,234,195));
         botonJugar.addActionListener(this);
-        //boton.setOpaque(false);
-        botonJugar.setContentAreaFilled(false);
-        //boton.setBorderPainted(false);
+        botonJugar.setContentAreaFilled(true);
         botonJugar.setFocusPainted(false);
         add(botonJugar);
+
+        botonSalir = new JButton("SALIR");
+        botonSalir.setHorizontalTextPosition(botonSalir.CENTER);
+        botonSalir.setVerticalAlignment(botonSalir.CENTER);
+        botonSalir.setBounds(320-85, 330-15, 170, 40);
+        botonSalir.setFont(this.fuente);
+        botonSalir.setForeground(new Color(50,50,50));
+        botonSalir.setBackground(new Color(249,234,195));
+        botonSalir.addActionListener(this);
+        botonSalir.setContentAreaFilled(true);
+        botonSalir.setFocusPainted(false);
+        add(botonSalir);
 
         ImageIcon back = new ImageIcon("images/GIFARDO.gif");
         backgroundGIF = new JLabel(back);
@@ -44,9 +55,20 @@ public class MainMenu extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
-        String titleBar = "JUGAR";
-        String infoMessage = "El boton JUGAR funciona";
-        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+        JButton b = (JButton)e.getSource();
+        if(b.equals(botonJugar)){
+            String titleBar = "JUGAR";
+            String infoMessage = "El boton JUGAR funciona";
+            JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(b.equals(botonSalir)){
+            int confirmed = JOptionPane.showConfirmDialog(null,
+                    "¿Estas seguro que queres salir?", "Salir",
+                    JOptionPane.YES_NO_OPTION);
+            if (confirmed == JOptionPane.YES_OPTION) {
+                dispose();
+            }
+        }
     }
 
     public void fuenteMinecraft() {
