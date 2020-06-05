@@ -3,16 +3,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class MainMenu extends JFrame implements ActionListener{
     //private JtextField name;
     private Font fuente;
-    private JLabel background;
-    private JLabel background_img;
-    private JButton boton;
-    private JLabel pika;
+    private JLabel backgroundGIF;
+    private JLabel backgroundImg;
+    private JButton botonJugar;
+    private JButton botonSalir;
 
     public MainMenu(){
         setLayout(null);
@@ -20,28 +19,28 @@ public class MainMenu extends JFrame implements ActionListener{
         this.fuenteMinecraft();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        boton = new JButton("JUGAR");
-        boton.setHorizontalTextPosition(boton.CENTER);
-        boton.setVerticalTextPosition(boton.CENTER);
-        boton.setBounds(320-55,290-15,110,30);
-        boton.setFont(this.fuente);
-        boton.setForeground(new Color(50,50,50));
-        boton.addActionListener(this);
+        botonJugar = new JButton("JUGAR");
+        botonJugar.setHorizontalTextPosition(botonJugar.CENTER);
+        botonJugar.setVerticalTextPosition(botonJugar.CENTER);
+        botonJugar.setBounds(280-55,290-15,170,30);
+        botonJugar.setFont(this.fuente);
+        botonJugar.setForeground(new Color(50,50,50));
+        botonJugar.addActionListener(this);
         //boton.setOpaque(false);
-        boton.setContentAreaFilled(false);
+        botonJugar.setContentAreaFilled(false);
         //boton.setBorderPainted(false);
-        boton.setFocusPainted(false);
-        add(boton);
+        botonJugar.setFocusPainted(false);
+        add(botonJugar);
 
         ImageIcon back = new ImageIcon("images/GIFARDO.gif");
-        background = new JLabel(back);
-        background.setBounds(0,0,640,960);
-        add(background);
+        backgroundGIF = new JLabel(back);
+        backgroundGIF.setBounds(0,0,640,960);
+        add(backgroundGIF);
 
         ImageIcon back_img = new ImageIcon("images/MENUU.png");
-        background_img = new JLabel(back_img);
-        background_img.setBounds(0,0,640,960);
-        add(background_img);
+        backgroundImg = new JLabel(back_img);
+        backgroundImg.setBounds(0,0,640,960);
+        add(backgroundImg);
     }
 
     public void actionPerformed(ActionEvent e){
@@ -52,7 +51,7 @@ public class MainMenu extends JFrame implements ActionListener{
 
     public void fuenteMinecraft() {
         try {
-            this.fuente = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/minecraft_font.ttf")).deriveFont(1, 20);
+            this.fuente = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/minecraft_font.ttf")).deriveFont(1, 30);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 
             ge.registerFont(fuente);
@@ -73,6 +72,6 @@ public class MainMenu extends JFrame implements ActionListener{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        menu.background.setVisible(false);
+        menu.backgroundGIF.setVisible(false);
     }
 }
