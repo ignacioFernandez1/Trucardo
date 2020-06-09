@@ -20,8 +20,12 @@ public class PantallaConfig extends JFrame implements ActionListener{
     private JLabel ingNombre;
     private JButton aceptar;
     private JLabel fondo;
+    private MainMenu menu;
 
-    public PantallaConfig() {
+    public PantallaConfig(MainMenu m) {
+
+        menu = m;
+
         //this.fuente = fuente;
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
@@ -92,8 +96,8 @@ public class PantallaConfig extends JFrame implements ActionListener{
         this.add(fondo);
     }
 
-    public static void main(){
-        PantallaConfig ventana= new PantallaConfig();
+    public void crear(){
+        PantallaConfig ventana= new PantallaConfig(menu);
         ventana.setBounds(0,0,376,286);
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
@@ -132,10 +136,10 @@ public class PantallaConfig extends JFrame implements ActionListener{
                     florBool = false;
                 }
                 new Juego(puntajeMax,name, florBool);
-                //crear ventana de juego y cerrar las otras 2
-                //
-                //
-                ///////////////////////////////////
+                new Mesa(new Juego(puntajeMax,name, florBool));
+                menu.dispose();
+                this.dispose();
+
             }
         }
     }

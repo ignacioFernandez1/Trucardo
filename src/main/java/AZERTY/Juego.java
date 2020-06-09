@@ -21,8 +21,7 @@ public class Juego {
     }
 
     public void iniciarRonda(){
-    
-
+        jugadorActual.actuar(ronda);
 
 
 
@@ -30,7 +29,7 @@ public class Juego {
 
     public void iniciarMano() {
         ronda = 0;
-        cambiarJugador();
+        cambiarJugador();    // siempre en la primer mano, empieza el jugador0
         ronda = 1;
         mazo = new Mazo();
         jugador0.clearMano();

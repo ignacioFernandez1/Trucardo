@@ -59,7 +59,7 @@ public class MainMenu extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
         JButton b = (JButton)e.getSource();
         if(b.equals(botonJugar)){
-            new PantallaConfig().main();
+            new PantallaConfig(this).crear();
         }
         else if(b.equals(botonSalir)){
             int confirmed = JOptionPane.showConfirmDialog(null,

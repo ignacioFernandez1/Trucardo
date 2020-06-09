@@ -13,7 +13,7 @@ public class Jugador {
     public Jugador(String nombre) {
         this.nombre = nombre;
         mano = new ArrayList<>();
-        pila = new ArrayList<>();
+        pila = new ArrayList<>(); // pila = cartas jugadas por el jugadorX
     }
 
     public int getPuntaje() {
@@ -23,6 +23,8 @@ public class Jugador {
     public void addCarta (Carta carta) {
         mano.add(carta);
     }
+
+    public void jugarCarta (Carta carta){ pila.add(carta); }
 
     public void clearMano () {
         mano.clear();
@@ -38,5 +40,11 @@ public class Jugador {
 
         return nombre;
     }
+
+    public void actuar(int ronda){
+
+    }
+
+
 }
 
