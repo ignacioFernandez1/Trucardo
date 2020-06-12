@@ -1,6 +1,7 @@
 package AZERTY;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +20,10 @@ public class Mesa extends JFrame implements ActionListener {
     private JButton carta3;
     private JButton detalles;
     private JButton abandonar;
+    private JLabel tabla;
+    private JLabel puntajeJ;
+    private JLabel puntajeAI;
+
 
     private Juego juego;
 
@@ -27,6 +32,22 @@ public class Mesa extends JFrame implements ActionListener {
         this.setLayout(null);
 
         juego = j;
+
+        puntajeJ = new JLabel("0");
+        puntajeJ.setBounds(900,140,100,50);
+        puntajeJ.setForeground(new Color(255,255,255));
+        puntajeJ.setFont(new Font("Arial",1,50));
+
+        puntajeAI = new JLabel("0");
+        puntajeAI.setBounds(1035,140,100,50);
+        puntajeAI.setForeground(new Color(255,255,255));
+        puntajeAI.setFont(new Font("Arial",1,50));
+
+        ImageIcon backTabla = new ImageIcon("images/CONFIG.png");
+        tabla = new JLabel(backTabla);
+        tabla.setBounds(800, 50-8, 360, 242);
+
+
 
         quiero = new JButton("QUIERO");
         quiero.setBounds(800 + 70, 600, 120, 40);
@@ -71,6 +92,10 @@ public class Mesa extends JFrame implements ActionListener {
         abandonar = new JButton("ABANDONAR");
         abandonar.setBounds(15, 15, 120, 50);
         abandonar.addActionListener(this);
+
+        this.add(puntajeJ);
+        this.add(puntajeAI);
+        this.add(tabla);
 
         this.add(quiero);
         this.add(noQuiero);
