@@ -25,13 +25,13 @@ public class Mesa extends JFrame implements ActionListener {
     private JLabel puntajeAI;
 
 
-    private Juego juego;
+    private Partida partida;
 
-    public Mesa(Juego j) {
+    public Mesa(Partida j) {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
 
-        juego = j;
+        partida = j;
 
         puntajeJ = new JLabel("0");
         puntajeJ.setBounds(900,140,100,50);
@@ -114,7 +114,7 @@ public class Mesa extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args){
-        Mesa mesa = new Mesa(new Juego(0,"a",false));
+        Mesa mesa = new Mesa(new Partida(0,"a",false));
         mesa.setBounds(0,0,1200,900);
         mesa.setLocationRelativeTo(null);
         mesa.setVisible(true);

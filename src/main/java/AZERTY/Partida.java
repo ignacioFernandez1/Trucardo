@@ -1,6 +1,6 @@
 package AZERTY;
 
-public class Juego {
+public class Partida {
     private Jugador jugador0;
     private Jugador jugador1;
     private Jugador jugadorActual;
@@ -9,7 +9,7 @@ public class Juego {
     private boolean flor;
     private int ronda;
 
-    public Juego(int puntajeMax,String nombre, boolean flor) {
+    public Partida(int puntajeMax, String nombre, boolean flor) {
 
         puntajeMaximo = puntajeMax;
         this.flor=flor;
