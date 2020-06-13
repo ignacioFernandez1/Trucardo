@@ -83,7 +83,7 @@ public class MainMenu extends JFrame implements ActionListener{
     }
 
 
-    public static void crear(){
+    public void crear(){
         MainMenu menu = new MainMenu();
         menu.setBounds(0,0,640,960);
         menu.setVisible(true);

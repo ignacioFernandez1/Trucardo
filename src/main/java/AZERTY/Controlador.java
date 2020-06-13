@@ -49,9 +49,15 @@ public class Controlador implements ActionListener {
         }
         else if(b.getText().equals("ABANDONAR")){
             System.out.println("ABANDONAR");
-            mesa.dispose();
-            new MainMenu().crear();
+            int confirmed = JOptionPane.showConfirmDialog(null,
+                    "¿Estas seguro que queres salir?", "Salir",
+                    JOptionPane.YES_NO_OPTION);
+            if (confirmed == JOptionPane.YES_OPTION) {
+                String[] args = {};
+                // No inicia el gif de trucardo
+                new App().main(args);
+                mesa.dispose();
+            }
         }
-
     }
 }
