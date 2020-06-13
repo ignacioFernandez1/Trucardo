@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Mesa extends JFrame implements ActionListener {
+public class Mesa extends JFrame implements Observador {
     private JButton quiero;
     private JButton noQuiero;
     private JButton truco;
@@ -23,7 +23,7 @@ public class Mesa extends JFrame implements ActionListener {
     private JLabel tabla;
     private JLabel puntajeJ;
     private JLabel puntajeAI;
-
+    private Controlador controlador;
 
     private Partida partida;
 
@@ -32,6 +32,7 @@ public class Mesa extends JFrame implements ActionListener {
         this.setLayout(null);
 
         partida = j;
+        controlador = new Controlador();
 
         puntajeJ = new JLabel("0");
         puntajeJ.setBounds(900,140,100,50);
@@ -47,51 +48,49 @@ public class Mesa extends JFrame implements ActionListener {
         tabla = new JLabel(backTabla);
         tabla.setBounds(800, 50-8, 360, 242);
 
-
-
         quiero = new JButton("QUIERO");
         quiero.setBounds(800 + 70, 600, 120, 40);
-        quiero.addActionListener(this);
+        quiero.addActionListener(controlador);
 
         noQuiero = new JButton("NO QUIERO");
         noQuiero.setBounds(935 + 70, 600, 120, 40);
-        noQuiero.addActionListener(this);
+        noQuiero.addActionListener(controlador);
 
         valeCuatro = new JButton("VALE CUATRO");
         valeCuatro.setBounds(800, 600 + 75, 120, 30);
-        valeCuatro.addActionListener(this);
+        valeCuatro.addActionListener(controlador);
 
         retruco = new JButton("RETRUCO");
         retruco.setBounds(800, 650 + 75, 120, 30);
-        retruco.addActionListener(this);
+        retruco.addActionListener(controlador);
 
         truco = new JButton("TRUCO");
         truco.setBounds(800, 700 + 75, 120, 30);
-        truco.addActionListener(this);
+        truco.addActionListener(controlador);
 
         envido = new JButton("ENVIDO");
         envido.setBounds(935, 700 + 75, 120, 30);
-        envido.addActionListener(this);
+        envido.addActionListener(controlador);
 
         realEnvido = new JButton("REAL ENVIDO");
         realEnvido.setBounds(935, 650 + 75, 120, 30);
-        realEnvido.addActionListener(this);
+        realEnvido.addActionListener(controlador);
 
         faltaEnvido = new JButton("FALTA ENVIDO");
         faltaEnvido.setBounds(935, 600 + 75, 120, 30);
-        faltaEnvido.addActionListener(this);
+        faltaEnvido.addActionListener(controlador);
 
         meVoy = new JButton("ME VOY");
         meVoy.setBounds(1070, 650 + 75, 95, 30);
-        meVoy.addActionListener(this);
+        meVoy.addActionListener(controlador);
 
         detalles = new JButton("DETALLES");
         detalles.setBounds(800, 300, 120, 30);
-        detalles.addActionListener(this);
+        detalles.addActionListener(controlador);
 
         abandonar = new JButton("ABANDONAR");
         abandonar.setBounds(15, 15, 120, 50);
-        abandonar.addActionListener(this);
+        abandonar.addActionListener(controlador);
 
         this.add(puntajeJ);
         this.add(puntajeAI);
@@ -122,8 +121,7 @@ public class Mesa extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-
+    public void update() {
 
     }
 }
