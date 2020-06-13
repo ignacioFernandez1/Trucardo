@@ -3,7 +3,7 @@ package AZERTY;
 import javax.swing.*;
 import java.awt.*;
 
-public class Mesa extends JFrame implements Observador {
+public class Mesa extends JFrame implements Observador{
     private JButton quiero;
     private JButton noQuiero;
     private JButton truco;
@@ -149,7 +149,7 @@ public class Mesa extends JFrame implements Observador {
     }
 
     @Override
-    public void update() {
+    public void actualizar() {
 
     }
 }

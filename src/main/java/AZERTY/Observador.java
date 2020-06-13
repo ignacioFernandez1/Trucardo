@@ -1,5 +1,5 @@
 package AZERTY;
 
 public interface Observador {
-    public void update();
+    public void actualizar();
 }

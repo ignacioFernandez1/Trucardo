@@ -1,6 +1,6 @@
 package AZERTY;
 
-public class Partida {
+public class Partida implements Sujeto{
     private Jugador jugador0;
     private Jugador jugador1;
     private Jugador jugadorActual;
@@ -53,4 +53,19 @@ public class Partida {
 
     public int getPuntajeMaximo(){return puntajeMaximo;}
     public String getNombreJugador(){return jugador0.toString();}
+
+    @Override
+    public void registrar(Observador o) {
+
+    }
+
+    @Override
+    public void sacar(Observador o) {
+
+    }
+
+    @Override
+    public void notificar() {
+
+    }
 }
