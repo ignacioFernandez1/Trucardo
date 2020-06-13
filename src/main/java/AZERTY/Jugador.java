@@ -36,8 +36,6 @@ public class Jugador {
     }
 
     public String toString() {
-        String cartas = "";
-
         return nombre;
     }
 

@@ -1,12 +1,57 @@
 package AZERTY;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Controlador implements ActionListener {
 
+    private Partida partida;
+    private Mesa mesa;
+
+    public Controlador(Partida p, Mesa m) {
+        partida = p;
+        mesa = m;
+    }
+
     @Override
-    public void actionPerformed(ActionEvent actionEvent) {
+    public void actionPerformed(ActionEvent e) {
+        JButton b = (JButton) e.getSource();
+        if(b.getText().equals("QUIERO")){
+            System.out.println("QUIERO");
+        }
+        else if(b.getText().equals("NO QUIERO")){
+            System.out.println("NO QUIERO");
+        }
+        else if(b.getText().equals("VALE CUATRO")){
+            System.out.println("VALE CUATRO");
+        }
+        else if(b.getText().equals("RETRUCO")){
+            System.out.println("RETRUCO");
+        }
+        else if(b.getText().equals("TRUCO")){
+            System.out.println("TRUCO");
+        }
+        else if(b.getText().equals("ENVIDO")){
+            System.out.println("ENVIDO");
+        }
+        else if(b.getText().equals("REAL ENVIDO")){
+            System.out.println("REAL ENVIDO");
+        }
+        else if(b.getText().equals("FALTA ENVIDO")){
+            System.out.println("FALTA ENVIDO");
+        }
+        else if(b.getText().equals("ME VOY")){
+            System.out.println("ME VOY");
+        }
+        else if(b.getText().equals("DETALLES")){
+            System.out.println("DETALLES");
+        }
+        else if(b.getText().equals("ABANDONAR")){
+            System.out.println("ABANDONAR");
+            mesa.dispose();
+            new MainMenu().crear();
+        }
 
     }
 }

@@ -2,8 +2,6 @@ package AZERTY;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Mesa extends JFrame implements Observador {
     private JButton quiero;
@@ -22,8 +20,13 @@ public class Mesa extends JFrame implements Observador {
     private JButton abandonar;
     private JLabel tabla;
     private JLabel puntajeJ;
-    private JLabel puntajeAI;
+    private JLabel puntajeIA;
     private Controlador controlador;
+    private JLabel nombreJugador;
+    private JLabel nombreIA;
+    private JLabel puntajeMaximoTxt;
+    private JLabel puntajeMaximoInt;
+
 
     private Partida partida;
 
@@ -32,17 +35,17 @@ public class Mesa extends JFrame implements Observador {
         this.setLayout(null);
 
         partida = j;
-        controlador = new Controlador();
+        controlador = new Controlador(partida, this);
 
         puntajeJ = new JLabel("0");
         puntajeJ.setBounds(900,140,100,50);
         puntajeJ.setForeground(new Color(255,255,255));
         puntajeJ.setFont(new Font("Arial",1,50));
 
-        puntajeAI = new JLabel("0");
-        puntajeAI.setBounds(1035,140,100,50);
-        puntajeAI.setForeground(new Color(255,255,255));
-        puntajeAI.setFont(new Font("Arial",1,50));
+        puntajeIA = new JLabel("0");
+        puntajeIA.setBounds(1035,140,100,50);
+        puntajeIA.setForeground(new Color(255,255,255));
+        puntajeIA.setFont(new Font("Arial",1,50));
 
         ImageIcon backTabla = new ImageIcon("images/CONFIG.png");
         tabla = new JLabel(backTabla);
@@ -92,8 +95,33 @@ public class Mesa extends JFrame implements Observador {
         abandonar.setBounds(15, 15, 120, 50);
         abandonar.addActionListener(controlador);
 
+        nombreJugador = new JLabel(partida.getNombreJugador());
+        nombreJugador.setBounds(875,65,100,50);
+        nombreJugador.setForeground(new Color(255,255,255));
+        nombreJugador.setFont(new Font("Arial",1,15));
+
+        nombreIA = new JLabel("IA");
+        nombreIA.setBounds(1045,65,100,50);
+        nombreIA.setForeground(new Color(255,255,255));
+        nombreIA.setFont(new Font("Arial",1,15));
+
+        puntajeMaximoTxt = new JLabel("Objetivo: ");
+        puntajeMaximoTxt.setBounds(820,225,100,50);
+        puntajeMaximoTxt.setForeground(new Color(255,255,255));
+        puntajeMaximoTxt.setFont(new Font("Arial",1,10));
+
+        puntajeMaximoInt = new JLabel(String.valueOf(partida.getPuntajeMaximo()) + " puntos");
+        puntajeMaximoInt.setBounds(880,225,100,50);
+        puntajeMaximoInt.setForeground(new Color(255,255,255));
+        puntajeMaximoInt.setFont(new Font("Arial",1,10));
+
+
         this.add(puntajeJ);
-        this.add(puntajeAI);
+        this.add(puntajeIA);
+        this.add(nombreJugador);
+        this.add(nombreIA);
+        this.add(puntajeMaximoTxt);
+        this.add(puntajeMaximoInt);
         this.add(tabla);
 
         this.add(quiero);
@@ -113,7 +141,7 @@ public class Mesa extends JFrame implements Observador {
     }
 
     public static void main(String[] args){
-        Mesa mesa = new Mesa(new Partida(0,"a",false));
+        Mesa mesa = new Mesa(new Partida(15,"CARLITOS",false));
         mesa.setBounds(0,0,1200,900);
         mesa.setLocationRelativeTo(null);
         mesa.setVisible(true);
