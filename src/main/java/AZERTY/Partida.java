@@ -1,6 +1,9 @@
 package AZERTY;
 
+
 import java.util.ArrayList;
+import java.util.Stack;
+
 
 public class Partida implements Sujeto{
     private Jugador jugador0;
@@ -10,7 +13,11 @@ public class Partida implements Sujeto{
     private Mazo mazo;
     private boolean flor;
     private int ronda;
+
     private ArrayList<Observador> observers;
+
+    private Stack<String> cantos;
+
 
     public Partida(int puntajeMax, String nombre, boolean flor) {
 
@@ -20,7 +27,11 @@ public class Partida implements Sujeto{
         jugador0 = new Jugador(nombre);
         jugador1 = new Jugador("IA");
         jugadorActual = jugador1; //Al iniciar la mano se ejecuta cambiar jugador para que en la ronda 1 empiece jugador0
+
         observers = new ArrayList<Observador>();
+
+        cantos = new Stack<String>();
+
     }
 
     public void iniciarRonda(){
@@ -87,4 +98,27 @@ public class Partida implements Sujeto{
     public Jugador getJugador0() {
         return jugador0;
     }
+
+    public boolean jugadaValida(String c) {
+
+        if(c.equals("TRUCO")){
+            //for(String )
+            return false;
+        }
+
+
+        /*for(String a: cantos){
+            if(a.equals(c));
+        }*/
+
+        return false;
+
+
+
+    }
+
+
+
+
+
 }
