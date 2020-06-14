@@ -37,6 +37,12 @@ public class Carta {
         return valor;
     }
 
+    public int getValorint(){
+        if (valor.ordinal() < 7 ){ return valor.ordinal() + 1;}
+        else{ return 0;}
+
+    }
+
     public Palo getPalo() {
         return palo;
     }
