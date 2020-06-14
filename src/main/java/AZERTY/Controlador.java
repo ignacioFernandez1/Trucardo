@@ -43,19 +43,31 @@ public class Controlador implements ActionListener {
         }
         else if(b.getName().equals("ME VOY")){
             System.out.println("ME VOY");
+
         }
         else if(b.getName().equals("DETALLES")){
             System.out.println("DETALLES");
         }
         else if(b.getName().equals("carta1")){
-            ImageIcon img = new ImageIcon("images/SietedeCopa.png");
-            mesa.setImgCarta3(img);
+            System.out.println("carta1");
+            System.out.println(partida.getJugador0().getMano().size());
+            partida.getJugador0().getMano().remove(0);
+            System.out.println(partida.getJugador0().getMano().size());
+            partida.notificar();
         }
         else if(b.getName().equals("carta2")){
             System.out.println("carta2");
+            System.out.println(partida.getJugador0().getMano().size());
+            partida.getJugador0().getMano().remove(1);
+            System.out.println(partida.getJugador0().getMano().size());
+            partida.notificar();
         }
         else if(b.getName().equals("carta3")){
             System.out.println("carta3");
+            System.out.println(partida.getJugador0().getMano().size());
+            partida.getJugador0().getMano().remove(2);
+            System.out.println(partida.getJugador0().getMano().size());
+            partida.notificar();
         }
         else if(b.getName().equals("ABANDONAR")){
             System.out.println("ABANDONAR");

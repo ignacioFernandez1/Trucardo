@@ -31,7 +31,7 @@ public class Jugador {
         pila.clear();
     }
 
-    private List<Carta> getMano() {
+    public List<Carta> getMano() {
         return mano;
     }
 

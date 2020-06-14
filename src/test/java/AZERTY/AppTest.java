@@ -25,4 +25,6 @@ public class AppTest
         Carta carta = new Carta(Carta.Valor.getValor(7), Carta.Palo.Basto);
         assertEquals(Carta.Valor.Once, carta.getValor());
     }
+
+
 }
