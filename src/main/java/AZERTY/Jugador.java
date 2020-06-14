@@ -43,6 +43,16 @@ public class Jugador {
 
     }
 
+    public Carta getCartaMano(int i){
+        return this.mano.get(i);
+    }
+
+    public Carta getCartaPila(int i){
+        // SE PUEDE IMPLEMENTAR EXCEPCION SI I ES MAYOR QUE EL TAMA;O DE LA PILA
+
+        return this.mano.get(i);
+    }
+
 
 }
 

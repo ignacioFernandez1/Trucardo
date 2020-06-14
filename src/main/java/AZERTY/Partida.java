@@ -21,7 +21,7 @@ public class Partida implements Sujeto{
     }
 
     public void iniciarRonda(){
-        jugadorActual.actuar(ronda);
+        //jugadorActual.actuar(ronda);
     }
 
     public void iniciarMano() {

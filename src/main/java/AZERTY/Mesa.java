@@ -35,6 +35,7 @@ public class Mesa extends JFrame implements Observador{
         this.setLayout(null);
 
         partida = j;
+        partida.iniciarMano();
         controlador = new Controlador(partida, this);
 
         puntajeJ = new JLabel("0");
@@ -126,15 +127,14 @@ public class Mesa extends JFrame implements Observador{
         puntajeMaximoInt.setForeground(new Color(255,255,255));
         puntajeMaximoInt.setFont(new Font("Arial",1,10));
 
-        ImageIcon imgCartaPrueba = new ImageIcon("images/OncedeBasto.png");
-        carta1 = new JButton(imgCartaPrueba);
+
+        carta1 = new JButton();
         carta1.setBorderPainted(false);
         carta1.setName("carta1");
         carta1.setBounds(120, 600, 160, 240);
         carta1.addActionListener(controlador);
 
-        ImageIcon img = new ImageIcon("images/SietedeCopa.png");
-        carta2 = new JButton(img);
+        carta2 = new JButton();
         carta2.setBorderPainted(false);
         carta2.setName("carta2");
         carta2.setBounds(295, 600, 160, 240);
@@ -174,7 +174,7 @@ public class Mesa extends JFrame implements Observador{
     }
 
     public static void main(String[] args){
-        Mesa mesa = new Mesa(new Partida(15,"CARLITOS",false));
+        Mesa mesa = new Mesa(new Partida(15,"NACHITO",false));
         mesa.setBounds(0,0,1200,900);
         mesa.setLocationRelativeTo(null);
         mesa.setVisible(true);
