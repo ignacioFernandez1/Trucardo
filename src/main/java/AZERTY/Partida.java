@@ -76,8 +76,10 @@ public class Partida implements Sujeto{
     public boolean jugadaValida(String c) {
 
         if(c.equals("TRUCO")){
-            //for(String )
-            return false;
+            for(String a: cantos){
+                if (a.equals())
+            }
+
         }
 
 
