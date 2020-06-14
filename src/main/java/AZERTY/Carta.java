@@ -30,7 +30,7 @@ public class Carta {
     public Carta(Valor valor, Palo palo) {
         this.valor = valor;
         this.palo = palo;
-        img = new ImageIcon(this.toString() + ".png");
+        img = new ImageIcon("images/" + this.toString() + ".png");
     }
 
     public Valor getValor() {

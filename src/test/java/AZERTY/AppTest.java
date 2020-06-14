@@ -53,5 +53,5 @@ public class AppTest
     jugador.addCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
     jugador.addCarta(new Carta(Carta.Valor.Doce, Carta.Palo.Copa));
     assertEquals(7, jugador.puntos());
-}
+    }
 }

@@ -2,6 +2,7 @@ package AZERTY;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Mesa extends JFrame implements Observador{
     private JButton quiero;
@@ -13,6 +14,7 @@ public class Mesa extends JFrame implements Observador{
     private JButton realEnvido;
     private JButton faltaEnvido;
     private JButton meVoy;
+    private ArrayList<JButton> cartas;
     private JButton carta1;
     private JButton carta2;
     private JButton carta3;
@@ -35,7 +37,11 @@ public class Mesa extends JFrame implements Observador{
         this.setLayout(null);
 
         partida = j;
-        partida.iniciarMano();
+
+        partida.registrar(this);
+
+        cartas = new ArrayList<JButton>();
+
         controlador = new Controlador(partida, this);
 
         puntajeJ = new JLabel("0");
@@ -127,24 +133,30 @@ public class Mesa extends JFrame implements Observador{
         puntajeMaximoInt.setForeground(new Color(255,255,255));
         puntajeMaximoInt.setFont(new Font("Arial",1,10));
 
-
         carta1 = new JButton();
         carta1.setBorderPainted(false);
         carta1.setName("carta1");
         carta1.setBounds(120, 600, 160, 240);
         carta1.addActionListener(controlador);
+        carta1.setVisible(false);
 
         carta2 = new JButton();
         carta2.setBorderPainted(false);
         carta2.setName("carta2");
         carta2.setBounds(295, 600, 160, 240);
         carta2.addActionListener(controlador);
+        carta2.setVisible(false);
 
         carta3 = new JButton();
         carta3.setBorderPainted(false);
         carta3.setName("carta3");
         carta3.setBounds(470, 600, 160, 240);
         carta3.addActionListener(controlador);
+        carta3.setVisible(false);
+
+        cartas.add(carta1);
+        cartas.add(carta2);
+        cartas.add(carta3);
 
         this.add(puntajeJ);
         this.add(puntajeIA);
@@ -171,10 +183,12 @@ public class Mesa extends JFrame implements Observador{
 
         //crear();
 
+        partida.iniciarPartida();
     }
 
     public static void main(String[] args){
-        Mesa mesa = new Mesa(new Partida(15,"NACHITO",false));
+        Partida p = new Partida(15,"NACHITO",false);
+        Mesa mesa = new Mesa(p);
         mesa.setBounds(0,0,1200,900);
         mesa.setLocationRelativeTo(null);
         mesa.setVisible(true);
@@ -183,7 +197,19 @@ public class Mesa extends JFrame implements Observador{
 
     @Override
     public void actualizar() {
+        //setea imagenes de cartas disponibles
 
+        for (int i = 0; i < 3; i++){
+            if(i < partida.getJugador0().getMano().size()){
+                ImageIcon img = partida.getJugador0().getMano().get(i).getImg();
+                System.out.println(partida.getJugador0().getMano().get(i).toString());
+                cartas.get(i).setVisible(true);
+                cartas.get(i).setIcon(img);
+            }
+            else{
+                cartas.get(i).setVisible(false);
+            }
+        }
     }
 
     public void setImgCarta1(ImageIcon i){
