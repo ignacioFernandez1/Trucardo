@@ -41,6 +41,10 @@ public class Carta {
         return palo;
     }
 
+    public ImageIcon getImg() {
+        return img;
+    }
+
     @Override
     public String toString() {
         return valor + "de" + palo;

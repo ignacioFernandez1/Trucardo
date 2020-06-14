@@ -12,7 +12,7 @@ public class Jugador {
 
     public Jugador(String nombre) {
         this.nombre = nombre;
-        mano = new ArrayList<>();
+        mano = new ArrayList<>();  // 3 cartas que tiene en una mano
         pila = new ArrayList<>(); // pila = cartas jugadas por el jugadorX
     }
 
@@ -41,6 +41,16 @@ public class Jugador {
 
     public void actuar(int ronda){
 
+    }
+
+    public Carta getCartaMano(int i){
+        return this.mano.get(i);
+    }
+
+    public Carta getCartaPila(int i){
+        // SE PUEDE IMPLEMENTAR EXCEPCION SI I ES MAYOR QUE EL TAMA;O DE LA PILA
+
+        return this.mano.get(i);
     }
 
 

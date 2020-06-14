@@ -35,6 +35,7 @@ public class Mesa extends JFrame implements Observador{
         this.setLayout(null);
 
         partida = j;
+        partida.iniciarMano();
         controlador = new Controlador(partida, this);
 
         puntajeJ = new JLabel("0");
@@ -52,46 +53,57 @@ public class Mesa extends JFrame implements Observador{
         tabla.setBounds(800, 50-8, 360, 242);
 
         quiero = new JButton("QUIERO");
+        quiero.setName("QUIERO");
         quiero.setBounds(800 + 70, 600, 120, 40);
         quiero.addActionListener(controlador);
 
         noQuiero = new JButton("NO QUIERO");
+        noQuiero.setName("NO QUIERO");
         noQuiero.setBounds(935 + 70, 600, 120, 40);
         noQuiero.addActionListener(controlador);
 
         valeCuatro = new JButton("VALE CUATRO");
+        valeCuatro.setName("VALE CUATRO");
         valeCuatro.setBounds(800, 600 + 75, 120, 30);
         valeCuatro.addActionListener(controlador);
 
         retruco = new JButton("RETRUCO");
+        retruco.setName("RETRUCO");
         retruco.setBounds(800, 650 + 75, 120, 30);
         retruco.addActionListener(controlador);
 
         truco = new JButton("TRUCO");
+        truco.setName("TRUCO");
         truco.setBounds(800, 700 + 75, 120, 30);
         truco.addActionListener(controlador);
 
         envido = new JButton("ENVIDO");
+        envido.setName("ENVIDO");
         envido.setBounds(935, 700 + 75, 120, 30);
         envido.addActionListener(controlador);
 
         realEnvido = new JButton("REAL ENVIDO");
+        realEnvido.setName("REAL ENVIDO");
         realEnvido.setBounds(935, 650 + 75, 120, 30);
         realEnvido.addActionListener(controlador);
 
         faltaEnvido = new JButton("FALTA ENVIDO");
+        faltaEnvido.setName("FALTA ENVIDO");
         faltaEnvido.setBounds(935, 600 + 75, 120, 30);
         faltaEnvido.addActionListener(controlador);
 
         meVoy = new JButton("ME VOY");
+        meVoy.setName("ME VOY");
         meVoy.setBounds(1070, 650 + 75, 95, 30);
         meVoy.addActionListener(controlador);
 
         detalles = new JButton("DETALLES");
+        detalles.setName("DETALLES");
         detalles.setBounds(800, 300, 120, 30);
         detalles.addActionListener(controlador);
 
         abandonar = new JButton("ABANDONAR");
+        abandonar.setName("ABANDONAR");
         abandonar.setBounds(15, 15, 120, 50);
         abandonar.addActionListener(controlador);
 
@@ -116,6 +128,24 @@ public class Mesa extends JFrame implements Observador{
         puntajeMaximoInt.setFont(new Font("Arial",1,10));
 
 
+        carta1 = new JButton();
+        carta1.setBorderPainted(false);
+        carta1.setName("carta1");
+        carta1.setBounds(120, 600, 160, 240);
+        carta1.addActionListener(controlador);
+
+        carta2 = new JButton();
+        carta2.setBorderPainted(false);
+        carta2.setName("carta2");
+        carta2.setBounds(295, 600, 160, 240);
+        carta2.addActionListener(controlador);
+
+        carta3 = new JButton();
+        carta3.setBorderPainted(false);
+        carta3.setName("carta3");
+        carta3.setBounds(470, 600, 160, 240);
+        carta3.addActionListener(controlador);
+
         this.add(puntajeJ);
         this.add(puntajeIA);
         this.add(nombreJugador);
@@ -124,6 +154,9 @@ public class Mesa extends JFrame implements Observador{
         this.add(puntajeMaximoInt);
         this.add(tabla);
 
+        this.add(carta1);
+        this.add(carta2);
+        this.add(carta3);
         this.add(quiero);
         this.add(noQuiero);
         this.add(valeCuatro);
@@ -141,7 +174,7 @@ public class Mesa extends JFrame implements Observador{
     }
 
     public static void main(String[] args){
-        Mesa mesa = new Mesa(new Partida(15,"CARLITOS",false));
+        Mesa mesa = new Mesa(new Partida(15,"NACHITO",false));
         mesa.setBounds(0,0,1200,900);
         mesa.setLocationRelativeTo(null);
         mesa.setVisible(true);
@@ -151,6 +184,18 @@ public class Mesa extends JFrame implements Observador{
     @Override
     public void actualizar() {
 
+    }
+
+    public void setImgCarta1(ImageIcon i){
+        carta1.setIcon(i);
+    }
+
+    public void setImgCarta2(ImageIcon i){
+        carta2.setIcon(i);
+    }
+
+    public void setImgCarta3(ImageIcon i){
+        carta3.setIcon(i);
     }
 }
 
