@@ -22,7 +22,7 @@ public class AppTest
 
     @Test
     public void testNumeroCarta() {
-        Carta carta = new Carta(Carta.Valor.getValor(5), Carta.Palo.Copa);
-        assertEquals(Carta.Valor.Seis, carta.getValor());
+        Carta carta = new Carta(Carta.Valor.getValor(7), Carta.Palo.Basto);
+        assertEquals(Carta.Valor.Once, carta.getValor());
     }
 }

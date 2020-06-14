@@ -12,7 +12,7 @@ public class Jugador {
 
     public Jugador(String nombre) {
         this.nombre = nombre;
-        mano = new ArrayList<>();
+        mano = new ArrayList<>();  // 3 cartas que tiene en una mano
         pila = new ArrayList<>(); // pila = cartas jugadas por el jugadorX
     }
 
