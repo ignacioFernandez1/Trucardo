@@ -3,8 +3,6 @@ package AZERTY;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 public class PantallaConfig extends JFrame implements ActionListener{
     private Font fuente;
@@ -135,7 +133,9 @@ public class PantallaConfig extends JFrame implements ActionListener{
                 else {
                     florBool = false;
                 }
-                new Mesa(new Juego(puntajeMax,name, florBool));
+
+                new Partida(puntajeMax,name, florBool);
+                new Mesa(new Partida(puntajeMax,name, florBool));
                 menu.dispose();
                 this.dispose();
 

@@ -1,6 +1,6 @@
 package AZERTY;
 
-public class Juego {
+public class Partida implements Sujeto{
     private Jugador jugador0;
     private Jugador jugador1;
     private Jugador jugadorActual;
@@ -9,22 +9,19 @@ public class Juego {
     private boolean flor;
     private int ronda;
 
-    public Juego(int puntajeMax,String nombre, boolean flor) {
+    public Partida(int puntajeMax, String nombre, boolean flor) {
 
         puntajeMaximo = puntajeMax;
         this.flor=flor;
         mazo = new Mazo();
         jugador0 = new Jugador(nombre);
-        jugador1 = new Jugador("robot");
+        jugador1 = new Jugador("IA");
         jugadorActual = jugador1; //Al iniciar la mano se ejecuta cambiar jugador para que en la ronda 1 empiece jugador0
 
     }
 
     public void iniciarRonda(){
         jugadorActual.actuar(ronda);
-
-
-
     }
 
     public void iniciarMano() {
@@ -52,5 +49,23 @@ public class Juego {
     public boolean termino(){
         if (jugador0.getPuntaje() >= puntajeMaximo || jugador1.getPuntaje() >= puntajeMaximo){return true;}
         else {return false;}
+    }
+
+    public int getPuntajeMaximo(){return puntajeMaximo;}
+    public String getNombreJugador(){return jugador0.toString();}
+
+    @Override
+    public void registrar(Observador o) {
+
+    }
+
+    @Override
+    public void sacar(Observador o) {
+
+    }
+
+    @Override
+    public void notificar() {
+
     }
 }
