@@ -100,27 +100,93 @@ public class Partida implements Sujeto{
     }
 
     public boolean jugadaValida(String c) {
-
-        if(c.equals("TRUCO")){
-            for(String a: cantos){
-                if (a.equals())
+        if(c.equals("QUIERO")){
+            if(cantos.peek().equals("NECESITA RESPUESTA")) {
+                cantos.pop();
+                this.cantoQuerido();
+                return true;
             }
-
         }
 
+        if(c.equals("NO QUIERO")){
+            if(cantos.peek().equals("NECESITA RESPUESTA")) {
+                cantos.pop();
+                this.cantoNoQuerido();
+                return true;
+            }
+        }
 
-        /*for(String a: cantos){
-            if(a.equals(c));
-        }*/
+        // IMPORTANTE: LAS JUGADAS DE LA IA DEBEN SER VALIDADAS AUNQUE RESULTEN SIEMPRE VALIDAS
 
+        if(c.equals("TRUCO")){
+            if(cantos.contains("TRUCO QUERIDO") || cantos.contains("TRUCO NO QUERIDO")|| cantos.peek().equals("NECESITA RESPUESTA")) {return false;}
+            cantos.push(c);
+            cantos.push("NECESITA RESPUESTA");
+            return true;
+        }
+
+        if(c.equals("RETRUCO")){
+            if(cantos.peek().equals("NECESITA RESPUESTA") && cantos.get(cantos.size()-2).equals("TRUCO")) {
+                cantos.pop();
+                cantos.pop();
+                cantos.push(c);
+                cantos.push("NECESITA RESPUESTA");
+                return true;
+            }
+            if(cantos.contains("TRUCO QUERIDO")){
+                cantos.push(c);
+                cantos.push("NECESITA RESPUESTA");
+                return true;
+            }
+            //if(cantos.contains("RETRUCO QUERIDO") || cantos.contains("RETRUCO NO QUERIDO") || cantos.contains("TRUCO NO QUERIDO")) {return false;}
+            else {return false;}
+        }
+
+        if(c.equals("VALE CUATRO")){
+            if(cantos.peek().equals("NECESITA RESPUESTA") && cantos.get(cantos.size()-2).equals("RETRUCO")) {
+                cantos.pop();
+                cantos.pop();
+                cantos.push(c);
+                cantos.push("NECESITA RESPUESTA");
+                return true;
+            }
+            if(cantos.contains("RETRUCO QUERIDO")){
+                cantos.push(c);
+                cantos.push("NECESITA RESPUESTA");
+                return true;
+            }
+            else {return false;}
+        }
+
+        //FALTA IMPLEMENTAR LOS ENVIDOS
         return false;
-
-
-
     }
 
+    //public void cantoIA(String c) { cantos.push(c); }
 
+    public void cantoQuerido() {
+        String c = cantos.pop();
+        if(c.equals("TRUCO")){
+            cantos.push("TRUCO QUERIDO");
+            return;
+        }
+        if(c.equals("RETRUCO")) {
+            cantos.push("RETRUCO QUERIDO");
+            return;
+        }
+    }
 
+    public void cantoNoQuerido() {
+        String c = cantos.pop();
+        if (c.equals("TRUCO")) {
+            cantos.push("TRUCO NO QUERIDO");
+            return;
+        }
+        if (c.equals("RETRUCO")) {
+            cantos.push("RETRUCO NO QUERIDO");
+            return;
+        }
+    }
 
 
 }
