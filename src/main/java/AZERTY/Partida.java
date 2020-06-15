@@ -90,7 +90,7 @@ public class Partida implements Sujeto{
     public void notificar() {
         if(observers.size() > 0){
             for(Observador o: observers){
-            o.actualizar();
+                o.actualizar();
             }
         }
     }
