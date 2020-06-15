@@ -183,7 +183,7 @@ public class Partida implements Sujeto{
     public void cantoNoQuerido() { // CAMBIAR METODO PARA APLICAR AL ENVIDO !!!!!!!!!!!!!!!
         String c = cantos.pop();
         if (c.equals("TRUCO")) {
-            cantos.push("TRUCO NO QUERIDO");/
+            cantos.push("TRUCO NO QUERIDO");
             return;
         }
         if (c.equals("RETRUCO")) {
