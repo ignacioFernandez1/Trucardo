@@ -9,12 +9,25 @@ public class Jugador {
     private int puntaje;
     private Mazo mazo;
     private String nombre;
+    private boolean quieroT;
+    private boolean quieroE;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         mano = new ArrayList<>();  // 3 cartas que tiene en una mano
         pila = new ArrayList<>(); // pila = cartas jugadas por el jugadorX
+        quieroE = false;
+        quieroT = false;
     }
+
+    public boolean getQuieroT() {return quieroT;}
+
+    public void switchQuieroT() {this.quieroT = !this.quieroT;}
+
+    public boolean getQuieroE() {return quieroE;}
+
+    public void switchQuieroE() {this.quieroE = !this.quieroE;}
+
 
     public int getPuntaje() {
         return puntaje;
