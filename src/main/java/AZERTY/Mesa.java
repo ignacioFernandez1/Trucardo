@@ -60,56 +60,67 @@ public class Mesa extends JFrame implements Observador{
 
         quiero = new JButton("QUIERO");
         quiero.setName("QUIERO");
+        quiero.setBackground(new Color(255,255,255));
         quiero.setBounds(800 + 70, 600, 120, 40);
         quiero.addActionListener(controlador);
 
         noQuiero = new JButton("NO QUIERO");
         noQuiero.setName("NO QUIERO");
+        noQuiero.setBackground(new Color(255,255,255));
         noQuiero.setBounds(935 + 70, 600, 120, 40);
         noQuiero.addActionListener(controlador);
 
         valeCuatro = new JButton("VALE CUATRO");
         valeCuatro.setName("VALE CUATRO");
+        valeCuatro.setBackground(new Color(255,255,255));
         valeCuatro.setBounds(800, 600 + 75, 120, 30);
         valeCuatro.addActionListener(controlador);
 
         retruco = new JButton("RETRUCO");
         retruco.setName("RETRUCO");
+        retruco.setBackground(new Color(255,255,255));
         retruco.setBounds(800, 650 + 75, 120, 30);
         retruco.addActionListener(controlador);
 
         truco = new JButton("TRUCO");
         truco.setName("TRUCO");
+        truco.setBackground(new Color(255,255,255));
         truco.setBounds(800, 700 + 75, 120, 30);
         truco.addActionListener(controlador);
 
         envido = new JButton("ENVIDO");
         envido.setName("ENVIDO");
+        envido.setBackground(new Color(255,255,255));
         envido.setBounds(935, 700 + 75, 120, 30);
         envido.addActionListener(controlador);
 
         realEnvido = new JButton("REAL ENVIDO");
         realEnvido.setName("REAL ENVIDO");
+        realEnvido.setBackground(new Color(255,255,255));
         realEnvido.setBounds(935, 650 + 75, 120, 30);
         realEnvido.addActionListener(controlador);
 
         faltaEnvido = new JButton("FALTA ENVIDO");
         faltaEnvido.setName("FALTA ENVIDO");
+        faltaEnvido.setBackground(new Color(255,255,255));
         faltaEnvido.setBounds(935, 600 + 75, 120, 30);
         faltaEnvido.addActionListener(controlador);
 
         meVoy = new JButton("ME VOY");
         meVoy.setName("ME VOY");
+        meVoy.setBackground(new Color(255,255,255));
         meVoy.setBounds(1070, 650 + 75, 95, 30);
         meVoy.addActionListener(controlador);
 
         detalles = new JButton("DETALLES");
         detalles.setName("DETALLES");
+        detalles.setBackground(new Color(255,255,255));
         detalles.setBounds(800, 300, 120, 30);
         detalles.addActionListener(controlador);
 
         abandonar = new JButton("ABANDONAR");
         abandonar.setName("ABANDONAR");
+        abandonar.setBackground(new Color(255,255,255));
         abandonar.setBounds(15, 15, 120, 50);
         abandonar.addActionListener(controlador);
 
@@ -187,7 +198,7 @@ public class Mesa extends JFrame implements Observador{
     }
 
     public static void main(String[] args){
-        Partida p = new Partida(15,"NACHITO",false);
+        Partida p = new Partida(30,"caRLos",false);
         Mesa mesa = new Mesa(p);
         mesa.setBounds(0,0,1200,900);
         mesa.setLocationRelativeTo(null);
