@@ -165,6 +165,7 @@ public class Partida implements Sujeto{
     //public void cantoIA(String c) { cantos.push(c); }
 
     public void cantoQuerido() {
+        // esto esta mal, cuando hace el pop no te devuelve "necesita respuesta"?
         String c = cantos.pop();
         if(c.equals("TRUCO")){
             cantos.push("TRUCO QUERIDO");
