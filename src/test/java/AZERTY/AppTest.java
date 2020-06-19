@@ -115,4 +115,12 @@ public class AppTest
         assertTrue(p.jugada("carta1",p.getJugador0()));
         assertEquals(2,p.getJugador0().getMano().size());
     }
+
+    @Test
+    public void jugadaCantoEnCurso() {
+        Partida p = new Partida(15, "test",false);
+        p.iniciarMano();
+        p.jugada("ENVIDO",p.getJugador0());
+        assertTrue(p.isCantoEnCurso());
+    }
 }

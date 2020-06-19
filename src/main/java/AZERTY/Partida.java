@@ -235,18 +235,21 @@ public class Partida implements Sujeto{
                 jugadorTurno.getMano().remove(0);
                 jugadorTurno.addCartaPila(carta);
                 this.notificar();
+                return true;
             }
             if (c.equals("carta2")) {
                 Carta carta = jugadorTurno.getMano().get(1);
                 jugadorTurno.getMano().remove(1);
                 jugadorTurno.addCartaPila(carta);
                 this.notificar();
+                return true;
             }
             if (c.equals("carta3")) {
                 Carta carta = jugadorTurno.getMano().get(2);
                 jugadorTurno.getMano().remove(2);
                 jugadorTurno.addCartaPila(carta);
                 this.notificar();
+                return true;
             }
         }
         return false;
@@ -309,4 +312,6 @@ public class Partida implements Sujeto{
     }
 
     public Jugador getJugador1(){return jugador1;}
+
+    public boolean isCantoEnCurso(){return cantoEnCurso;}
 }
