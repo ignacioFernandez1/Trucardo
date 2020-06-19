@@ -9,10 +9,12 @@ public class Partida implements Sujeto{
     private Jugador jugador0;
     private Jugador jugador1;
     private Jugador jugadorActual;
+    private Jugador jugadorTurno;
     private int puntajeMaximo;
     private Mazo mazo;
     private boolean flor;
     private int ronda;
+    private boolean cantoEnCurso;
 
     private ArrayList<Observador> observers;
 
@@ -27,7 +29,8 @@ public class Partida implements Sujeto{
         jugador0 = new Jugador(nombre);
         jugador1 = new Jugador("IA");
         jugadorActual = jugador1; //Al iniciar la mano se ejecuta cambiar jugador para que en la ronda 1 empiece jugador0
-
+        jugadorTurno = jugador0; // variable que tiene de quien es el turno de jugar carta
+        cantoEnCurso = false;
         observers = new ArrayList<Observador>();
 
         cantos = new Stack<String>();
@@ -128,31 +131,51 @@ public class Partida implements Sujeto{
         // IMPORTANTE: LAS JUGADAS DE LA IA DEBEN SER VALIDADAS AUNQUE RESULTEN SIEMPRE VALIDAS
 
         if(c.equals("TRUCO")){
-            if(cantos.contains("TRUCO QUERIDO") || cantos.contains("TRUCO NO QUERIDO")|| cantos.peek().equals("NECESITA RESPUESTA")) {return false;}
+            if(cantos.contains("TRUCO QUERIDO") || cantos.contains("TRUCO NO QUERIDO") || cantos.peek().equals("NECESITA RESPUESTA")) {return false;}
+            cantoEnCurso = true;
             cantos.push(c);
             cantos.push("NECESITA RESPUESTA");
-            jugadorActual.switchQuieroT();
-            cambiarQuieroT();
+            jugadorActual.switchQuieroT(); // pongo que jugador actual tiene el quiero
+            this.cambiarQuieroT();  // ahora se hace un swap del quiero
+            this.cambiarJugador(); // jugador actual ahora es el otro
             return true;
         }
 
         if(c.equals("RETRUCO")){
-            if(!jugadorActual.getQuieroT()){return false;}
+            if(!jugadorActual.getQuieroT() || cantos.contains("RETRUCO")){return false;}
             if(cantos.contains("TRUCO QUERIDO")){
                 cantos.push(c);
                 cantos.push("NECESITA RESPUESTA");
                 this.cambiarQuieroT();
+                this.cambiarJugador();
+                return true;
+            }
+            if(cantos.peek().equals("NECESITA RESPUESTA") && cantos.get(cantos.size()-2).equals("TRUCO")){
+                cantos.pop();
+                cantos.push(c);
+                cantos.push("NECESITA RESPUESTA");
+                this.cambiarQuieroT();
+                this.cambiarJugador();
                 return true;
             }
             return false;
         }
 
         if(c.equals("VALE CUATRO")){
-            if(!jugadorActual.getQuieroT()){return false;}
+            if(!jugadorActual.getQuieroT() || cantos.contains("VALE CUATRO")){return false;}
             if(cantos.contains("RETRUCO QUERIDO")){
                 cantos.push(c);
                 cantos.push("NECESITA RESPUESTA");
                 this.cambiarQuieroT();
+                this.cambiarJugador();
+                return true;
+            }
+            if(cantos.peek().equals("NECESITA RESPUESTA") && cantos.get(cantos.size()-2).equals("RETRUCO")){
+                cantos.pop();
+                cantos.push(c);
+                cantos.push("NECESITA RESPUESTA");
+                this.cambiarQuieroT();
+                this.cambiarJugador();
                 return true;
             }
             return false;
@@ -165,6 +188,8 @@ public class Partida implements Sujeto{
     //public void cantoIA(String c) { cantos.push(c); }
 
     public void cantoQuerido() {
+        cantoEnCurso = false;
+        jugadorActual = jugadorTurno;
         String c = cantos.pop();
         if(c.equals("TRUCO")){
             cantos.push("TRUCO QUERIDO");
@@ -181,7 +206,9 @@ public class Partida implements Sujeto{
     }
 
     public void cantoNoQuerido() { // CAMBIAR METODO PARA APLICAR AL ENVIDO !!!!!!!!!!!!!!!
+        cantoEnCurso = false;
         String c = cantos.pop();
+        jugadorActual = jugadorTurno;
         if (c.equals("TRUCO")) {
             cantos.push("TRUCO NO QUERIDO");
             return;
