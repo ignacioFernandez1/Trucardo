@@ -34,6 +34,7 @@ public class Partida implements Sujeto{
         observers = new ArrayList<Observador>();
 
         cantos = new Stack<String>();
+        iniciarStack();
 
     }
 
@@ -57,6 +58,7 @@ public class Partida implements Sujeto{
         notificar();
 
     }
+    private void iniciarStack(){cantos.push("-");}
 
     public void iniciarPartida(){
         iniciarMano();
@@ -179,7 +181,8 @@ public class Partida implements Sujeto{
                     return true;
                 }
                 return false;
-            }}
+            }
+        }
 
         //FALTA IMPLEMENTAR LOS ENVIDOS
         return false;
@@ -233,5 +236,5 @@ public class Partida implements Sujeto{
         jugador1.switchQuieroT();
     }
 
-
+    public Jugador getJugador1(){return jugador1;}
 }

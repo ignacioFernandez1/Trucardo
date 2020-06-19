@@ -1,11 +1,11 @@
 package AZERTY;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import AZERTY.Carta;
 import org.junit.Test;
 
 import java.util.ArrayList;
+
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
@@ -48,10 +48,35 @@ public class AppTest
 
     @Test
     public void testPuntosDistintoPalo() {
-    Jugador jugador = new Jugador(" ");
-    jugador.addCarta(new Carta(Carta.Valor.Siete, Carta.Palo.Espada));
-    jugador.addCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
-    jugador.addCarta(new Carta(Carta.Valor.Doce, Carta.Palo.Copa));
-    assertEquals(7, jugador.puntos());
+        Jugador jugador = new Jugador(" ");
+        jugador.addCarta(new Carta(Carta.Valor.Siete, Carta.Palo.Espada));
+        jugador.addCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
+        jugador.addCarta(new Carta(Carta.Valor.Doce, Carta.Palo.Copa));
+        assertEquals(7, jugador.puntos());
+    }
+
+    @Test
+    public void jugadaValidaTruco() {
+        Partida p = new Partida(15,"test",false);
+        p.iniciarMano();
+        assertTrue(p.jugada("TRUCO", p.getJugador0()));
+        assertTrue(!p.jugada("RETRUCO",p.getJugador0())); // jugador0 no deberia poder cantar
+        assertTrue(p.jugada("RETRUCO",p.getJugador1())); // jugador1 deberia poder cantar
+    }
+
+    @Test
+    public void jugadaValidaQuiero() {
+        Partida p = new Partida(15,"test",false);
+        p.iniciarMano();
+        p.jugada("TRUCO",p.getJugador0());
+        assertTrue(p.jugada("QUIERO",p.getJugador1()));
+    }
+
+    @Test
+    public void jugadaValida() {
+        Partida p = new Partida(15,"test",false);
+        p.iniciarMano();
+        p.jugada("TRUCO",p.getJugador0());
+        assertTrue(!p.jugada("TRUCO",p.getJugador1())); // el otro jugador no deberia poder cantar truco
     }
 }
