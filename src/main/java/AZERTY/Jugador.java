@@ -66,47 +66,51 @@ public class Jugador {
         return this.mano.get(i);
     }
 
+    public void addCartaPila(Carta c){
+        pila.add(c);
+    }
+
     public int puntos(){
         int valor0 = 0;
         int valor1 = 0;
-    if(mano.get(0).getPalo().equals(mano.get(1).getPalo()) && mano.get(0).getPalo().equals(mano.get(2).getPalo())){
-        for(int i = 0; i<3;i++){
-            if(mano.get(i).getValorint() > valor0){valor0 = mano.get(i).getValorint(); }
-            else if(mano.get(i).getValorint() > valor1){valor1 = mano.get(i).getValorint();}
-            else{}
-        }
-        return valor0 + valor1 + 20;
-
-    }
-    else if(mano.get(0).getPalo().equals(mano.get(1).getPalo())){
-        valor0 = mano.get(0).getValorint();
-        valor1 = mano.get(1).getValorint();
-        return valor0 + valor1 + 20;
-
-    }
-    else if(mano.get(0).getPalo().equals(mano.get(2).getPalo())){
-        valor0 = mano.get(0).getValorint();
-        valor1 = mano.get(2).getValorint();
-        return valor0 + valor1 + 20;
+        if(mano.get(0).getPalo().equals(mano.get(1).getPalo()) && mano.get(0).getPalo().equals(mano.get(2).getPalo())){
+            for(int i = 0; i<3;i++){
+                if(mano.get(i).getValorint() > valor0){valor0 = mano.get(i).getValorint(); }
+                else if(mano.get(i).getValorint() > valor1){valor1 = mano.get(i).getValorint();}
+                else{}
+            }
+            return valor0 + valor1 + 20;
 
         }
-    else if(mano.get(1).getPalo().equals(mano.get(2).getPalo())){
-        valor0 = mano.get(1).getValorint();
-        valor1 = mano.get(2).getValorint();
-        return valor0 + valor1 + 20;
+        else if(mano.get(0).getPalo().equals(mano.get(1).getPalo())){
+            valor0 = mano.get(0).getValorint();
+            valor1 = mano.get(1).getValorint();
+            return valor0 + valor1 + 20;
 
         }
-    else{
-        if(mano.get(0).getValorint() >= mano.get(1).getValorint() && mano.get(0).getValorint() >= mano.get(2).getValorint()) {
-            return mano.get(0).getValorint();
-        }
-        else if(mano.get(1).getValorint() >= mano.get(2).getValorint()) {
-            return mano.get(1).getValorint();
-        }
-        else{return mano.get(2).getValorint();}
-        }
+        else if(mano.get(0).getPalo().equals(mano.get(2).getPalo())){
+            valor0 = mano.get(0).getValorint();
+            valor1 = mano.get(2).getValorint();
+            return valor0 + valor1 + 20;
 
-    }
+            }
+        else if(mano.get(1).getPalo().equals(mano.get(2).getPalo())){
+            valor0 = mano.get(1).getValorint();
+            valor1 = mano.get(2).getValorint();
+            return valor0 + valor1 + 20;
+
+            }
+        else{
+            if(mano.get(0).getValorint() >= mano.get(1).getValorint() && mano.get(0).getValorint() >= mano.get(2).getValorint()) {
+                return mano.get(0).getValorint();
+            }
+            else if(mano.get(1).getValorint() >= mano.get(2).getValorint()) {
+                return mano.get(1).getValorint();
+            }
+            else{return mano.get(2).getValorint();}
+            }
+
+        }
 
 
 }

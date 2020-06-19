@@ -182,9 +182,73 @@ public class Partida implements Sujeto{
                 }
                 return false;
             }
+            if(ronda == 1) {
+                if (c.equals("ENVIDO") && !cantos.contains("REAL ENVIDO") && !cantos.contains("FALTA ENVIDO") && !cantos.contains("ENVIDO TOPE")) {
+                    if(cantos.peek().equals("NECESITA RESPUESTA")){
+                        cantos.pop();
+                        cantos.push("ENVIDO TOPE");
+                        cantos.push(c);
+                        cantos.push("NECESITA RESPUESTA");
+                        this.cambiarJugador();
+                        return true;
+                    }
+                    cantos.push(c);
+                    cantoEnCurso = true;
+                    cantos.push("NECESITA RESPUESTA");
+                    this.cambiarJugador();
+                    return true;
+                }
+                if(c.equals("REAL ENVIDO") && !cantos.contains("FALTA ENVIDO") && !cantos.contains("REAL ENVIDO TOPE")){
+                    if(cantos.peek().equals("NECESITA RESPUESTA")){
+                        cantos.pop();
+                        cantos.push("REAL ENVIDO TOPE");
+                        cantos.push(c);
+                        cantos.push("NECESITA RESPUESTA");
+                        this.cambiarJugador();
+                        return true;
+                    }
+                    cantos.push(c);
+                    cantoEnCurso = true;
+                    cantos.push("NECESITA RESPUESTA");
+                    this.cambiarJugador();
+                    return true;
+                }
+                if(c.equals("FALTA ENVIDO") && !cantos.contains("FALTA ENVIDO")){
+                    if(cantos.peek().equals("NECESITA RESPUESTA")){
+                        cantos.pop();
+                        cantos.push(c);
+                        cantos.push("NECESITA RESPUESTA");
+                        this.cambiarJugador();
+                        return true;
+                    }
+                    cantos.push(c);
+                    cantoEnCurso = true;
+                    cantos.push("NECESITA RESPUESTA");
+                    this.cambiarJugador();
+                    return true;
+                }
+            }
         }
-
-        //FALTA IMPLEMENTAR LOS ENVIDOS
+        if(jCantando.equals(jugadorTurno)) {
+            if (c.equals("carta1")) {
+                Carta carta = jugadorTurno.getMano().get(0);
+                jugadorTurno.getMano().remove(0);
+                jugadorTurno.addCartaPila(carta);
+                this.notificar();
+            }
+            if (c.equals("carta2")) {
+                Carta carta = jugadorTurno.getMano().get(1);
+                jugadorTurno.getMano().remove(1);
+                jugadorTurno.addCartaPila(carta);
+                this.notificar();
+            }
+            if (c.equals("carta3")) {
+                Carta carta = jugadorTurno.getMano().get(2);
+                jugadorTurno.getMano().remove(2);
+                jugadorTurno.addCartaPila(carta);
+                this.notificar();
+            }
+        }
         return false;
     }
 
@@ -193,7 +257,7 @@ public class Partida implements Sujeto{
     public void cantoQuerido() {
         cantoEnCurso = false;
         jugadorActual = jugadorTurno;
-        String c = cantos.pop();
+        String c = cantos.peek();
         if(c.equals("TRUCO")){
             cantos.push("TRUCO QUERIDO");
             return;
@@ -206,11 +270,16 @@ public class Partida implements Sujeto{
             cantos.push("VALE CUATRO QUERIDO");
             return;
         }
+        if(c.equals("ENVIDO") || c.equals("REAL ENVIDO") || c.equals("FALTA ENVIDO")){
+            // que se hace cuando se termina un canto de envido
+            // yo digo que se fije cuantos cantos del tipo envido hubo y que acumule los puntos
+            // despues de eso se fija cual tiene mas y le da los puntos
+        }
     }
 
     public void cantoNoQuerido() { // CAMBIAR METODO PARA APLICAR AL ENVIDO !!!!!!!!!!!!!!!
         cantoEnCurso = false;
-        String c = cantos.pop();
+        String c = cantos.peek();
         jugadorActual = jugadorTurno;
         if (c.equals("TRUCO")) {
             cantos.push("TRUCO NO QUERIDO");
@@ -223,6 +292,9 @@ public class Partida implements Sujeto{
         if (c.equals("VALE CUATRO")) {
             cantos.push("VALE CUATRO NO QUERIDO");
             return;
+        }
+        if(c.equals("ENVIDO") || c.equals("REAL ENVIDO") || c.equals("FALTA ENVIDO")){
+            // aca tambien tenemos que ver que hacer en
         }
     }
 

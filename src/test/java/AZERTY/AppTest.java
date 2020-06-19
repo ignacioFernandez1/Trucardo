@@ -79,4 +79,40 @@ public class AppTest
         p.jugada("TRUCO",p.getJugador0());
         assertTrue(!p.jugada("TRUCO",p.getJugador1())); // el otro jugador no deberia poder cantar truco
     }
+
+    @Test
+    public void jugadaValidaEnvido() {
+        Partida p = new Partida(15, "test",false);
+        p.iniciarMano();
+        assertTrue(p.jugada("ENVIDO",p.getJugador0()));
+        assertTrue(!p.jugada("ENVIDO",p.getJugador0()));
+        assertTrue(p.jugada("ENVIDO",p.getJugador1()));
+        assertTrue(!p.jugada("ENVIDO",p.getJugador0()));
+    }
+
+    @Test
+    public void jugadaValidaRealEnvido() {
+        Partida p = new Partida(15, "test",false);
+        p.iniciarMano();
+        assertTrue(p.jugada("REAL ENVIDO",p.getJugador0()));
+        assertTrue(p.jugada("REAL ENVIDO",p.getJugador1()));
+        assertTrue(!p.jugada("REAL ENVIDO",p.getJugador0()));
+    }
+
+    @Test
+    public void jugadaValidaFaltaEnvido() {
+        Partida p = new Partida(15, "test",false);
+        p.iniciarMano();
+        assertTrue(p.jugada("FALTA ENVIDO",p.getJugador0()));
+        assertTrue(!p.jugada("FALTA ENVIDO",p.getJugador1()));
+    }
+
+    @Test
+    public void jugadaValidaJugarCarta() {
+        Partida p = new Partida(15, "test",false);
+        p.iniciarMano();
+        assertTrue(!p.jugada("carta1",p.getJugador1()));
+        assertTrue(p.jugada("carta1",p.getJugador0()));
+        assertEquals(2,p.getJugador0().getMano().size());
+    }
 }
