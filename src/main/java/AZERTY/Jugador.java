@@ -112,6 +112,6 @@ public class Jugador {
 
         }
 
-
+    public ArrayList<Carta> getPila() { return pila; }
 }
 

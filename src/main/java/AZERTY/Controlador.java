@@ -18,56 +18,70 @@ public class Controlador implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton b = (JButton) e.getSource();
         if(b.getName().equals("QUIERO")){
-            System.out.println("QUIERO");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR "+ b.getName());
+            }
         }
         else if(b.getName().equals("NO QUIERO")){
-            System.out.println("NO QUIERO");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR " + b.getName());
+            }
         }
         else if(b.getName().equals("VALE CUATRO")){
-            System.out.println("VALE CUATRO");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR " + b.getName());
+            }
         }
         else if(b.getName().equals("RETRUCO")){
-            System.out.println("RETRUCO");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR " + b.getName());
+            }
         }
         else if(b.getName().equals("TRUCO")){
-            System.out.println("TRUCO");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR " + b.getName());
+            }
         }
         else if(b.getName().equals("ENVIDO")){
-            System.out.println("ENVIDO");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR " + b.getName());
+            }
         }
         else if(b.getName().equals("REAL ENVIDO")){
-            System.out.println("REAL ENVIDO");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR " + b.getName());
+            }
         }
         else if(b.getName().equals("FALTA ENVIDO")){
-            System.out.println("FALTA ENVIDO");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR " + b.getName());
+            }
         }
         else if(b.getName().equals("ME VOY")){
-            System.out.println("ME VOY");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR " + b.getName());
+            }
 
         }
         else if(b.getName().equals("DETALLES")){
-            System.out.println("DETALLES");
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE CANTAR " + b.getName());
+            }
         }
         else if(b.getName().equals("carta1")){
-            System.out.println("carta1");
-            System.out.println(partida.getJugador0().getMano().size());
-            partida.getJugador0().getMano().remove(0);
-            System.out.println(partida.getJugador0().getMano().size());
-            partida.notificar();
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE JUGAR UNA CARTA");
+            }
         }
         else if(b.getName().equals("carta2")){
-            System.out.println("carta2");
-            System.out.println(partida.getJugador0().getMano().size());
-            partida.getJugador0().getMano().remove(1);
-            System.out.println(partida.getJugador0().getMano().size());
-            partida.notificar();
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE JUGAR UNA CARTA");
+            }
         }
         else if(b.getName().equals("carta3")){
-            System.out.println("carta3");
-            System.out.println(partida.getJugador0().getMano().size());
-            partida.getJugador0().getMano().remove(2);
-            System.out.println(partida.getJugador0().getMano().size());
-            partida.notificar();
+            if(!partida.jugada(b.getName(),partida.getJugador0())){
+                mesa.log("NO SE PUEDE JUGAR UNA CARTA");
+            }
         }
         else if(b.getName().equals("ABANDONAR")){
             System.out.println("ABANDONAR");
@@ -77,8 +91,7 @@ public class Controlador implements ActionListener {
             if (confirmed == JOptionPane.YES_OPTION) {
                 String[] args = {};
                 // No inicia el gif de trucardo
-                new App().main(args);
-                mesa.dispose();
+                System.exit(0);
             }
         }
     }
