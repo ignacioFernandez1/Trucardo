@@ -17,16 +17,16 @@ public class AI extends Jugador {
     }
 
     public void setPartida(Partida p){partida = p;}
-    public void truco(){
-        mesa.log("COSCU: ......");
-        mesa.log(""+valorCartas);
-        if (valorCartas >= 18){
-            partida.jugada("QUIERO",this);
-            mesa.log("QUIERO TRUCO");}
+    public void truco() {
+        mesa.log("" + valorCartas);
+        if (valorCartas >= 18) {
+            partida.jugada("QUIERO", this);
+            mesa.log("COSCU: QUIERO TRUCO");
+        }
 
 
         else{partida.jugada("NO QUIERO",this);
-            mesa.log("NO QUIERO TRUCO");}
+            mesa.log("COSCU: NO QUIERO TRUCO");}
     }
 
 

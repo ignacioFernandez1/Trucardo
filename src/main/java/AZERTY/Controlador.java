@@ -3,15 +3,22 @@ package AZERTY;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class Controlador implements ActionListener {
 
     private Partida partida;
     private Mesa mesa;
+    private ThreadPoolExecutor executor;
+    private Task task;
 
     public Controlador(Partida p, Mesa m) {
         partida = p;
         mesa = m;
+        executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
+        task = new Task(p.getJugador1());
     }
 
     @Override
@@ -47,7 +54,10 @@ public class Controlador implements ActionListener {
             }
             else{
                 mesa.log("TRUCO!");
-                partida.getJugador1().truco();}
+                mesa.log("AI: ...");
+                task.setQueHago(0);
+                executor.execute(task);
+            }
         }
         else if(b.getName().equals("ENVIDO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
