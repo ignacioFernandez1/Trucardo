@@ -3,12 +3,9 @@ package AZERTY;
 import java.util.HashMap;
 
 public class ReglasTrad implements Reglas{
-
-    private Partida partida;
     HashMap<String, Integer> orden;
 
-    public ReglasTrad(Partida p) {
-        partida = p;
+    public ReglasTrad() {
         orden = new HashMap<>(36);
         ordenar();
 

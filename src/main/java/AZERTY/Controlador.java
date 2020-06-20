@@ -21,66 +21,74 @@ public class Controlador implements ActionListener {
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR "+ b.getName());
             }
+            else{mesa.log("QUIERO!");}
         }
         else if(b.getName().equals("NO QUIERO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
+            else{mesa.log("NO QUIERO!");}
         }
         else if(b.getName().equals("VALE CUATRO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
+            else{mesa.log("QUIERO VALE CUATRO!");}
         }
         else if(b.getName().equals("RETRUCO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
+            else{mesa.log("QUIERO RETRUCO!");}
         }
         else if(b.getName().equals("TRUCO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
+            else{mesa.log("TRUCO!");}
         }
         else if(b.getName().equals("ENVIDO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
+            else{mesa.log("ENVIDO!");}
         }
         else if(b.getName().equals("REAL ENVIDO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
+            else{mesa.log("REAL ENVIDO!");}
         }
         else if(b.getName().equals("FALTA ENVIDO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
+            else{mesa.log("FALTA ENVIDO!");}
         }
         else if(b.getName().equals("ME VOY")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
+            else{mesa.log("ME VOY AL MAZO!");}
 
         }
         else if(b.getName().equals("DETALLES")){
-            if(!partida.jugada(b.getName(),partida.getJugador0())){
-                mesa.log("NO SE PUEDE CANTAR " + b.getName());
-            }
+            //
+            //
         }
         else if(b.getName().equals("carta1")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
-                mesa.log("NO SE PUEDE JUGAR UNA CARTA");
+                mesa.log("NO ES TU TURNO");
             }
         }
         else if(b.getName().equals("carta2")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
-                mesa.log("NO SE PUEDE JUGAR UNA CARTA");
+                mesa.log("NO ES TU TURNO");
             }
         }
         else if(b.getName().equals("carta3")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
-                mesa.log("NO SE PUEDE JUGAR UNA CARTA");
+                mesa.log("NO ES TU TURNO");
             }
         }
         else if(b.getName().equals("ABANDONAR")){

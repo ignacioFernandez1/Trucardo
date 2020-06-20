@@ -13,7 +13,7 @@ public class Partida implements Sujeto{
     private int puntajeMaximo;
     private Mazo mazo;
     private boolean flor;
-    private int ronda;
+    private int ronda; // ronda va de 1 a 6, si ronda%2==0 se chequea quien gano la ronda
     private boolean cantoEnCurso;
     private Reglas reglas;
 
@@ -30,12 +30,12 @@ public class Partida implements Sujeto{
         jugador0 = new Jugador(nombre);
         jugador1 = new AI();
         jugadorActual = jugador1; //Al iniciar la mano se ejecuta cambiar jugador para que en la ronda 1 empiece jugador0
-        jugadorTurno = jugador0; // variable que tiene de quien es el turno de jugar carta
+        jugadorTurno = jugador0;
         cantoEnCurso = false;
         observers = new ArrayList<Observador>();
         cantos = new Stack<String>();
         iniciarStack();
-        reglas = new ReglasTrad(this);
+        reglas = new ReglasTrad();
 
     }
 
@@ -47,7 +47,8 @@ public class Partida implements Sujeto{
         ronda = 0;
         cambiarJugador();    // siempre en la primer mano, empieza el jugador0
         ronda = 1;
-        mazo = new Mazo();
+        mazo.reiniciar();
+        mazo.mezclar();
         jugador0.clearMano();
         jugador1.clearMano();
 
@@ -59,7 +60,6 @@ public class Partida implements Sujeto{
         jugador1.puntos();
         iniciarRonda();
         notificar();
-
     }
     private void iniciarStack(){cantos.push("-");}
 
@@ -140,7 +140,7 @@ public class Partida implements Sujeto{
             // IMPORTANTE: LAS JUGADAS DE LA IA DEBEN SER VALIDADAS AUNQUE RESULTEN SIEMPRE VALIDAS
 
             if(c.equals("TRUCO")){
-                if(cantos.contains("TRUCO QUERIDO") || cantos.contains("TRUCO NO QUERIDO") || cantos.peek().equals("NECESITA RESPUESTA")) {return false;}
+                if(cantos.contains("TRUCO QUERIDO") || cantos.contains("TRUCO NO QUERIDO") || cantos.peek().equals("NECESITA RESPUESTA") || cantoEnCurso) {return false;}
                 cantoEnCurso = true;
                 cantos.push(c);
                 cantos.push("NECESITA RESPUESTA");
@@ -189,7 +189,7 @@ public class Partida implements Sujeto{
                 }
                 return false;
             }
-            if(ronda == 1) {
+            if(ronda == 1 || ronda == 2) {
                 if (c.equals("ENVIDO") && !cantos.contains("REAL ENVIDO") && !cantos.contains("FALTA ENVIDO") && !cantos.contains("ENVIDO TOPE")) {
                     if(cantos.peek().equals("NECESITA RESPUESTA")){
                         cantos.pop();
@@ -199,25 +199,30 @@ public class Partida implements Sujeto{
                         this.cambiarJugador();
                         return true;
                     }
-                    cantos.push(c);
-                    cantoEnCurso = true;
-                    cantos.push("NECESITA RESPUESTA");
-                    this.cambiarJugador();
-                    return true;
+                    if(!cantoEnCurso) {
+                        cantos.push(c);
+                        cantoEnCurso = true;
+                        cantos.push("NECESITA RESPUESTA");
+                        this.cambiarJugador();
+                        return true;
+                    }
                 }
                 if(c.equals("REAL ENVIDO") && !cantos.contains("FALTA ENVIDO") && !cantos.contains("REAL ENVIDO")){
-                    if(cantos.peek().equals("NECESITA RESPUESTA")){
+                    if(cantos.peek().equals("NECESITA RESPUESTA") && cantos.get(cantos.size()-2).equals("ENVIDO")){
                         cantos.pop();
                         cantos.push(c);
                         cantos.push("NECESITA RESPUESTA");
                         this.cambiarJugador();
                         return true;
                     }
-                    cantos.push(c);
-                    cantoEnCurso = true;
-                    cantos.push("NECESITA RESPUESTA");
-                    this.cambiarJugador();
-                    return true;
+                    if(!cantoEnCurso) {
+                        cantos.push(c);
+                        cantoEnCurso = true;
+                        cantos.push("NECESITA RESPUESTA");
+                        this.cambiarJugador();
+                        return true;
+                    }
+                    return false;
                 }
                 if(c.equals("FALTA ENVIDO") && !cantos.contains("FALTA ENVIDO")){
                     if(cantos.peek().equals("NECESITA RESPUESTA")){
@@ -235,29 +240,20 @@ public class Partida implements Sujeto{
                 }
             }
         }
-        if(jCantando.equals(jugadorTurno)) {
-            if (c.equals("carta1")) {
-                Carta carta = jugadorTurno.getMano().get(0);
-                jugadorTurno.getMano().remove(0);
+        if(jCantando.equals(jugadorTurno) && !cantoEnCurso) {
+            if (c.equals("carta1") || c.equals("carta2") || c.equals("carta3")) {
+                int i = Integer.parseInt(""+c.charAt(5)) - 1;
+                Carta carta = jugadorTurno.getMano().get(i);
+                jugadorTurno.getMano().remove(i);
                 jugadorTurno.addCartaPila(carta);
                 this.notificar();
                 cambiarJugadorTurno();
-                return true;
-            }
-            if (c.equals("carta2")) {
-                Carta carta = jugadorTurno.getMano().get(1);
-                jugadorTurno.getMano().remove(1);
-                jugadorTurno.addCartaPila(carta);
-                this.notificar();
-                cambiarJugadorTurno();
-                return true;
-            }
-            if (c.equals("carta3")) {
-                Carta carta = jugadorTurno.getMano().get(2);
-                jugadorTurno.getMano().remove(2);
-                jugadorTurno.addCartaPila(carta);
-                this.notificar();
-                cambiarJugadorTurno();
+                jugadorActual = jugadorTurno;
+                ronda++;
+                if(ronda%2==0){
+                    // se chequea cual es la carta mas alta de la ronda
+                    // y se guarda en estadisticas (hacer con un metodo)
+                }
                 return true;
             }
         }

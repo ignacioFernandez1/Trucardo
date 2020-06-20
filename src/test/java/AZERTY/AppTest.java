@@ -129,8 +129,8 @@ public class AppTest
 
     @Test
     public void cartaMayorJugador0() {
-        Reglas r = new ReglasTrad(new Partida(15, "test",false));
-       int v = r.mayorCarta(new Carta (Carta.Valor.Siete, Carta.Palo.Basto),new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
+        Reglas r = new ReglasTrad();
+        int v = r.mayorCarta(new Carta (Carta.Valor.Siete, Carta.Palo.Basto),new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
         assertEquals(0,v);
     }
 }
