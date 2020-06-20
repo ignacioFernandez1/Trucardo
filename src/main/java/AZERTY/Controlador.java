@@ -40,13 +40,23 @@ public class Controlador implements ActionListener {
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
-            else{mesa.log("QUIERO VALE CUATRO!");}
+            else{
+                mesa.log("QUIERO VALE CUATRO!");
+                mesa.log("AI: ...");
+                task.setQueHago(2);
+                executor.execute(task);
+            }
         }
         else if(b.getName().equals("RETRUCO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
-            else{mesa.log("QUIERO RETRUCO!");}
+            else{
+                mesa.log("QUIERO RETRUCO!");
+                mesa.log("AI: ...");
+                task.setQueHago(1);
+                executor.execute(task);
+            }
         }
         else if(b.getName().equals("TRUCO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
@@ -92,15 +102,30 @@ public class Controlador implements ActionListener {
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO ES TU TURNO");
             }
+            else{
+                mesa.log("AI: ...");
+                task.setQueHago(3);
+                executor.execute(task);
+            }
         }
         else if(b.getName().equals("carta2")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO ES TU TURNO");
             }
+            else{
+                mesa.log("AI: ...");
+                task.setQueHago(3);
+                executor.execute(task);
+            }
         }
         else if(b.getName().equals("carta3")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO ES TU TURNO");
+            }
+            else{
+                mesa.log("AI: ...");
+                task.setQueHago(3);
+                executor.execute(task);
             }
         }
         else if(b.getName().equals("ABANDONAR")){

@@ -13,7 +13,8 @@ public class Partida implements Sujeto{
     private int puntajeMaximo;
     private Mazo mazo;
     private boolean flor;
-    private int ronda; // ronda va de 1 a 6, si ronda%2==0 se chequea quien gano la ronda
+    private int ronda; // ronda va de 1 a 3
+    private int cartasJugadas; // si es == 2 se compara para ver quien gano y se resetea
     private boolean cantoEnCurso;
     private Reglas reglas;
 
@@ -47,6 +48,7 @@ public class Partida implements Sujeto{
         ronda = 0;
         cambiarJugador();    // siempre en la primer mano, empieza el jugador0
         ronda = 1;
+        cartasJugadas = 0;
         mazo.reiniciar();
         mazo.mezclar();
         jugador0.clearMano();
@@ -190,7 +192,7 @@ public class Partida implements Sujeto{
                 }
                 return false;
             }
-            if(ronda == 1 || ronda == 2) {
+            if(ronda == 1 && !cantoEnCurso) {
                 if (c.equals("ENVIDO") && !cantos.contains("REAL ENVIDO") && !cantos.contains("FALTA ENVIDO") && !cantos.contains("ENVIDO TOPE")) {
                     if(cantos.peek().equals("NECESITA RESPUESTA")){
                         cantos.pop();
@@ -200,13 +202,12 @@ public class Partida implements Sujeto{
                         this.cambiarJugador();
                         return true;
                     }
-                    if(!cantoEnCurso) {
-                        cantos.push(c);
-                        cantoEnCurso = true;
-                        cantos.push("NECESITA RESPUESTA");
-                        this.cambiarJugador();
-                        return true;
-                    }
+                    cantos.push(c);
+                    cantoEnCurso = true;
+                    cantos.push("NECESITA RESPUESTA");
+                    this.cambiarJugador();
+                    return true;
+
                 }
                 if(c.equals("REAL ENVIDO") && !cantos.contains("FALTA ENVIDO") && !cantos.contains("REAL ENVIDO")){
                     if(cantos.peek().equals("NECESITA RESPUESTA") && cantos.get(cantos.size()-2).equals("ENVIDO")){
@@ -216,14 +217,12 @@ public class Partida implements Sujeto{
                         this.cambiarJugador();
                         return true;
                     }
-                    if(!cantoEnCurso) {
-                        cantos.push(c);
-                        cantoEnCurso = true;
-                        cantos.push("NECESITA RESPUESTA");
-                        this.cambiarJugador();
-                        return true;
-                    }
-                    return false;
+                    cantos.push(c);
+                    cantoEnCurso = true;
+                    cantos.push("NECESITA RESPUESTA");
+                    this.cambiarJugador();
+                    return true;
+
                 }
                 if(c.equals("FALTA ENVIDO") && !cantos.contains("FALTA ENVIDO")){
                     if(cantos.peek().equals("NECESITA RESPUESTA")){
@@ -250,10 +249,22 @@ public class Partida implements Sujeto{
                 this.notificar();
                 cambiarJugadorTurno();
                 jugadorActual = jugadorTurno;
-                ronda++;
-                if(ronda%2==0){
-                    // se chequea cual es la carta mas alta de la ronda
-                    // y se guarda en estadisticas (hacer con un metodo)
+                cartasJugadas++;
+                if(cartasJugadas == 2){
+                    cartasJugadas = 0;
+                    if(reglas.mayorCarta(jugador0.getPila().get(ronda-1),jugador1.getPila().get(ronda-1)) == 0){
+                        // anotar que gano el jugador0 la ronda
+                    }
+                    else if(reglas.mayorCarta(jugador0.getPila().get(ronda-1),jugador1.getPila().get(ronda-1)) == 1){
+                        // anotar que gano el jugador1 la ronda
+                    }
+                    else{
+                        // anotar ronda parda
+                    }
+                    ronda++;
+                    if(ronda == 4){
+                        // aca se termina la mano
+                    }
                 }
                 return true;
             }
@@ -324,4 +335,12 @@ public class Partida implements Sujeto{
     public AI getJugador1(){return jugador1;}
 
     public boolean isCantoEnCurso(){return cantoEnCurso;}
+
+    public int getCartasJugadas() { return cartasJugadas; }
+
+    public Reglas getReglas() { return reglas; }
+
+    public int getRonda() {
+        return ronda;
+    }
 }

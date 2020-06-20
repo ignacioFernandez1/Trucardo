@@ -31,11 +31,11 @@ public class AppTest
     @Test
     public void testPuntos3MismoPalo() {
         Jugador jugador = new Jugador(" ");
+        jugador.addCarta(new Carta(Carta.Valor.Seis, Carta.Palo.Basto));
+        jugador.addCarta(new Carta(Carta.Valor.Cinco, Carta.Palo.Basto));
         jugador.addCarta(new Carta(Carta.Valor.Siete, Carta.Palo.Basto));
-        jugador.addCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
-        jugador.addCarta(new Carta(Carta.Valor.Doce, Carta.Palo.Basto));
         jugador.puntos();
-        assertEquals(31, jugador.getPuntos());
+        assertEquals(33, jugador.getPuntos());
     }
 
     @Test

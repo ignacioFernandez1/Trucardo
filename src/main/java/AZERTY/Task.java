@@ -22,6 +22,15 @@ public class Task implements Runnable{
         if(queHago == 0){
             ai.truco();
         }
+        else if(queHago == 1){
+            ai.retruco();
+        }
+        else if(queHago == 2){
+            ai.valeCuatro();
+        }
+        else if(queHago == 3){
+            ai.jugarCarta();
+        }
     }
 
 

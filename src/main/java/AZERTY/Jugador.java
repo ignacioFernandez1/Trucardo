@@ -77,7 +77,10 @@ public class Jugador {
         int valor1 = 0;
         if(mano.get(0).getPalo().equals(mano.get(1).getPalo()) && mano.get(0).getPalo().equals(mano.get(2).getPalo())){
             for(int i = 0; i<3;i++){
-                if(mano.get(i).getValorint() > valor0){valor0 = mano.get(i).getValorint(); }
+                if(mano.get(i).getValorint() > valor0){
+                    valor1 = valor0;
+                    valor0 = mano.get(i).getValorint();
+                }
                 else if(mano.get(i).getValorint() > valor1){valor1 = mano.get(i).getValorint();}
                 else{}
             }

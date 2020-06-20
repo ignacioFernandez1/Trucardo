@@ -1,6 +1,7 @@
 package AZERTY;
 
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class AI extends Jugador {
@@ -19,29 +20,79 @@ public class AI extends Jugador {
     public void setPartida(Partida p){partida = p;}
 
     public void truco() {
-        mesa.log("" + valorCartas);
-        if (valorCartas >= 18) {
+        if (valorCartas >= 18 && valorCartas < 23) {
             partida.jugada("QUIERO", this);
-            mesa.log("COSCU: QUIERO TRUCO");
+            mesa.log("AI: QUIERO TRUCO");
         }
-        else if (valorCartas >= 20) {
+        else if (valorCartas >= 23) {
             partida.jugada("RETRUCO", this);
-            mesa.log("COSCU: QUIERO RETRUCO!!");
+            mesa.log("AI: QUIERO RETRUCO!!");
 
         }
-
         else{
             partida.jugada("NO QUIERO",this);
-            mesa.log("COSCU: NO QUIERO TRUCO");
+            mesa.log("AI: NO QUIERO TRUCO");
+        }
+    }
+
+    public void retruco(){
+        if (valorCartas >= 22 && valorCartas < 25) {
+            partida.jugada("QUIERO", this);
+            mesa.log("AI: QUIERO RETRUCO");
+        }
+        else if (valorCartas >= 25) {
+            partida.jugada("VALE CUATRO", this);
+            mesa.log("AI: QUIERO VALE CUATRO!!");
+
+        }
+        else{
+            partida.jugada("NO QUIERO",this);
+            mesa.log("AI: NO QUIERO");
+        }
+    }
+
+    public void jugarCarta(){
+        if(partida.getCartasJugadas() == 0){
+            partida.jugada("carta1",this);
+        }
+        else{
+
+        }
+    }
+
+    public void valeCuatro(){
+        if (valorCartas >= 27) {
+            partida.jugada("QUIERO", this);
+            mesa.log("AI: QUIERO VALE CUATRO!!");
+        }
+        else{
+            partida.jugada("NO QUIERO",this);
+            mesa.log("AI: NO QUIERO");
         }
     }
 
 
+
+
     public void setValor(int valorC) {
-        for(int i = 0; i<getMano().size() ;i++){
+        Carta aux;
+        for(int i  = 0; i < getMano().size(); i++){
+            System.out.println(getMano().get(i).toString());
+        }
+        for(int i = 0; i<getMano().size()-1;i++){
+            for(int j = 0; j < getMano().size()-1; j++) {
+                if (partida.getReglas().mayorCarta(getMano().get(j), getMano().get(j + 1)) == 1) {
+                    aux = getMano().get(j);
+                    getMano().set(j, getMano().get(j+1));
+                    getMano().set(j+1,aux);
+                }
+            }
+        }
+        for(int i  = 0; i < getMano().size(); i++){
             System.out.println(getMano().get(i).toString());
         }
         valorCartas = valorC;
+
     }
 }
 
