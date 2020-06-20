@@ -39,7 +39,7 @@ public class AI extends Jugador {
 
     public void setValor(int valorC) {
         for(int i = 0; i<getMano().size() ;i++){
-            mesa.log(getMano().get(i).toString());
+            System.out.println(getMano().get(i).toString());
         }
         valorCartas = valorC;
     }
