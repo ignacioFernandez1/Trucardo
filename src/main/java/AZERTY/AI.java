@@ -16,9 +16,8 @@ public class AI extends Jugador {
 
     public void setPartida(Partida p){partida = p;}
     public void truco(){
-        mesa.log("COSCU: ......");
         partida.jugada("QUIERO",this);
-        mesa.log("QUIERO TRUCO");
+        mesa.log("AI: QUIERO TRUCO");
     }
 
 
