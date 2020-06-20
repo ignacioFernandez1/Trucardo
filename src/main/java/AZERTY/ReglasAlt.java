@@ -69,8 +69,7 @@ public class ReglasAlt implements Reglas {
     public int valorCartas(ArrayList<Carta> cartas) {
         int valor = 0;
         for(int i = 0; i<cartas.size() ;i++){
-            valor =+ orden.get(cartas.get(i));
-
+            valor += orden.get(cartas.get(i).toString());
         }
         return valor;
     }

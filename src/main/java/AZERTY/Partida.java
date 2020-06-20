@@ -58,6 +58,7 @@ public class Partida implements Sujeto{
         }
         jugador0.puntos();
         jugador1.puntos();
+        jugador1.setValor(reglas.valorCartas( jugador1.getMano()));
         iniciarRonda();
         notificar();
     }

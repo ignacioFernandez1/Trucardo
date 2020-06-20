@@ -46,7 +46,7 @@ public class Jugador {
         pila.clear();
     }
 
-    public List<Carta> getMano() {
+    public ArrayList<Carta> getMano() {
         return mano;
     }
 
