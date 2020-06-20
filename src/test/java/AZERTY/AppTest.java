@@ -121,7 +121,7 @@ public class AppTest
 
     @Test
     public void jugadaCantoEnCurso() {
-        Partida p = new Partida(15,"test",false, new AI(new Mesa(14," ",false));
+        Partida p = new Partida(15,"test",false, new AI(new Mesa(14," ",false)));
         p.iniciarMano();
         p.jugada("ENVIDO",p.getJugador0());
         assertTrue(p.isCantoEnCurso());
