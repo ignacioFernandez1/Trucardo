@@ -24,7 +24,7 @@ public class AI extends Jugador {
             partida.jugada("QUIERO", this);
             mesa.log("COSCU: QUIERO TRUCO");
         }
-        else if (valorCartas >= 25) {
+        else if (valorCartas >= 20) {
             partida.jugada("RETRUCO", this);
             mesa.log("COSCU: QUIERO RETRUCO!!");
 
