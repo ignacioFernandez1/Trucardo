@@ -72,6 +72,10 @@ public class Partida implements Sujeto{
         else { jugadorActual = jugador0;}
     }
 
+    public void cambiarJugadorTurno (){
+        if(jugadorTurno.equals(jugador0)){ jugadorTurno = jugador1;}
+        else { jugadorTurno = jugador0;}
+    }
 
     public boolean termino(){
         if (jugador0.getPuntaje() >= puntajeMaximo || jugador1.getPuntaje() >= puntajeMaximo){return true;}
@@ -237,6 +241,7 @@ public class Partida implements Sujeto{
                 jugadorTurno.getMano().remove(0);
                 jugadorTurno.addCartaPila(carta);
                 this.notificar();
+                cambiarJugadorTurno();
                 return true;
             }
             if (c.equals("carta2")) {
@@ -244,6 +249,7 @@ public class Partida implements Sujeto{
                 jugadorTurno.getMano().remove(1);
                 jugadorTurno.addCartaPila(carta);
                 this.notificar();
+                cambiarJugadorTurno();
                 return true;
             }
             if (c.equals("carta3")) {
@@ -251,6 +257,7 @@ public class Partida implements Sujeto{
                 jugadorTurno.getMano().remove(2);
                 jugadorTurno.addCartaPila(carta);
                 this.notificar();
+                cambiarJugadorTurno();
                 return true;
             }
         }

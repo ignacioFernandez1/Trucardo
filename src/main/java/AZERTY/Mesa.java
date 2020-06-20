@@ -1,5 +1,7 @@
 package AZERTY;
 
+import javafx.scene.layout.Border;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -28,6 +30,15 @@ public class Mesa extends JFrame implements Observador{
     private JLabel nombreIA;
     private JLabel puntajeMaximoTxt;
     private JLabel puntajeMaximoInt;
+    private JLabel cartaj01;
+    private JLabel cartaj02;
+    private JLabel cartaj03;
+    private JLabel cartaj11;
+    private JLabel cartaj12;
+    private JLabel cartaj13;
+    private ArrayList<JLabel> cartasEnMesa;
+    private JTextArea log;
+    private JScrollPane scroll;
 
 
     private Partida partida;
@@ -41,6 +52,7 @@ public class Mesa extends JFrame implements Observador{
         partida.registrar(this);
 
         cartas = new ArrayList<JButton>();
+        cartasEnMesa = new ArrayList<JLabel>();
 
         controlador = new Controlador(partida, this);
 
@@ -165,10 +177,55 @@ public class Mesa extends JFrame implements Observador{
         carta3.addActionListener(controlador);
         carta3.setVisible(false);
 
+        cartaj01 = new JLabel();
+        cartaj01.setBounds(190, 300, 160, 240);
+        cartaj01.setVisible(false);
+
+        cartaj02 = new JLabel();
+        cartaj02.setBounds(370, 300, 160, 240);
+        cartaj02.setVisible(false);
+
+        cartaj03 = new JLabel();
+        cartaj03.setBounds(550, 300, 160, 240);
+        cartaj03.setVisible(false);
+
+        cartaj11 = new JLabel();
+        cartaj11.setBounds(190, 30, 160, 240);
+        cartaj11.setVisible(false);
+
+        cartaj12 = new JLabel();
+        cartaj12.setBounds(370, 30, 160, 240);
+        cartaj12.setVisible(false);
+
+        cartaj13 = new JLabel();
+        cartaj13.setBounds(550, 30, 160, 240);
+        cartaj13.setVisible(false);
+
+        cartasEnMesa.add(cartaj01);
+        cartasEnMesa.add(cartaj02);
+        cartasEnMesa.add(cartaj03);
+        cartasEnMesa.add(cartaj11);
+        cartasEnMesa.add(cartaj12);
+        cartasEnMesa.add(cartaj13);
+
         cartas.add(carta1);
         cartas.add(carta2);
         cartas.add(carta3);
 
+        log = new JTextArea();
+        log.setEditable(false);
+        scroll = new JScrollPane(log);
+        scroll.setSize(360,220);
+        scroll.setBounds(800,360,360,220);
+        log.setWrapStyleWord(true);
+
+        this.add(scroll);
+        this.add(cartaj01);
+        this.add(cartaj02);
+        this.add(cartaj03);
+        this.add(cartaj11);
+        this.add(cartaj12);
+        this.add(cartaj13);
         this.add(puntajeJ);
         this.add(puntajeIA);
         this.add(nombreJugador);
@@ -213,13 +270,27 @@ public class Mesa extends JFrame implements Observador{
         for (int i = 0; i < 3; i++){
             if(i < partida.getJugador0().getMano().size()){
                 ImageIcon img = partida.getJugador0().getMano().get(i).getImg();
-                System.out.println(partida.getJugador0().getMano().get(i).toString());
                 cartas.get(i).setVisible(true);
                 cartas.get(i).setIcon(img);
             }
             else{
                 cartas.get(i).setVisible(false);
             }
+        }
+        for(int i = 0; i < 3; i++){
+            if(i < partida.getJugador0().getPila().size()){
+                ImageIcon img = partida.getJugador0().getPila().get(i).getImg();
+                cartasEnMesa.get(i).setVisible(true);
+                cartasEnMesa.get(i).setIcon(img);
+            }
+            else {cartasEnMesa.get(i).setVisible(false);}
+        }
+        for(int i = 0; i < 3; i++){
+            if(i < partida.getJugador1().getPila().size()){
+                cartasEnMesa.get(i+3).setVisible(true);
+                cartasEnMesa.get(i+3).setIcon(partida.getJugador1().getPila().get(i).getImg());
+            }
+            else {cartasEnMesa.get(i+3).setVisible(false);}
         }
     }
 
@@ -233,6 +304,12 @@ public class Mesa extends JFrame implements Observador{
 
     public void setImgCarta3(ImageIcon i){
         carta3.setIcon(i);
+    }
+
+    public void log(String s){
+        String b = log.getText();
+        String n = b + "\n" + ">>" + s;
+        log.setText(n);
     }
 }
 
