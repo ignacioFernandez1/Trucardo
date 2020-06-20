@@ -192,7 +192,7 @@ public class Partida implements Sujeto{
                 }
                 return false;
             }
-            if(ronda == 1 && !cantoEnCurso) {
+            if(ronda == 1) {
                 if (c.equals("ENVIDO") && !cantos.contains("REAL ENVIDO") && !cantos.contains("FALTA ENVIDO") && !cantos.contains("ENVIDO TOPE")) {
                     if(cantos.peek().equals("NECESITA RESPUESTA")){
                         cantos.pop();
