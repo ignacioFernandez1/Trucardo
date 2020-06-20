@@ -5,9 +5,10 @@ import java.util.ArrayList;
 public class AI extends Jugador {
 
 
-    public AI(String nombre) {
-        super(nombre);
+    public AI() {
+        super("AI");
     }
+
 
 
 

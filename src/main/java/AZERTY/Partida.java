@@ -7,7 +7,7 @@ import java.util.Stack;
 
 public class Partida implements Sujeto{
     private Jugador jugador0;
-    private Jugador jugador1;
+    private AI jugador1;
     private Jugador jugadorActual;
     private Jugador jugadorTurno;
     private int puntajeMaximo;
@@ -15,6 +15,7 @@ public class Partida implements Sujeto{
     private boolean flor;
     private int ronda;
     private boolean cantoEnCurso;
+    private Reglas reglas;
 
     private ArrayList<Observador> observers;
 
@@ -27,14 +28,14 @@ public class Partida implements Sujeto{
         this.flor=flor;
         mazo = new Mazo();
         jugador0 = new Jugador(nombre);
-        jugador1 = new Jugador("IA");
+        jugador1 = new AI();
         jugadorActual = jugador1; //Al iniciar la mano se ejecuta cambiar jugador para que en la ronda 1 empiece jugador0
         jugadorTurno = jugador0; // variable que tiene de quien es el turno de jugar carta
         cantoEnCurso = false;
         observers = new ArrayList<Observador>();
-
         cantos = new Stack<String>();
         iniciarStack();
+        reglas = new ReglasTrad(this);
 
     }
 
@@ -54,6 +55,8 @@ public class Partida implements Sujeto{
             jugadorActual.addCarta(mazo.sacarCarta());
             cambiarJugador();
         }
+        jugador0.puntos();
+        jugador1.puntos();
         iniciarRonda();
         notificar();
 
@@ -198,10 +201,9 @@ public class Partida implements Sujeto{
                     this.cambiarJugador();
                     return true;
                 }
-                if(c.equals("REAL ENVIDO") && !cantos.contains("FALTA ENVIDO") && !cantos.contains("REAL ENVIDO TOPE")){
+                if(c.equals("REAL ENVIDO") && !cantos.contains("FALTA ENVIDO") && !cantos.contains("REAL ENVIDO")){
                     if(cantos.peek().equals("NECESITA RESPUESTA")){
                         cantos.pop();
-                        cantos.push("REAL ENVIDO TOPE");
                         cantos.push(c);
                         cantos.push("NECESITA RESPUESTA");
                         this.cambiarJugador();
@@ -299,6 +301,10 @@ public class Partida implements Sujeto{
         if(c.equals("ENVIDO") || c.equals("REAL ENVIDO") || c.equals("FALTA ENVIDO")){
             // aca tambien tenemos que ver que hacer en
         }
+    }
+
+    public int cualMayor (Carta c0, Carta c1){
+        return reglas.mayorCarta(c0,c1);
     }
 
     public void cambiarQuieroE(){

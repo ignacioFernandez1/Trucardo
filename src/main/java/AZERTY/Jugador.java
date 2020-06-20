@@ -11,6 +11,7 @@ public class Jugador {
     private String nombre;
     private boolean quieroT;
     private boolean quieroE;
+    private int puntos;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
@@ -28,6 +29,7 @@ public class Jugador {
 
     public void switchQuieroE() {this.quieroE = !this.quieroE;}
 
+    public int getPuntos(){return puntos;}
 
     public int getPuntaje() {
         return puntaje;
@@ -70,7 +72,7 @@ public class Jugador {
         pila.add(c);
     }
 
-    public int puntos(){
+    public void puntos(){
         int valor0 = 0;
         int valor1 = 0;
         if(mano.get(0).getPalo().equals(mano.get(1).getPalo()) && mano.get(0).getPalo().equals(mano.get(2).getPalo())){
@@ -79,35 +81,35 @@ public class Jugador {
                 else if(mano.get(i).getValorint() > valor1){valor1 = mano.get(i).getValorint();}
                 else{}
             }
-            return valor0 + valor1 + 20;
+            puntos =  valor0 + valor1 + 20;
 
         }
         else if(mano.get(0).getPalo().equals(mano.get(1).getPalo())){
             valor0 = mano.get(0).getValorint();
             valor1 = mano.get(1).getValorint();
-            return valor0 + valor1 + 20;
+            puntos = valor0 + valor1 + 20;
 
         }
         else if(mano.get(0).getPalo().equals(mano.get(2).getPalo())){
             valor0 = mano.get(0).getValorint();
             valor1 = mano.get(2).getValorint();
-            return valor0 + valor1 + 20;
+            puntos = valor0 + valor1 + 20;
 
             }
         else if(mano.get(1).getPalo().equals(mano.get(2).getPalo())){
             valor0 = mano.get(1).getValorint();
             valor1 = mano.get(2).getValorint();
-            return valor0 + valor1 + 20;
+            puntos = valor0 + valor1 + 20;
 
             }
         else{
             if(mano.get(0).getValorint() >= mano.get(1).getValorint() && mano.get(0).getValorint() >= mano.get(2).getValorint()) {
-                return mano.get(0).getValorint();
+                puntos = mano.get(0).getValorint();
             }
             else if(mano.get(1).getValorint() >= mano.get(2).getValorint()) {
-                return mano.get(1).getValorint();
+                puntos = mano.get(1).getValorint();
             }
-            else{return mano.get(2).getValorint();}
+            else{puntos = mano.get(2).getValorint();}
             }
 
         }

@@ -34,7 +34,8 @@ public class AppTest
         jugador.addCarta(new Carta(Carta.Valor.Siete, Carta.Palo.Basto));
         jugador.addCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
         jugador.addCarta(new Carta(Carta.Valor.Doce, Carta.Palo.Basto));
-        assertEquals(31, jugador.puntos());
+        jugador.puntos();
+        assertEquals(31, jugador.getPuntos());
     }
 
     @Test
@@ -43,7 +44,8 @@ public class AppTest
         jugador.addCarta(new Carta(Carta.Valor.Siete, Carta.Palo.Basto));
         jugador.addCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Copa));
         jugador.addCarta(new Carta(Carta.Valor.Uno, Carta.Palo.Basto));
-        assertEquals(28, jugador.puntos());
+        jugador.puntos();
+        assertEquals(28, jugador.getPuntos());
     }
 
     @Test
@@ -52,7 +54,8 @@ public class AppTest
         jugador.addCarta(new Carta(Carta.Valor.Siete, Carta.Palo.Espada));
         jugador.addCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
         jugador.addCarta(new Carta(Carta.Valor.Doce, Carta.Palo.Copa));
-        assertEquals(7, jugador.puntos());
+        jugador.puntos();
+        assertEquals(7, jugador.getPuntos());
     }
 
     @Test
@@ -95,8 +98,8 @@ public class AppTest
         Partida p = new Partida(15, "test",false);
         p.iniciarMano();
         assertTrue(p.jugada("REAL ENVIDO",p.getJugador0()));
-        assertTrue(p.jugada("REAL ENVIDO",p.getJugador1()));
-        assertTrue(!p.jugada("REAL ENVIDO",p.getJugador0()));
+        assertTrue(!p.jugada("REAL ENVIDO",p.getJugador1()));
+
     }
 
     @Test
@@ -122,5 +125,12 @@ public class AppTest
         p.iniciarMano();
         p.jugada("ENVIDO",p.getJugador0());
         assertTrue(p.isCantoEnCurso());
+    }
+
+    @Test
+    public void cartaMayorJugador0() {
+        Reglas r = new ReglasTrad(new Partida(15, "test",false));
+       int v = r.mayorCarta(new Carta (Carta.Valor.Siete, Carta.Palo.Basto),new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
+        assertEquals(0,v);
     }
 }
