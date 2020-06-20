@@ -22,13 +22,13 @@ public class Partida implements Sujeto{
     private Stack<String> cantos;
 
 
-    public Partida(int puntajeMax, String nombre, boolean flor) {
+    public Partida(int puntajeMax, String nombre, boolean flor,AI ai) {
 
         puntajeMaximo = puntajeMax;
         this.flor=flor;
         mazo = new Mazo();
         jugador0 = new Jugador(nombre);
-        jugador1 = new AI();
+        jugador1 = ai;
         jugadorActual = jugador1; //Al iniciar la mano se ejecuta cambiar jugador para que en la ronda 1 empiece jugador0
         jugadorTurno = jugador0;
         cantoEnCurso = false;
@@ -320,7 +320,7 @@ public class Partida implements Sujeto{
         jugador1.switchQuieroT();
     }
 
-    public Jugador getJugador1(){return jugador1;}
+    public AI getJugador1(){return jugador1;}
 
     public boolean isCantoEnCurso(){return cantoEnCurso;}
 }
