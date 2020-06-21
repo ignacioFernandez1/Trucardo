@@ -20,4 +20,13 @@ public class Estadisticas {
 
     public int getPuntos0(){return puntos0;}
     public int getPuntos1(){return puntos1;}
+    public int getpuntos(Jugador j){
+        if(j.getNombre().equals("AI")){return puntos1;}
+        else {return puntos0;}
+    }
+
+    public void addPuntos(Jugador j, int p){
+        if(j.getNombre().equals("AI")){puntos1 += p;}
+        else {puntos0 += p;}
+    }
 }

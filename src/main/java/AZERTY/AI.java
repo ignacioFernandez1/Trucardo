@@ -2,6 +2,7 @@ package AZERTY;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class AI extends Jugador {
@@ -52,6 +53,20 @@ public class AI extends Jugador {
     }
 
     public void jugarCarta(){
+        if((!partida.getCantos().contains("ENVIDO") && !partida.getCantos().contains("REAL ENVIDO") && !partida.getCantos().contains(" FALTA ENVIDO")) && partida.getRonda() == 1){
+            if(getPuntos() >= 25 && getPuntos() < 27){
+                partida.jugada("ENVIDO", this);
+            }
+            else if(getPuntos() >= 27 && getPuntos() < 32){
+                partida.jugada(" REAL ENVIDO", this);
+            }
+            else{
+                partida.jugada("FALTA ENVIDO", this);
+            }
+        }
+        if(!partida.getCantos().contains("TRUCO")){
+            if(Math.random() > 0.5 && valorCartas > 20){partida.jugada("TRUCO", this);}
+        }
         if(partida.getCartasJugadas() == 0){
             partida.jugada("carta1",this);
         }
@@ -79,9 +94,6 @@ public class AI extends Jugador {
             mesa.log("AI: NO QUIERO");
         }
     }
-
-
-
 
     public void setValor(int valorC) {
         Carta aux;

@@ -335,7 +335,6 @@ public class Partida implements Sujeto{
 
     public synchronized void cantoQuerido() {
         cantoEnCurso = false;
-        jugadorActual = jugadorTurno;
         String c = cantos.peek();
         if(c.equals("TRUCO")){
             cantos.push("TRUCO QUERIDO");
@@ -350,10 +349,36 @@ public class Partida implements Sujeto{
             return;
         }
         if(c.equals("ENVIDO") || c.equals("REAL ENVIDO") || c.equals("FALTA ENVIDO")){
-            // que se hace cuando se termina un canto de envido
-            // yo digo que se fije cuantos cantos del tipo envido hubo y que acumule los puntos
-            // despues de eso se fija cual tiene mas y le da los puntos
+            Jugador perdedor;
+            Jugador ganador;
+            if(jugador0.getPuntos()>jugador1.getPuntos()){
+                perdedor = jugador1;
+                ganador = jugador0;
+            }
+            else if(jugador0.getPuntos()<jugador1.getPuntos()){
+                perdedor = jugador0;
+                ganador = jugador1;
+            }
+            else {
+                if(jugadorMano.equals(jugador0)){
+                    perdedor = jugador1;
+                    ganador = jugador0;
+                }
+                else{
+                    perdedor = jugador0;
+                    ganador = jugador0;
+                }
+            }
+            int puntos = 0;
+            for(int i = 1; i < cantos.size(); i++){
+                if(cantos.get(i).equals("ENVIDO")){puntos += 2;}
+                else if(cantos.get(i).equals("REAL ENVIDO")){puntos += 3;}
+            }
+            if(cantos.contains("FALTA ENVIDO")){puntos = 15 - estadisticas.getpuntos(perdedor)%15;}
+            estadisticas.addPuntos(ganador, puntos);
+            notificar();
         }
+        jugadorActual = jugadorTurno;
     }
 
     public synchronized void cantoNoQuerido() { // CAMBIAR METODO PARA APLICAR AL ENVIDO !!!!!!!!!!!!!!!
@@ -369,11 +394,37 @@ public class Partida implements Sujeto{
                 estadisticas.addPuntos(0, sumarPuntos());
                 iniciarMano();
                 return;
-
             }
         }
         if(c.equals("ENVIDO") || c.equals("REAL ENVIDO") || c.equals("FALTA ENVIDO")){
-            // aca tambien tenemos que ver que hacer en
+            Jugador perdedor;
+            Jugador ganador;
+            if(jugador0.getPuntos()>jugador1.getPuntos()){
+                perdedor = jugador1;
+                ganador = jugador0;
+            }
+            else if(jugador0.getPuntos()<jugador1.getPuntos()){
+                perdedor = jugador0;
+                ganador = jugador1;
+            }
+            else {
+                if(jugadorMano.equals(jugador0)){
+                    perdedor = jugador1;
+                    ganador = jugador0;
+                }
+                else{
+                    perdedor = jugador0;
+                    ganador = jugador0;
+                }
+            }
+            int puntos = 0;
+            for(int i = 1; i < cantos.size()-1; i++){
+                if(cantos.get(i).equals("ENVIDO")){puntos += 2;}
+                else if(cantos.get(i).equals("REAL ENVIDO")){puntos += 3;}
+            }
+            if(puntos == 0){puntos = 1;}
+            estadisticas.addPuntos(ganador, puntos);
+            notificar();
         }
         jugadorActual = jugadorTurno;
     }
