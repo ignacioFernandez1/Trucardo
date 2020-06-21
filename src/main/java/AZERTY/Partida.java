@@ -292,7 +292,7 @@ public class Partida implements Sujeto{
                         rondasGanadas[0] += 1;
                         jugadorTurno = jugador0;
                         jugadorActual = jugador0;
-                        if(rondasGanadas[0] == 2){
+                        if(rondasGanadas[0] >= 2){
                             // ver cuantos puntos gano el jugador0 por truco
                             flag = true;
                             System.out.println("gano la mano el jugador0");
@@ -303,7 +303,7 @@ public class Partida implements Sujeto{
                         rondasGanadas[1] += 1;
                         jugadorTurno = jugador1;
                         jugadorActual = jugador1;
-                        if(rondasGanadas[1] == 2){
+                        if(rondasGanadas[1] >= 2){
                             // ver cuantos puntos gano el jugador0 por truco
                             flag = true;
                             System.out.println("gano la mano el bot");
@@ -315,7 +315,26 @@ public class Partida implements Sujeto{
                         }
                     }
                     else{
-                        // anotar ronda parda
+                        rondasGanadas[0] += 1;
+                        rondasGanadas[1] += 1;
+                        jugadorTurno = jugadorMano;
+                        jugadorActual = jugadorMano;
+                        if(jugadorTurno.equals(jugador1)){
+                            task.setQueHago(3);
+                            executor.execute(task);
+                        }
+                        if(rondasGanadas[0] >= 2){
+                            // ver cuantos puntos gano el jugador0 por truco
+                            flag = true;
+                            System.out.println("gano la mano el jugador0");
+                            estadisticas.addPuntos(0,sumarPuntos());
+                        }
+                        if(rondasGanadas[1] >= 2){
+                            // ver cuantos puntos gano el jugador0 por truco
+                            flag = true;
+                            System.out.println("gano la mano el bot");
+                            estadisticas.addPuntos(1,sumarPuntos());
+                        }
                     }
                     ronda++;
                     System.out.println(ronda);
@@ -392,8 +411,13 @@ public class Partida implements Sujeto{
             if(cantos.contains("FALTA ENVIDO")){puntos = 15 - estadisticas.getpuntos(perdedor)%15;}
             estadisticas.addPuntos(ganador, puntos);
             notificar();
+            jugadorActual = jugadorTurno;
+            if(jugadorTurno.equals(jugador1)){
+                task.setQueHago(3);
+                executor.execute(task);
+            }
         }
-        jugadorActual = jugadorTurno;
+
     }
 
     public synchronized void cantoNoQuerido() { // CAMBIAR METODO PARA APLICAR AL ENVIDO !!!!!!!!!!!!!!!
@@ -412,36 +436,22 @@ public class Partida implements Sujeto{
             }
         }
         if(c.equals("ENVIDO") || c.equals("REAL ENVIDO") || c.equals("FALTA ENVIDO")){
-            Jugador perdedor;
-            Jugador ganador;
-            if(jugador0.getPuntos()>jugador1.getPuntos()){
-                perdedor = jugador1;
-                ganador = jugador0;
-            }
-            else if(jugador0.getPuntos()<jugador1.getPuntos()){
-                perdedor = jugador0;
-                ganador = jugador1;
-            }
-            else {
-                if(jugadorMano.equals(jugador0)){
-                    perdedor = jugador1;
-                    ganador = jugador0;
-                }
-                else{
-                    perdedor = jugador0;
-                    ganador = jugador0;
-                }
-            }
             int puntos = 0;
+            cambiarJugador();
             for(int i = 1; i < cantos.size()-1; i++){
                 if(cantos.get(i).equals("ENVIDO")){puntos += 2;}
                 else if(cantos.get(i).equals("REAL ENVIDO")){puntos += 3;}
             }
             if(puntos == 0){puntos = 1;}
-            estadisticas.addPuntos(ganador, puntos);
+            estadisticas.addPuntos(jugadorActual, puntos);
             notificar();
+            if(jugadorTurno.equals(jugador1)){
+                task.setQueHago(3);
+                executor.execute(task);
+            }
+            jugadorActual = jugadorTurno;
         }
-        jugadorActual = jugadorTurno;
+
     }
 
     public int cualMayor (Carta c0, Carta c1){
