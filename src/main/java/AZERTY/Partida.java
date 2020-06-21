@@ -89,11 +89,7 @@ public class Partida implements Sujeto{
             task.setQueHago(3);
             executor.execute(task);
         }
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        System.out.println(ronda);
         notificar();
     }
     private void iniciarStack(){
@@ -157,7 +153,7 @@ public class Partida implements Sujeto{
         return false;
     }*/
 
-    public boolean jugada(String c, Jugador jCantando) {
+    public synchronized boolean jugada(String c, Jugador jCantando) {
         if(jCantando.equals(jugadorActual)){
             if(c.equals("QUIERO")){
                 if(cantos.peek().equals("NECESITA RESPUESTA")) {
@@ -276,6 +272,7 @@ public class Partida implements Sujeto{
             }
         }
         if(jCantando.equals(jugadorTurno) && !cantoEnCurso) {
+            boolean flag = false;
             if (c.equals("carta1") || c.equals("carta2") || c.equals("carta3")) {
                 int i = Integer.parseInt(""+c.charAt(5)) - 1;
                 Carta carta = jugadorTurno.getMano().get(i);
@@ -293,7 +290,7 @@ public class Partida implements Sujeto{
                         jugadorActual = jugador0;
                         if(rondasGanadas[0] == 2){
                             // ver cuantos puntos gano el jugador0 por truco
-                            iniciarMano();
+                            flag = true;
                             System.out.println("gano la mano el jugador0");
                         }
                     }
@@ -303,7 +300,7 @@ public class Partida implements Sujeto{
                         jugadorActual = jugador1;
                         if(rondasGanadas[1] == 2){
                             // ver cuantos puntos gano el jugador0 por truco
-                            iniciarMano();
+                            flag = true;
                             System.out.println("gano la mano el bot");
                         }
                         else{
@@ -315,8 +312,11 @@ public class Partida implements Sujeto{
                         // anotar ronda parda
                     }
                     ronda++;
-                    if(ronda == 4){
+                    System.out.println(ronda);
+                    if(ronda == 4 || flag){
                         // aca se termina la mano
+                        iniciarMano();
+                        return true;
                     }
                 }
                 return true;
