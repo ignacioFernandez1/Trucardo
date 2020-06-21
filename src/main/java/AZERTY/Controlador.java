@@ -95,8 +95,7 @@ public class Controlador implements ActionListener {
 
         }
         else if(b.getName().equals("DETALLES")){
-            //
-            //
+             //
         }
         else if(b.getName().equals("carta1")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){

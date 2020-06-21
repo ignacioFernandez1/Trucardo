@@ -56,7 +56,16 @@ public class AI extends Jugador {
             partida.jugada("carta1",this);
         }
         else{
-
+            int j = getMano().size()-1;
+            for(int i = getMano().size()-1; i >=0 ; i--){
+                if(partida.getReglas().mayorCarta(getMano().get(i),partida.getJugador0().getUltimaenPila()) == 0){
+                    // si la carta en la mano de la IA es mayor a la ultima carta que jugo el jugador
+                    j = i;
+                    break;
+                }
+            }
+            j += 1;
+            partida.jugada("carta"+String.valueOf(j),this);
         }
     }
 

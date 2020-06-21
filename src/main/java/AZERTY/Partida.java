@@ -3,6 +3,9 @@ package AZERTY;
 
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 
 public class Partida implements Sujeto{
@@ -10,6 +13,7 @@ public class Partida implements Sujeto{
     private AI jugador1;
     private Jugador jugadorActual;
     private Jugador jugadorTurno;
+    private Jugador jugadorMano;
     private int puntajeMaximo;
     private Mazo mazo;
     private boolean flor;
@@ -17,6 +21,9 @@ public class Partida implements Sujeto{
     private int cartasJugadas; // si es == 2 se compara para ver quien gano y se resetea
     private boolean cantoEnCurso;
     private Reglas reglas;
+    private int[] rondasGanadas;
+    private Task task;
+    private ThreadPoolExecutor executor;
 
     private ArrayList<Observador> observers;
 
@@ -30,23 +37,39 @@ public class Partida implements Sujeto{
         mazo = new Mazo();
         jugador0 = new Jugador(nombre);
         jugador1 = ai;
-        jugadorActual = jugador1; //Al iniciar la mano se ejecuta cambiar jugador para que en la ronda 1 empiece jugador0
+        jugadorActual = jugador0; //Al iniciar la mano se ejecuta cambiar jugador para que en la ronda 1 empiece jugador0
         jugadorTurno = jugador0;
+        jugadorMano = jugador1; // arranca en jugador1 para que cuando se ejecute iniciar mano, la primera mano arranque el jugador0
         cantoEnCurso = false;
         observers = new ArrayList<Observador>();
         cantos = new Stack<String>();
-        iniciarStack();
         reglas = new ReglasTrad();
-
+        rondasGanadas = new int[2];
+        rondasGanadas[0] = 0;
+        rondasGanadas[1] = 0;
+        task = new Task(this.getJugador1());
+        executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
     }
 
     public void iniciarRonda(){
         //jugadorActual.actuar(ronda);
     }
 
+    private void cambiarJugadorMano(){
+        if(jugadorMano.equals(jugador0)){ jugadorMano = jugador1;}
+        else { jugadorMano = jugador0;}
+    }
+
     public void iniciarMano() {
+        iniciarStack();
+        cantoEnCurso = false;
+        rondasGanadas[0] = 0;
+        rondasGanadas[1] = 0;
         ronda = 0;
-        cambiarJugador();    // siempre en la primer mano, empieza el jugador0
+        cartasJugadas = 0;
+        cambiarJugadorMano();
+        jugadorActual = jugadorMano;
+        jugadorTurno = jugadorMano;
         ronda = 1;
         cartasJugadas = 0;
         mazo.reiniciar();
@@ -61,10 +84,22 @@ public class Partida implements Sujeto{
         jugador0.puntos();
         jugador1.puntos();
         jugador1.setValor(reglas.valorCartas( jugador1.getMano()));
-        iniciarRonda();
+        notificar();
+        if(jugadorTurno.equals(jugador1)){
+            task.setQueHago(3);
+            executor.execute(task);
+        }
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         notificar();
     }
-    private void iniciarStack(){cantos.push("-");}
+    private void iniciarStack(){
+        cantos.clear();
+        cantos.push("-");
+    }
 
     public void iniciarPartida(){
         iniciarMano();
@@ -253,10 +288,28 @@ public class Partida implements Sujeto{
                 if(cartasJugadas == 2){
                     cartasJugadas = 0;
                     if(reglas.mayorCarta(jugador0.getPila().get(ronda-1),jugador1.getPila().get(ronda-1)) == 0){
-                        // anotar que gano el jugador0 la ronda
+                        rondasGanadas[0] += 1;
+                        jugadorTurno = jugador0;
+                        jugadorActual = jugador0;
+                        if(rondasGanadas[0] == 2){
+                            // ver cuantos puntos gano el jugador0 por truco
+                            iniciarMano();
+                            System.out.println("gano la mano el jugador0");
+                        }
                     }
                     else if(reglas.mayorCarta(jugador0.getPila().get(ronda-1),jugador1.getPila().get(ronda-1)) == 1){
-                        // anotar que gano el jugador1 la ronda
+                        rondasGanadas[1] += 1;
+                        jugadorTurno = jugador1;
+                        jugadorActual = jugador1;
+                        if(rondasGanadas[1] == 2){
+                            // ver cuantos puntos gano el jugador0 por truco
+                            iniciarMano();
+                            System.out.println("gano la mano el bot");
+                        }
+                        else{
+                            task.setQueHago(3);
+                            executor.execute(task);
+                        }
                     }
                     else{
                         // anotar ronda parda

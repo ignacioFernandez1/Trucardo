@@ -118,5 +118,8 @@ public class Jugador {
         }
 
     public ArrayList<Carta> getPila() { return pila; }
+
+    public Carta getUltimaenPila(){return pila.get(pila.size()-1);}
+
 }
 
