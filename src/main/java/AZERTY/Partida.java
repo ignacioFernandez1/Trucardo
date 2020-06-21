@@ -1,6 +1,7 @@
 package AZERTY;
 
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Stack;
 import java.util.concurrent.Executors;
@@ -274,6 +275,11 @@ public class Partida implements Sujeto{
                     return true;
                 }
             }
+            if(c.equals("ME VOY")){
+                estadisticas.addPuntos(1,sumarPuntos());
+                terminarPartida();
+                iniciarMano();
+            }
         }
         if(jCantando.equals(jugadorTurno) && !cantoEnCurso) {
             boolean flag = false;
@@ -297,6 +303,7 @@ public class Partida implements Sujeto{
                             flag = true;
                             System.out.println("gano la mano el jugador0");
                             estadisticas.addPuntos(0,sumarPuntos());
+                            terminarPartida();
                         }
                     }
                     else if(reglas.mayorCarta(jugador0.getPila().get(ronda-1),jugador1.getPila().get(ronda-1)) == 1){
@@ -308,6 +315,7 @@ public class Partida implements Sujeto{
                             flag = true;
                             System.out.println("gano la mano el bot");
                             estadisticas.addPuntos(1,sumarPuntos());
+                            terminarPartida();
                         }
                         else{
                             task.setQueHago(3);
@@ -328,12 +336,14 @@ public class Partida implements Sujeto{
                             flag = true;
                             System.out.println("gano la mano el jugador0");
                             estadisticas.addPuntos(0,sumarPuntos());
+                            terminarPartida();
                         }
                         if(rondasGanadas[1] >= 2){
                             // ver cuantos puntos gano el jugador0 por truco
                             flag = true;
                             System.out.println("gano la mano el bot");
                             estadisticas.addPuntos(1,sumarPuntos());
+                            terminarPartida();
                         }
                     }
                     ronda++;
@@ -410,6 +420,7 @@ public class Partida implements Sujeto{
             }
             if(cantos.contains("FALTA ENVIDO")){puntos = 15 - estadisticas.getpuntos(perdedor)%15;}
             estadisticas.addPuntos(ganador, puntos);
+            terminarPartida();
             notificar();
             jugadorActual = jugadorTurno;
             if(jugadorTurno.equals(jugador1)){
@@ -426,11 +437,13 @@ public class Partida implements Sujeto{
         if (c.equals("TRUCO") || c.equals("RETRUCO")  || c.equals("VALE CUATRO")) {
             if(jugadorActual.equals(jugador0)) {
                 estadisticas.addPuntos(1, sumarPuntos());
+                terminarPartida();
                 iniciarMano();
                 return;
             }
             else{
                 estadisticas.addPuntos(0, sumarPuntos());
+                terminarPartida();
                 iniciarMano();
                 return;
             }
@@ -444,6 +457,7 @@ public class Partida implements Sujeto{
             }
             if(puntos == 0){puntos = 1;}
             estadisticas.addPuntos(jugadorActual, puntos);
+            terminarPartida();
             notificar();
             if(jugadorTurno.equals(jugador1)){
                 task.setQueHago(3);
@@ -451,7 +465,6 @@ public class Partida implements Sujeto{
             }
             jugadorActual = jugadorTurno;
         }
-
     }
 
     public int cualMayor (Carta c0, Carta c1){
@@ -495,4 +508,28 @@ public class Partida implements Sujeto{
 
     public Estadisticas getEstadisticas(){return estadisticas;}
     public Stack<String> getCantos(){return cantos;}
+    public void terminarPartida(){
+        if(estadisticas.getPuntos0() >= puntajeMaximo) {
+            System.out.println("GANASTE!!");
+            int confirmed = JOptionPane.showConfirmDialog(null,
+                    "Le ganaste al BOT "+estadisticas.getPuntos0()+" a "+estadisticas.getPuntos1(), "GANASTE",
+                    JOptionPane.OK_OPTION);
+            if (confirmed == JOptionPane.OK_OPTION) {
+                String[] args = {};
+                // No inicia el gif de trucardo
+                System.exit(0);
+            }
+        }
+        if(estadisticas.getPuntos0() >= puntajeMaximo){
+            System.out.println("PERDISTE!!");
+            int confirmed = JOptionPane.showConfirmDialog(null,
+                    "Perdiste contra el BOT "+estadisticas.getPuntos0()+" a "+estadisticas.getPuntos1(), "PERDISTE",
+                    JOptionPane.OK_OPTION);
+            if (confirmed == JOptionPane.OK_OPTION) {
+                String[] args = {};
+                // No inicia el gif de trucardo
+                System.exit(0);
+            }
+        }
+    }
 }
