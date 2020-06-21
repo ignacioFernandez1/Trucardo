@@ -338,14 +338,29 @@ public class Partida implements Sujeto{
         String c = cantos.peek();
         if(c.equals("TRUCO")){
             cantos.push("TRUCO QUERIDO");
+            jugadorActual = jugadorTurno;
+            if(jugadorTurno.equals(jugador1)){
+                task.setQueHago(3);
+                executor.execute(task);
+            }
             return;
         }
         if(c.equals("RETRUCO")) {
             cantos.push("RETRUCO QUERIDO");
+            jugadorActual = jugadorTurno;
+            if(jugadorTurno.equals(jugador1)){
+                task.setQueHago(3);
+                executor.execute(task);
+            }
             return;
         }
         if (c.equals("VALE CUATRO")) {
             cantos.push("VALE CUATRO QUERIDO");
+            jugadorActual = jugadorTurno;
+            if(jugadorTurno.equals(jugador1)){
+                task.setQueHago(3);
+                executor.execute(task);
+            }
             return;
         }
         if(c.equals("ENVIDO") || c.equals("REAL ENVIDO") || c.equals("FALTA ENVIDO")){
