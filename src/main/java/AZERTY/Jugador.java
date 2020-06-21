@@ -121,5 +121,8 @@ public class Jugador {
 
     public Carta getUltimaenPila(){return pila.get(pila.size()-1);}
 
+    public String getNombre() {
+        return nombre;
+    }
 }
 
