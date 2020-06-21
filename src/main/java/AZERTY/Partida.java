@@ -24,6 +24,7 @@ public class Partida implements Sujeto{
     private int[] rondasGanadas;
     private Task task;
     private ThreadPoolExecutor executor;
+    private Estadisticas estadisticas;
 
     private ArrayList<Observador> observers;
 
@@ -49,6 +50,7 @@ public class Partida implements Sujeto{
         rondasGanadas[1] = 0;
         task = new Task(this.getJugador1());
         executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
+        estadisticas = new Estadisticas();
     }
 
     public void iniciarRonda(){
@@ -195,6 +197,7 @@ public class Partida implements Sujeto{
                 }
                 if(cantos.peek().equals("NECESITA RESPUESTA") && cantos.get(cantos.size()-2).equals("TRUCO")){
                     cantos.pop();
+                    cantos.push("TRUCO QUERIDO");
                     cantos.push(c);
                     cantos.push("NECESITA RESPUESTA");
                     this.cambiarQuieroT();
@@ -215,6 +218,7 @@ public class Partida implements Sujeto{
                 }
                 if(cantos.peek().equals("NECESITA RESPUESTA") && cantos.get(cantos.size()-2).equals("RETRUCO")){
                     cantos.pop();
+                    cantos.push("RETRUCO QUERIDO");
                     cantos.push(c);
                     cantos.push("NECESITA RESPUESTA");
                     this.cambiarQuieroT();
@@ -292,6 +296,7 @@ public class Partida implements Sujeto{
                             // ver cuantos puntos gano el jugador0 por truco
                             flag = true;
                             System.out.println("gano la mano el jugador0");
+                            estadisticas.addPuntos(0,sumarPuntos());
                         }
                     }
                     else if(reglas.mayorCarta(jugador0.getPila().get(ronda-1),jugador1.getPila().get(ronda-1)) == 1){
@@ -302,6 +307,7 @@ public class Partida implements Sujeto{
                             // ver cuantos puntos gano el jugador0 por truco
                             flag = true;
                             System.out.println("gano la mano el bot");
+                            estadisticas.addPuntos(1,sumarPuntos());
                         }
                         else{
                             task.setQueHago(3);
@@ -396,4 +402,19 @@ public class Partida implements Sujeto{
     public int getRonda() {
         return ronda;
     }
+
+    private int sumarPuntos(){
+        if(cantos.contains("TRUCO QUERIDO")){
+            return 2;
+        }
+        if(cantos.contains("RETRUCO QUERIDO")){
+            return 3;
+        }
+        if(cantos.contains("VALE CUATRO QUERIDO")){
+            return 4;
+        }
+        return 1;
+    }
+
+    public Estadisticas getEstadisticas(){return estadisticas;}
 }

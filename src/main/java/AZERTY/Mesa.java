@@ -289,6 +289,10 @@ public class Mesa extends JFrame implements Observador{
             }
             else {cartasEnMesa.get(i+3).setVisible(false);}
         }
+
+        // actualizacion de puntos
+        puntajeJ.setText(String.valueOf(partida.getEstadisticas().getPuntos0()));
+        puntajeIA.setText(String.valueOf(partida.getEstadisticas().getPuntos1()));
     }
 
     public void setImgCarta1(ImageIcon i){
