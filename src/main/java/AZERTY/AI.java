@@ -42,7 +42,7 @@ public class AI extends Jugador {
         }
         else if (valorCartas >= 25) {
             partida.jugada("VALE CUATRO", this);
-            mesa.log("AI: QUIERO VALE CUATRO!!");
+            mesa.log("AI: QUIERO!!");
 
         }
         else{

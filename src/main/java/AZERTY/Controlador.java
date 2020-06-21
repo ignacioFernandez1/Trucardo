@@ -39,6 +39,7 @@ public class Controlador implements ActionListener {
         else if(b.getName().equals("VALE CUATRO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
+                System.out.println(partida.getCantos().toString());
             }
             else{
                 mesa.log("QUIERO VALE CUATRO!");

@@ -333,7 +333,7 @@ public class Partida implements Sujeto{
 
     //public void cantoIA(String c) { cantos.push(c); }
 
-    public void cantoQuerido() {
+    public synchronized void cantoQuerido() {
         cantoEnCurso = false;
         jugadorActual = jugadorTurno;
         String c = cantos.peek();
@@ -356,25 +356,26 @@ public class Partida implements Sujeto{
         }
     }
 
-    public void cantoNoQuerido() { // CAMBIAR METODO PARA APLICAR AL ENVIDO !!!!!!!!!!!!!!!
+    public synchronized void cantoNoQuerido() { // CAMBIAR METODO PARA APLICAR AL ENVIDO !!!!!!!!!!!!!!!
         cantoEnCurso = false;
         String c = cantos.peek();
-        jugadorActual = jugadorTurno;
-        if (c.equals("TRUCO")) {
-            cantos.push("TRUCO NO QUERIDO");
-            return;
-        }
-        if (c.equals("RETRUCO")) {
-            cantos.push("RETRUCO NO QUERIDO");
-            return;
-        }
-        if (c.equals("VALE CUATRO")) {
-            cantos.push("VALE CUATRO NO QUERIDO");
-            return;
+        if (c.equals("TRUCO") || c.equals("RETRUCO")  || c.equals("VALE CUATRO")) {
+            if(jugadorActual.equals(jugador0)) {
+                estadisticas.addPuntos(1, sumarPuntos());
+                iniciarMano();
+                return;
+            }
+            else{
+                estadisticas.addPuntos(0, sumarPuntos());
+                iniciarMano();
+                return;
+
+            }
         }
         if(c.equals("ENVIDO") || c.equals("REAL ENVIDO") || c.equals("FALTA ENVIDO")){
             // aca tambien tenemos que ver que hacer en
         }
+        jugadorActual = jugadorTurno;
     }
 
     public int cualMayor (Carta c0, Carta c1){
@@ -404,17 +405,18 @@ public class Partida implements Sujeto{
     }
 
     private int sumarPuntos(){
-        if(cantos.contains("TRUCO QUERIDO")){
-            return 2;
+        if(cantos.contains("VALE CUATRO QUERIDO")){
+            return 4;
         }
         if(cantos.contains("RETRUCO QUERIDO")){
             return 3;
         }
-        if(cantos.contains("VALE CUATRO QUERIDO")){
-            return 4;
+        if(cantos.contains("TRUCO QUERIDO")){
+            return 2;
         }
         return 1;
     }
 
     public Estadisticas getEstadisticas(){return estadisticas;}
+    public Stack<String> getCantos(){return cantos;}
 }
