@@ -40,10 +40,13 @@ public class Mesa extends JFrame implements Observador{
 
 
     private Partida partida;
+    private Detalles detalle;
 
     public Mesa(int puntajeMax, String nombre, boolean flor) {
         AI ai = new AI(this);
         partida = new Partida (puntajeMax, nombre, flor, ai);
+        detalle = new Detalles(partida);
+        detalle.crear();
         ai.setPartida(partida);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
@@ -312,6 +315,8 @@ public class Mesa extends JFrame implements Observador{
         String n = b + "\n" + ">>" + s;
         log.setText(n);
     }
+    public void abrirDetalles(){detalle.abrir();}
+
 }
 
 
