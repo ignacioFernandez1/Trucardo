@@ -80,8 +80,115 @@ public class AI extends Jugador {
         }
     }
 
+    public void envido () {
+        if (getPuntos() >= 23 && getPuntos() < 28) {
+            partida.jugada("QUIERO", this);
+            mesa.log("AI: QUIERO ENVIDO");
+        }
+        else if (getPuntos() >= 28) {
+            partida.jugada("ENVIDO", this);
+            mesa.log("AI: ENVIDO DIJO LA MUDA!!");
 
+        }
+        else{
+            partida.jugada("NO QUIERO",this);
+            mesa.log("AI: NO QUIERO ENVIDO PA");
+        }
 
+    }
+
+    public void envidoEnvido () {
+        if (getPuntos() >= 27 && getPuntos() < 30) {
+            partida.jugada("QUIERO", this);
+            mesa.log("AI: QUIERO");
+        }
+        else if (getPuntos() >= 29 && getPuntos() < 33) {
+            partida.jugada("REAL ENVIDO", this);
+            mesa.log("AI: REAL ENVIDO DIJO EL GAUCHO!!");
+
+        }
+        else if (getPuntos() >= 33) {
+            partida.jugada("FALTA ENVIDO", this);
+            mesa.log("AI: FALTA ENVIDO CARAJO!");
+
+        }
+
+        else{
+            partida.jugada("NO QUIERO",this);
+            mesa.log("AI: NO QUIERO");
+        }
+
+    }
+
+    public void realEnvido () {
+        if (getPuntos() >= 26 && getPuntos() < 30) {
+            partida.jugada("QUIERO", this);
+            mesa.log("AI: QUIERO");
+        }
+
+        else if (getPuntos() >= 30) {
+            partida.jugada("FALTA ENVIDO", this);
+            mesa.log("AI: FALTA ENVIDO CARAJO!");
+
+        }
+
+        else{
+            partida.jugada("NO QUIERO",this);
+            mesa.log("AI: QUE BUA QUERE, NO QUIERO");
+        }
+
+    }
+
+    public void envidoRealEnvido () {
+        if (getPuntos() >= 27 && getPuntos() < 31) {
+            partida.jugada("QUIERO", this);
+            mesa.log("AI: QUIERO");
+        }
+
+        else if (getPuntos() >= 31) {
+            partida.jugada("FALTA ENVIDO", this);
+            mesa.log("AI: FALTA ENVIDO CARAJO!");
+
+        }
+
+        else{
+            partida.jugada("NO QUIERO",this);
+            mesa.log("AI: QUE BUA QUERE, NO QUIERO");
+        }
+
+    }
+
+    public void envidoEnvidoRealEnvido () {
+        if (getPuntos() >= 29 && getPuntos() < 32) {
+            partida.jugada("QUIERO", this);
+            mesa.log("AI: EPA CHE, QUIERO");
+        }
+
+        else if (getPuntos() >= 32 ) {
+            partida.jugada("FALTA ENVIDO", this);
+            mesa.log("AI: FALTA ENVIDO CARAJO!");
+
+        }
+
+        else{
+            partida.jugada("NO QUIERO",this);
+            mesa.log("AI: TAS RE LOCO, NO QUIERO");
+        }
+
+    }
+
+    public void faltaEnvido () {
+        if (getPuntos() >= 29) {
+            partida.jugada("QUIERO", this);
+            mesa.log("AI: ME LA RE BANCO, QUIERO!");
+        }
+
+        else{
+            partida.jugada("NO QUIERO",this);
+            mesa.log("AI: QUE?!... NO QUIERO");
+        }
+
+    }
 
     public void setValor(int valorC) {
         Carta aux;
