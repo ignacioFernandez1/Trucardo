@@ -31,6 +31,24 @@ public class Task implements Runnable{
         else if(queHago == 3){
             ai.jugarCarta();
         }
+        else if(queHago == 4){
+            ai.envido();
+        }
+        else if(queHago == 5){
+            ai.envidoEnvido();
+        }
+        else if(queHago == 6){
+            ai.envidoRealEnvido();
+        }
+        else if(queHago == 7){
+            ai.envidoEnvidoRealEnvido();
+        }
+        else if(queHago == 8){
+            ai.realEnvido();
+        }
+        else if(queHago == 9){
+            ai.faltaEnvido();
+        }
     }
 
 

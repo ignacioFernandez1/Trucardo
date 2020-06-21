@@ -54,18 +54,28 @@ public class AI extends Jugador {
 
     public void jugarCarta(){
         if((!partida.getCantos().contains("ENVIDO") && !partida.getCantos().contains("REAL ENVIDO") && !partida.getCantos().contains(" FALTA ENVIDO")) && partida.getRonda() == 1){
-            if(getPuntos() >= 25 && getPuntos() < 27){
+            if(Math.random() > 0.5 && getPuntos() >= 24){
+                mesa.log("AI: ENVIDO");
                 partida.jugada("ENVIDO", this);
             }
-            else if(getPuntos() >= 27 && getPuntos() < 32){
+            else if(Math.random() > 0.4 && getPuntos() >= 27 ){
+                mesa.log("AI: REAL ENVIDO");
                 partida.jugada(" REAL ENVIDO", this);
             }
-            else{
+            else if(Math.random() > 0.5 && getPuntos() >= 32){
+                mesa.log("AI: FAAAALTA ENVIDO");
                 partida.jugada("FALTA ENVIDO", this);
+            }
+            else if (Math.random() > 0.9){
+                mesa.log("AI: Y SI TE CANTO ENVIDO?");
+                partida.jugada("ENVIDO", this);
             }
         }
         if(!partida.getCantos().contains("TRUCO")){
-            if(Math.random() > 0.5 && valorCartas > 20){partida.jugada("TRUCO", this);}
+            if(Math.random() > 0.5 && valorCartas > 20){
+                mesa.log("AI: TRUCO CARAJO");
+                partida.jugada("TRUCO", this);
+                }
         }
         if(partida.getCartasJugadas() == 0){
             partida.jugada("carta1",this);

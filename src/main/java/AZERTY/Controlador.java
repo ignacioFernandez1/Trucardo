@@ -74,19 +74,37 @@ public class Controlador implements ActionListener {
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
-            else{mesa.log("ENVIDO!");}
+            else{
+                mesa.log("ENVIDO!");
+                mesa.log("AI: ...");
+                if(partida.getCantos().contains("ENVIDO TOPE")){task.setQueHago(5);}
+                else{task.setQueHago(4);}
+                executor.execute(task);
+            }
         }
         else if(b.getName().equals("REAL ENVIDO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
-            else{mesa.log("REAL ENVIDO!");}
+            else{
+                mesa.log("REAL ENVIDO!");
+                mesa.log("AI: ...");
+                if(!partida.getCantos().contains("ENVIDO")){task.setQueHago(8);}
+                else if(partida.getCantos().contains("ENVIDO") && !partida.getCantos().contains("ENVIDO TOPE")){task.setQueHago(6);}
+                else if(partida.getCantos().contains("ENVIDO TOPE")){task.setQueHago(7);}
+                executor.execute(task);
+            }
         }
         else if(b.getName().equals("FALTA ENVIDO")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO SE PUEDE CANTAR " + b.getName());
             }
-            else{mesa.log("FALTA ENVIDO!");}
+            else{
+                mesa.log("FALTA ENVIDO!");
+                mesa.log("AI: ...");
+                task.setQueHago(9);
+                executor.execute(task);
+            }
         }
         else if(b.getName().equals("ME VOY")){
             if(!partida.jugada(b.getName(),partida.getJugador0())){
