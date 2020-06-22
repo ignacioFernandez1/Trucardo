@@ -46,10 +46,13 @@ public class Mesa extends JFrame implements Observador{
 
 
     private Partida partida;
+    private Detalles detalle;
 
     public Mesa(int puntajeMax, String nombre, boolean flor) {
         AI ai = new AI(this);
         partida = new Partida (puntajeMax, nombre, flor, ai);
+        detalle = new Detalles(partida);
+        detalle.crear();
         ai.setPartida(partida);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
@@ -288,7 +291,7 @@ public class Mesa extends JFrame implements Observador{
         partida.iniciarPartida();
     }
 
-    public static void main(String[] args){
+    public void crear(){
         Mesa mesa = new Mesa(2, "nacho",true);
         mesa.setBounds(0,0,1200,900);
         mesa.setLocationRelativeTo(null);
@@ -359,6 +362,8 @@ public class Mesa extends JFrame implements Observador{
         String n = b + "\n" + ">>" + s;
         log.setText(n);
     }
+    public void abrirDetalles(){detalle.abrir();}
+
 }
 
 

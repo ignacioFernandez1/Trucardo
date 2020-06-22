@@ -14,6 +14,7 @@ public class Controlador implements ActionListener {
     private ThreadPoolExecutor executor;
     private Task task;
 
+
     public Controlador(Partida p, Mesa m) {
         partida = p;
         mesa = m;
@@ -114,6 +115,7 @@ public class Controlador implements ActionListener {
 
         }
         else if(b.getName().equals("DETALLES")){
+              mesa.abrirDetalles();
              //
         }
         else if(b.getName().equals("carta1")){

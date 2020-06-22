@@ -135,7 +135,7 @@ public class PantallaConfig extends JFrame implements ActionListener{
                 }
 
 
-                new Mesa(puntajeMax,name, florBool);
+                new Mesa(puntajeMax,name, florBool).crear;
                 menu.dispose();
                 this.dispose();
 

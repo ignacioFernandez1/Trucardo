@@ -26,6 +26,7 @@ public class Partida implements Sujeto{
     private Task task;
     private ThreadPoolExecutor executor;
     private Estadisticas estadisticas;
+    private int manos;
 
     private ArrayList<Observador> observers;
 
@@ -33,7 +34,7 @@ public class Partida implements Sujeto{
 
 
     public Partida(int puntajeMax, String nombre, boolean flor,AI ai) {
-
+        manos = 0;
         puntajeMaximo = puntajeMax;
         this.flor=flor;
         mazo = new Mazo();
@@ -63,8 +64,10 @@ public class Partida implements Sujeto{
         else { jugadorMano = jugador0;}
     }
 
+
     public void iniciarMano() {
         iniciarStack();
+        manos++;
         cantoEnCurso = false;
         rondasGanadas[0] = 0;
         rondasGanadas[1] = 0;
@@ -276,7 +279,7 @@ public class Partida implements Sujeto{
                 }
             }
             if(c.equals("ME VOY")){
-                estadisticas.addPuntos(1,sumarPuntos());
+                estadisticas.addPuntos(1,sumarPuntos(),true);
                 terminarPartida();
                 iniciarMano();
             }
@@ -302,7 +305,7 @@ public class Partida implements Sujeto{
                             // ver cuantos puntos gano el jugador0 por truco
                             flag = true;
                             System.out.println("gano la mano el jugador0");
-                            estadisticas.addPuntos(0,sumarPuntos());
+                            estadisticas.addPuntos(0,sumarPuntos(),true);
                             terminarPartida();
                         }
                     }
@@ -314,7 +317,7 @@ public class Partida implements Sujeto{
                             // ver cuantos puntos gano el jugador0 por truco
                             flag = true;
                             System.out.println("gano la mano el bot");
-                            estadisticas.addPuntos(1,sumarPuntos());
+                            estadisticas.addPuntos(1,sumarPuntos(),true);
                             terminarPartida();
                         }
                         else{
@@ -335,14 +338,14 @@ public class Partida implements Sujeto{
                             // ver cuantos puntos gano el jugador0 por truco
                             flag = true;
                             System.out.println("gano la mano el jugador0");
-                            estadisticas.addPuntos(0,sumarPuntos());
+                            estadisticas.addPuntos(0,sumarPuntos(),true);
                             terminarPartida();
                         }
                         if(rondasGanadas[1] >= 2){
                             // ver cuantos puntos gano el jugador0 por truco
                             flag = true;
                             System.out.println("gano la mano el bot");
-                            estadisticas.addPuntos(1,sumarPuntos());
+                            estadisticas.addPuntos(1,sumarPuntos(),true);
                             terminarPartida();
                         }
                     }
@@ -420,7 +423,7 @@ public class Partida implements Sujeto{
                 else if(cantos.get(i).equals("REAL ENVIDO")){puntos += 3;}
             }
             if(cantos.contains("FALTA ENVIDO")){puntos = 15 - estadisticas.getpuntos(perdedor)%15;}
-            estadisticas.addPuntos(ganador, puntos);
+            estadisticas.addPuntos(ganador, puntos,false);
             terminarPartida();
             notificar();
             jugadorActual = jugadorTurno;
@@ -437,14 +440,14 @@ public class Partida implements Sujeto{
         String c = cantos.peek();
         if (c.equals("TRUCO") || c.equals("RETRUCO")  || c.equals("VALE CUATRO")) {
             if(jugadorActual.equals(jugador0)) {
-                estadisticas.addPuntos(1, sumarPuntos());
+                estadisticas.addPuntos(1, sumarPuntos(),true);
                 terminarPartida();
                 task.setQueHago(10);
                 executor.execute(task);
                 return;
             }
             else{
-                estadisticas.addPuntos(0, sumarPuntos());
+                estadisticas.addPuntos(0, sumarPuntos(),true);
                 terminarPartida();
                 task.setQueHago(10);
                 executor.execute(task);
@@ -459,7 +462,7 @@ public class Partida implements Sujeto{
                 else if(cantos.get(i).equals("REAL ENVIDO")){puntos += 3;}
             }
             if(puntos == 0){puntos = 1;}
-            estadisticas.addPuntos(jugadorActual, puntos);
+            estadisticas.addPuntos(jugadorActual, puntos,false);
             terminarPartida();
             notificar();
             if(jugadorTurno.equals(jugador1)){
@@ -511,6 +514,7 @@ public class Partida implements Sujeto{
 
     public Estadisticas getEstadisticas(){return estadisticas;}
     public Stack<String> getCantos(){return cantos;}
+    public int getManos() { return manos; }
     public void terminarPartida(){
         if(estadisticas.getPuntos0() >= puntajeMaximo) {
             System.out.println("GANASTE!!");
