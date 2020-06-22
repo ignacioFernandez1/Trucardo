@@ -37,6 +37,10 @@ public class Mesa extends JFrame implements Observador{
     private ArrayList<JLabel> cartasEnMesa;
     private JTextArea log;
     private JScrollPane scroll;
+    private JRadioButton tradicional;
+    private JRadioButton alternativo;
+    private ButtonGroup modo;
+    private JLabel background;
 
 
     private Partida partida;
@@ -163,6 +167,7 @@ public class Mesa extends JFrame implements Observador{
         carta1.setBounds(120, 600, 160, 240);
         carta1.addActionListener(controlador);
         carta1.setVisible(false);
+        carta1.setContentAreaFilled(false);
 
         carta2 = new JButton();
         carta2.setBorderPainted(false);
@@ -170,6 +175,7 @@ public class Mesa extends JFrame implements Observador{
         carta2.setBounds(295, 600, 160, 240);
         carta2.addActionListener(controlador);
         carta2.setVisible(false);
+        carta2.setContentAreaFilled(false);
 
         carta3 = new JButton();
         carta3.setBorderPainted(false);
@@ -177,6 +183,7 @@ public class Mesa extends JFrame implements Observador{
         carta3.setBounds(470, 600, 160, 240);
         carta3.addActionListener(controlador);
         carta3.setVisible(false);
+        carta3.setContentAreaFilled(false);
 
         cartaj01 = new JLabel();
         cartaj01.setBounds(190, 300, 160, 240);
@@ -220,6 +227,32 @@ public class Mesa extends JFrame implements Observador{
         scroll.setBounds(800,360,360,220);
         log.setWrapStyleWord(true);
 
+        tradicional = new JRadioButton("Tradicional");
+        tradicional.setName("TRADICIONAL");
+        tradicional.setBounds(950,300,100,30);
+        tradicional.setSelected(true);
+        tradicional.setContentAreaFilled(false);
+        tradicional.setBorderPainted(false);
+        tradicional.setFocusPainted(false);
+
+        alternativo = new JRadioButton("Alternativo");
+        alternativo.setName("ALTERNATIVO");
+        alternativo.setBounds(1050,300,100,30);
+        alternativo.setContentAreaFilled(false);
+        alternativo.setBorderPainted(false);
+        alternativo.setFocusPainted(false);
+
+        modo = new ButtonGroup();
+        modo.add(tradicional);
+        modo.add(alternativo);
+
+        ImageIcon back = new ImageIcon("images/backgroundMesa.png");
+        background = new JLabel(back);
+        background.setBounds(0,0,1200,900);
+
+
+        this.add(tradicional);
+        this.add(alternativo);
         this.add(scroll);
         this.add(cartaj01);
         this.add(cartaj02);
@@ -249,6 +282,7 @@ public class Mesa extends JFrame implements Observador{
         this.add(meVoy);
         this.add(detalles);
         this.add(abandonar);
+        add(background);
 
         //crear();
 
@@ -256,7 +290,7 @@ public class Mesa extends JFrame implements Observador{
     }
 
     public static void main(String[] args){
-        Mesa mesa = new Mesa(30, "assd",true);
+        Mesa mesa = new Mesa(10, "nacho",true);
         mesa.setBounds(0,0,1200,900);
         mesa.setLocationRelativeTo(null);
         mesa.setVisible(true);

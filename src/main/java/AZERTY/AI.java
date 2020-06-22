@@ -22,61 +22,79 @@ public class AI extends Jugador {
 
     public void truco() {
         if (valorCartas >= 18 && valorCartas < 23) {
-            partida.jugada("QUIERO", this);
-            mesa.log("AI: QUIERO TRUCO");
-        }
-        else if (valorCartas >= 23) {
-            partida.jugada("RETRUCO", this);
-            mesa.log("AI: QUIERO RETRUCO!!");
+            if(partida.jugada("QUIERO", this)){
+                mesa.log("AI: QUIERO TRUCO");
+            }
 
         }
+        else if (valorCartas >= 23) {
+            if(partida.jugada("RETRUCO", this)){
+                mesa.log("AI: QUIERO RETRUCO!!");
+            }
+        }
         else{
-            partida.jugada("NO QUIERO",this);
-            mesa.log("AI: NO QUIERO TRUCO");
+            if(partida.jugada("NO QUIERO",this)){
+                mesa.log("AI: NO QUIERO TRUCO");
+            }
         }
     }
 
     public void retruco(){
         if (valorCartas >= 22 && valorCartas < 25) {
-            partida.jugada("QUIERO", this);
-            mesa.log("AI: QUIERO RETRUCO");
+            if(partida.jugada("QUIERO", this)){
+                mesa.log("AI: QUIERO RETRUCO");
+            }
+
         }
         else if (valorCartas >= 25) {
-            partida.jugada("VALE CUATRO", this);
-            mesa.log("AI: QUIERO!!");
+            if(partida.jugada("VALE CUATRO", this)){
+                mesa.log("AI: QUIERO!!");
+            }
 
         }
         else{
-            partida.jugada("NO QUIERO",this);
-            mesa.log("AI: NO QUIERO");
+            if(partida.jugada("NO QUIERO",this)){
+                mesa.log("AI: NO QUIERO");
+            }
         }
     }
 
     public void jugarCarta(){
-        if((!partida.getCantos().contains("ENVIDO") && !partida.getCantos().contains("REAL ENVIDO") && !partida.getCantos().contains(" FALTA ENVIDO")) && partida.getRonda() == 1){
+        if(!partida.getCantos().contains("ENVIDO") && !partida.getCantos().contains("REAL ENVIDO") && !partida.getCantos().contains("FALTA ENVIDO") && partida.getRonda() == 1){
             if(Math.random() > 0.5 && getPuntos() >= 24){
-                mesa.log("AI: ENVIDO");
-                partida.jugada("ENVIDO", this);
+                if(partida.jugada("ENVIDO", this)){
+                    mesa.log("AI: ENVIDO");
+                }
+                return;
             }
             else if(Math.random() > 0.4 && getPuntos() >= 27 ){
-                mesa.log("AI: REAL ENVIDO");
-                partida.jugada(" REAL ENVIDO", this);
+                if(partida.jugada("REAL ENVIDO", this)){
+                    mesa.log("AI: REAL ENVIDO");
+                }
+                return;
             }
             else if(Math.random() > 0.5 && getPuntos() >= 32){
-                mesa.log("AI: FAAAALTA ENVIDO");
-                partida.jugada("FALTA ENVIDO", this);
+                if(partida.jugada("FALTA ENVIDO", this)){
+                    mesa.log("AI: FAAAALTA ENVIDO");
+                }
+                return;
             }
             else if (Math.random() > 0.9){
-                mesa.log("AI: Y SI TE CANTO ENVIDO?");
-                partida.jugada("ENVIDO", this);
+                if(partida.jugada("ENVIDO", this)){
+                    mesa.log("AI: Y SI TE CANTO ENVIDO?");
+                }
+                return;
             }
         }
         if(!partida.getCantos().contains("TRUCO")){
             if(Math.random() > 0.5 && valorCartas > 20){
-                mesa.log("AI: TRUCO CARAJO");
-                partida.jugada("TRUCO", this);
+                if(partida.jugada("TRUCO", this)){
+                    mesa.log("AI: TRUCO CARAJO");
                 }
+                return;
+            }
         }
+
         if(partida.getCartasJugadas() == 0){
             partida.jugada("carta1",this);
         }

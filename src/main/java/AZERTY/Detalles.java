@@ -39,9 +39,16 @@ public class Detalles extends JFrame implements Observador {
         fondo = new JLabel(fondo_img);
         fondo.setBounds(-10,0,470,600);
 
+        truco0.add(new JLabel(""+partida.getEstadisticas().getTruco0()));
+        truco0.get(0).setBounds(50, 110, 50, 50);
+        truco0.get(0).setFont(new Font("Arial",0,20));
+        truco0.get(0).setForeground(new Color(0,0,0));
+        truco0.get(0).setVisible(false);
+
+        this.add(truco0.get(0));
         this.add(nombreJugador);
         this.add(nombreAI);
-        this.add(fondo);
+        //this.add(fondo);
 
        // this.crear();
 
@@ -56,15 +63,20 @@ public class Detalles extends JFrame implements Observador {
         d.setResizable(false);
     }
 
-    public void abrir(){d.setVisible(true);}
+    public void abrir(){d.setVisible(true);
+        truco0.get(0).setVisible(true);
+
+
+    }
     @Override
     public void actualizar() {
         if(partida.getManos() > i){
             i++;
             truco0.add(new JLabel(""+partida.getEstadisticas().getTruco0()));
-            truco0.get(i-2).setBounds(5, 110, 50, 50);
-            truco0.get(i-2).setFont(new Font("Arial",0,5));
-            truco0.get(i-2).setForeground(new Color(0,0,0));
+            truco0.get(0).setBounds(50, 110, 50, 50);
+            truco0.get(0).setFont(new Font("Arial",0,20));
+            truco0.get(0).setForeground(new Color(0,0,0));
+            this.add(truco0.get(0));
 
     }
 
