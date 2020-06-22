@@ -14,6 +14,7 @@ public class Detalles extends JFrame implements Observador {
     private int i;
     private ArrayList<JLabel> truco0;
     private Detalles d;
+    private JLabel tr01;
 
     public Detalles(Partida p) {
 
@@ -39,13 +40,17 @@ public class Detalles extends JFrame implements Observador {
         fondo = new JLabel(fondo_img);
         fondo.setBounds(-10,0,470,600);
 
-        truco0.add(new JLabel(""+partida.getEstadisticas().getTruco0()));
-        truco0.get(0).setBounds(50, 110, 50, 50);
-        truco0.get(0).setFont(new Font("Arial",0,20));
-        truco0.get(0).setForeground(new Color(0,0,0));
-        truco0.get(0).setVisible(false);
+        tr01 = new JLabel(""+partida.getEstadisticas().getTruco0());
 
-        this.add(truco0.get(0));
+
+        tr01.setBounds(50, 110, 50, 50);
+        tr01.setFont(new Font("Arial",0,20));
+        tr01.setForeground(new Color(0,0,0));
+
+        truco0.add(tr01);
+        truco0.get(0).setVisible(true);
+
+        this.add(tr01);
         this.add(nombreJugador);
         this.add(nombreAI);
         //this.add(fondo);
@@ -63,20 +68,24 @@ public class Detalles extends JFrame implements Observador {
         d.setResizable(false);
     }
 
-    public void abrir(){d.setVisible(true);
-        truco0.get(0).setVisible(true);
+    public void abrir(){
 
+        truco0.get(0).setText("hola");
+        d.setVisible(true);
 
     }
     @Override
     public void actualizar() {
         if(partida.getManos() > i){
             i++;
+            /*
             truco0.add(new JLabel(""+partida.getEstadisticas().getTruco0()));
             truco0.get(0).setBounds(50, 110, 50, 50);
             truco0.get(0).setFont(new Font("Arial",0,20));
             truco0.get(0).setForeground(new Color(0,0,0));
             this.add(truco0.get(0));
+
+             */
 
     }
 
