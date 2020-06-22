@@ -119,7 +119,7 @@ public class Controlador implements ActionListener {
              //
         }
         else if(b.getName().equals("carta1")){
-            if(!partida.jugada(b.getName(),partida.getJugador0())){
+            if(!partida.isAvailable() || !partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO ES TU TURNO");
             }
             else{
@@ -129,7 +129,7 @@ public class Controlador implements ActionListener {
             }
         }
         else if(b.getName().equals("carta2")){
-            if(!partida.jugada(b.getName(),partida.getJugador0())){
+            if(!partida.isAvailable() || !partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO ES TU TURNO");
             }
             else{
@@ -139,7 +139,7 @@ public class Controlador implements ActionListener {
             }
         }
         else if(b.getName().equals("carta3")){
-            if(!partida.jugada(b.getName(),partida.getJugador0())){
+            if(!partida.isAvailable() || !partida.jugada(b.getName(),partida.getJugador0())){
                 mesa.log("NO ES TU TURNO");
             }
             else{
