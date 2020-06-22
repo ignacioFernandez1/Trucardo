@@ -50,7 +50,10 @@ public class Estadisticas {
             penvi1 = p;
             penvi0 = i;
         }
-
+        else{
+            penvi1 = i;
+            penvi0 = p;
+        }
 
 
     }

@@ -51,7 +51,7 @@ public class Detalles extends JFrame implements Observador {
 
         ImageIcon fondo_img = new ImageIcon("images/fondoDetalles.png");
         fondo = new JLabel(fondo_img);
-        fondo.setBounds(-10,0,470,600);
+        fondo.setBounds(0,0,450,600);
 
         this.add(nombreJugador);
         this.add(nombreAI);

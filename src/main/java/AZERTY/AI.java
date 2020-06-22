@@ -42,13 +42,13 @@ public class AI extends Jugador {
     public void retruco(){
         if (valorCartas >= 22 && valorCartas < 25) {
             if(partida.jugada("QUIERO", this)){
-                mesa.log("AI: QUIERO RETRUCO");
+                mesa.log("AI: QUIERO ESE RETURCO");
             }
 
         }
         else if (valorCartas >= 25) {
             if(partida.jugada("VALE CUATRO", this)){
-                mesa.log("AI: QUIERO!!");
+                mesa.log("AI: QUIERO VALE CUATRO PA!!");
             }
 
         }

@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -257,8 +259,14 @@ public class Mesa extends JFrame implements Observador{
         scroll.setSize(360,220);
         scroll.setBounds(800,360,360,220);
         log.setWrapStyleWord(true);
-        JScrollBar sb = scroll.getVerticalScrollBar();
-        sb.setValue( sb.getMaximum() );
+        scroll.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
+            public void adjustmentValueChanged(AdjustmentEvent e) {
+                e.getAdjustable().setValue(e.getAdjustable().getMaximum());
+            }
+        });
+
+        /* JScrollBar sb = scroll.getVerticalScrollBar();
+        sb.setValue( sb.getMaximum() );*/
 
 
         tradicional = new JRadioButton("Tradicional");
