@@ -50,7 +50,6 @@ public class Mesa extends JFrame implements Observador{
         AI ai = new AI(this);
         partida = new Partida (puntajeMax, nombre, flor, ai);
         detalle = new Detalles(partida);
-        detalle.crear();
         ai.setPartida(partida);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
