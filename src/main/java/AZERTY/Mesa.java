@@ -327,6 +327,12 @@ public class Mesa extends JFrame implements Observador{
         // actualizacion de puntos
         puntajeJ.setText(String.valueOf(partida.getEstadisticas().getPuntos0()));
         puntajeIA.setText(String.valueOf(partida.getEstadisticas().getPuntos1()));
+        if(tradicional.isSelected()){
+            partida.setReglas(new ReglasTrad());
+        }
+        else{
+            partida.setReglas(new ReglasAlt());
+        }
     }
 
     public void setImgCarta1(ImageIcon i){

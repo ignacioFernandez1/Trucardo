@@ -532,4 +532,5 @@ public class Partida implements Sujeto{
             }
         }
     }
+    public void setReglas(Reglas reglas){this.reglas = reglas;}
 }
