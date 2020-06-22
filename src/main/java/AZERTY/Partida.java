@@ -27,6 +27,7 @@ public class Partida implements Sujeto{
     private ThreadPoolExecutor executor;
     private Estadisticas estadisticas;
     private int manos;
+    private boolean available;
 
     private ArrayList<Observador> observers;
 
@@ -66,6 +67,7 @@ public class Partida implements Sujeto{
 
 
     public void iniciarMano() {
+        available = false;
         iniciarStack();
         manos++;
         cantoEnCurso = false;
@@ -97,6 +99,7 @@ public class Partida implements Sujeto{
         }
         System.out.println(ronda);
         notificar();
+        available = true;
     }
     private void iniciarStack(){
         cantos.clear();
@@ -542,4 +545,5 @@ public class Partida implements Sujeto{
         }
     }
     public void setReglas(Reglas reglas){this.reglas = reglas;}
+    public boolean isAvailable(){return available;}
 }
