@@ -101,7 +101,6 @@ public class Mesa extends JFrame implements Observador{
 
         valeCuatro = new JButton("VALE CUATRO");
         valeCuatro.setName("VALE CUATRO");
-        valeCuatro.setName("RETRUCO");
         valeCuatro.setBackground(new Color(68, 68, 68));
         valeCuatro.setForeground(Color.WHITE);
         valeCuatro.setBounds(800, 600 + 75, 120, 30);
