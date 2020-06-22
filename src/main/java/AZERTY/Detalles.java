@@ -41,15 +41,15 @@ public class Detalles extends JFrame implements Observador {
         this.setResizable(false);
 
         nombreJugador = new JLabel(nombre);
-        nombreJugador.setBounds(70, 20, 150, 50);
+        nombreJugador.setBounds(70, 10, 150, 50);
         nombreJugador.setFont(new Font("Arial",0,20));
-        nombreJugador.setForeground(new Color(0,0,0));
+        nombreJugador.setForeground(new Color(255, 255, 255));
         nombreAI = new JLabel("AI");
-        nombreAI.setBounds(70 + 255, 20, 150, 50);
+        nombreAI.setBounds(340, 10, 150, 50);
         nombreAI.setFont(new Font("Arial",0,20));
-        nombreAI.setForeground(new Color(0,0,0));
+        nombreAI.setForeground(new Color(255, 255, 255));
 
-        ImageIcon fondo_img = new ImageIcon("images/fondoDetalles.png");
+        ImageIcon fondo_img = new ImageIcon("images/fondoDetalles1.png");
         fondo = new JLabel(fondo_img);
         fondo.setBounds(0,0,450,600);
 
@@ -76,9 +76,9 @@ public class Detalles extends JFrame implements Observador {
             this.remove(fondo);
 
             this.truco0.add(new JLabel(""+partida.getEstadisticas().getTruco0()));
-            this.truco0.get(i-2).setBounds(4, 105 + (i-2)*20, 50, 50);
+            this.truco0.get(i-2).setBounds(9, 80 + (i-2)*20, 50, 50);
             this.truco0.get(i-2).setFont(new Font("Arial",0,15));
-            this.truco0.get(i-2).setForeground(new Color(0,0,0));
+            this.truco0.get(i-2).setForeground(new Color(255, 255, 255));
             this.truco0.get(i-2).setVisible(false);
             this.add(truco0.get(i-2));
             this.truco0.get(i-2).setVisible(true);
@@ -86,9 +86,9 @@ public class Detalles extends JFrame implements Observador {
             this.add(fondo);
             this.remove(fondo);
             this.envido0.add(new JLabel(""+partida.getEstadisticas().getEnvido0()));
-            this.envido0.get(i-2).setBounds(70, 105 + (i-2)*20, 50, 50);
+            this.envido0.get(i-2).setBounds(75, 80 + (i-2)*20, 50, 50);
             this.envido0.get(i-2).setFont(new Font("Arial",0,15));
-            this.envido0.get(i-2).setForeground(new Color(0,0,0));
+            this.envido0.get(i-2).setForeground(new Color(255, 255, 255));
             this.envido0.get(i-2).setVisible(false);
             this.add(envido0.get(i-2));
             this.envido0.get(i-2).setVisible(true);
@@ -97,9 +97,9 @@ public class Detalles extends JFrame implements Observador {
 
 
             this.total0.add(new JLabel(""+partida.getEstadisticas().getPuntos0()));
-            this.total0.get(i-2).setBounds(140, 105 + (i-2)*20, 50, 50);
+            this.total0.get(i-2).setBounds(148, 80 + (i-2)*20, 50, 50);
             this.total0.get(i-2).setFont(new Font("Arial",0,15));
-            this.total0.get(i-2).setForeground(new Color(0,0,0));
+            this.total0.get(i-2).setForeground(new Color(255, 255, 255));
             this.total0.get(i-2).setVisible(false);
             this.add(total0.get(i-2));
             this.total0.get(i-2).setVisible(true);
@@ -107,9 +107,9 @@ public class Detalles extends JFrame implements Observador {
             this.remove(fondo);
 
             this.rondas.add(new JLabel(""+(partida.getManos()-1)));
-            this.rondas.get(i-2).setBounds(206, 105 + (i-2)*20, 50, 50);
+            this.rondas.get(i-2).setBounds(220, 80 + (i-2)*20, 50, 50);
             this.rondas.get(i-2).setFont(new Font("Arial",0,15));
-            this.rondas.get(i-2).setForeground(new Color(0,0,0));
+            this.rondas.get(i-2).setForeground(new Color(255, 255, 255));
             this.rondas.get(i-2).setVisible(false);
             this.add(rondas.get(i-2));
             this.rondas.get(i-2).setVisible(true);
@@ -118,9 +118,9 @@ public class Detalles extends JFrame implements Observador {
 
 
             this.truco1.add(new JLabel(""+partida.getEstadisticas().getTruco1()));
-            this.truco1.get(i-2).setBounds(258, 105 + (i-2)*20, 50, 50);
+            this.truco1.get(i-2).setBounds(258, 80 + (i-2)*20, 50, 50);
             this.truco1.get(i-2).setFont(new Font("Arial",0,15));
-            this.truco1.get(i-2).setForeground(new Color(0,0,0));
+            this.truco1.get(i-2).setForeground(new Color(255, 255, 255));
             this.truco1.get(i-2).setVisible(false);
             this.add(truco1.get(i-2));
             this.truco1.get(i-2).setVisible(true);
@@ -128,9 +128,9 @@ public class Detalles extends JFrame implements Observador {
             this.remove(fondo);
 
             this.envido1.add(new JLabel(""+partida.getEstadisticas().getEnvido1()));
-            this.envido1.get(i-2).setBounds(325, 105 + (i-2)*20, 50, 50);
+            this.envido1.get(i-2).setBounds(325, 80 + (i-2)*20, 50, 50);
             this.envido1.get(i-2).setFont(new Font("Arial",0,15));
-            this.envido1.get(i-2).setForeground(new Color(0,0,0));
+            this.envido1.get(i-2).setForeground(new Color(255, 255, 255));
             this.envido1.get(i-2).setVisible(false);
             this.add(envido1.get(i-2));
             this.envido1.get(i-2).setVisible(true);
@@ -138,9 +138,9 @@ public class Detalles extends JFrame implements Observador {
             this.add(fondo);
             this.remove(fondo);
             this.total1.add(new JLabel(""+partida.getEstadisticas().getPuntos1()));
-            this.total1.get(i-2).setBounds(395, 105 + (i-2)*20, 50, 50);
+            this.total1.get(i-2).setBounds(395, 80 + (i-2)*20, 50, 50);
             this.total1.get(i-2).setFont(new Font("Arial",0,15));
-            this.total1.get(i-2).setForeground(new Color(0,0,0));
+            this.total1.get(i-2).setForeground(new Color(255, 255, 255));
             this.total1.get(i-2).setVisible(false);
             this.add(total1.get(i-2));
             this.total1.get(i-2).setVisible(true);
