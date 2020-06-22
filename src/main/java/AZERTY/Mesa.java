@@ -2,7 +2,9 @@ package AZERTY;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Mesa extends JFrame implements Observador{
     private JButton quiero;
@@ -139,12 +141,12 @@ public class Mesa extends JFrame implements Observador{
         abandonar.addActionListener(controlador);
 
         nombreJugador = new JLabel(partida.getNombreJugador());
-        nombreJugador.setBounds(875,65,100,50);
+        nombreJugador.setBounds(890,65,200,50);
         nombreJugador.setForeground(new Color(255,255,255));
         nombreJugador.setFont(new Font("Arial",1,15));
 
         nombreIA = new JLabel("IA");
-        nombreIA.setBounds(1045,65,100,50);
+        nombreIA.setBounds(1043,65,100,50);
         nombreIA.setForeground(new Color(255,255,255));
         nombreIA.setFont(new Font("Arial",1,15));
 
@@ -287,7 +289,7 @@ public class Mesa extends JFrame implements Observador{
     }
 
     public static void main(String[] args){
-        Mesa mesa = new Mesa(10, "nacho",true);
+        Mesa mesa = new Mesa(2, "nacho",true);
         mesa.setBounds(0,0,1200,900);
         mesa.setLocationRelativeTo(null);
         mesa.setVisible(true);
@@ -332,6 +334,11 @@ public class Mesa extends JFrame implements Observador{
         }
         else{
             partida.setReglas(new ReglasAlt());
+        }
+        try {
+            TimeUnit.MILLISECONDS.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
