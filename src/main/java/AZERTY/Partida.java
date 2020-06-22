@@ -281,7 +281,9 @@ public class Partida implements Sujeto{
             if(c.equals("ME VOY")){
                 estadisticas.addPuntos(1,sumarPuntos(),true);
                 terminarPartida();
-                iniciarMano();
+                task.setQueHago(10);
+                executor.execute(task);
+                return true;
             }
         }
         if(jCantando.equals(jugadorTurno) && !cantoEnCurso) {

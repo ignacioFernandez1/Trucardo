@@ -1,6 +1,8 @@
 package AZERTY;
 
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -54,14 +56,19 @@ public class Mesa extends JFrame implements Observador{
         detalle = new Detalles(partida);
         detalle.crear();
         ai.setPartida(partida);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         partida.registrar(this);
+        setTitle("Trucardo");
+        setBackground(Color.BLACK);
 
         cartas = new ArrayList<JButton>();
         cartasEnMesa = new ArrayList<JLabel>();
 
         controlador = new Controlador(partida, this);
+
+        ImageIcon icono = new ImageIcon("images/MATIENZO_BIG.png");
+        setIconImage(icono.getImage());
 
         puntajeJ = new JLabel("0");
         puntajeJ.setBounds(900,140,100,50);
@@ -79,69 +86,93 @@ public class Mesa extends JFrame implements Observador{
 
         quiero = new JButton("QUIERO");
         quiero.setName("QUIERO");
-        quiero.setBackground(new Color(255,255,255));
         quiero.setBounds(800 + 70, 600, 120, 40);
+        quiero.setBackground(new Color(68, 68, 68));
+        quiero.setForeground(Color.WHITE);
+        quiero.setBorder(BorderFactory.createRaisedBevelBorder());
         quiero.addActionListener(controlador);
 
         noQuiero = new JButton("NO QUIERO");
         noQuiero.setName("NO QUIERO");
-        noQuiero.setBackground(new Color(255,255,255));
+        noQuiero.setBackground(new Color(68, 68, 68));
         noQuiero.setBounds(935 + 70, 600, 120, 40);
+        noQuiero.setForeground(Color.WHITE);
+        noQuiero.setBorder(BorderFactory.createRaisedBevelBorder());
         noQuiero.addActionListener(controlador);
 
         valeCuatro = new JButton("VALE CUATRO");
         valeCuatro.setName("VALE CUATRO");
-        valeCuatro.setBackground(new Color(255,255,255));
+        valeCuatro.setName("RETRUCO");
+        valeCuatro.setBackground(new Color(68, 68, 68));
+        valeCuatro.setForeground(Color.WHITE);
         valeCuatro.setBounds(800, 600 + 75, 120, 30);
+        valeCuatro.setBorder(BorderFactory.createRaisedBevelBorder());
         valeCuatro.addActionListener(controlador);
 
         retruco = new JButton("RETRUCO");
         retruco.setName("RETRUCO");
-        retruco.setBackground(new Color(255,255,255));
+        retruco.setBackground(new Color(68, 68, 68));
+        retruco.setForeground(Color.WHITE);
         retruco.setBounds(800, 650 + 75, 120, 30);
+        retruco.setBorder(BorderFactory.createRaisedBevelBorder());
         retruco.addActionListener(controlador);
 
         truco = new JButton("TRUCO");
         truco.setName("TRUCO");
-        truco.setBackground(new Color(255,255,255));
+        truco.setBackground(new Color(68, 68, 68));
+        truco.setForeground(Color.WHITE);
         truco.setBounds(800, 700 + 75, 120, 30);
+        truco.setBorder(BorderFactory.createRaisedBevelBorder());
         truco.addActionListener(controlador);
 
         envido = new JButton("ENVIDO");
         envido.setName("ENVIDO");
-        envido.setBackground(new Color(255,255,255));
+        envido.setBackground(new Color(68, 68, 68));
+        envido.setForeground(Color.WHITE);
+        envido.setBorder(BorderFactory.createRaisedBevelBorder());
         envido.setBounds(935, 700 + 75, 120, 30);
         envido.addActionListener(controlador);
 
         realEnvido = new JButton("REAL ENVIDO");
         realEnvido.setName("REAL ENVIDO");
-        realEnvido.setBackground(new Color(255,255,255));
+        realEnvido.setBackground(new Color(68, 68, 68));
+        realEnvido.setForeground(Color.WHITE);
+        realEnvido.setBorder(BorderFactory.createRaisedBevelBorder());
         realEnvido.setBounds(935, 650 + 75, 120, 30);
         realEnvido.addActionListener(controlador);
 
         faltaEnvido = new JButton("FALTA ENVIDO");
         faltaEnvido.setName("FALTA ENVIDO");
-        faltaEnvido.setBackground(new Color(255,255,255));
+        faltaEnvido.setBackground(new Color(68, 68, 68));
+        faltaEnvido.setForeground(Color.WHITE);
+        faltaEnvido.setBorder(BorderFactory.createRaisedBevelBorder());
         faltaEnvido.setBounds(935, 600 + 75, 120, 30);
         faltaEnvido.addActionListener(controlador);
 
         meVoy = new JButton("ME VOY");
         meVoy.setName("ME VOY");
-        meVoy.setBackground(new Color(255,255,255));
+        meVoy.setBackground(new Color(68, 68, 68));
+        meVoy.setForeground(Color.WHITE);
+        meVoy.setBorder(BorderFactory.createRaisedBevelBorder());
         meVoy.setBounds(1070, 650 + 75, 95, 30);
         meVoy.addActionListener(controlador);
 
         detalles = new JButton("DETALLES");
         detalles.setName("DETALLES");
-        detalles.setBackground(new Color(255,255,255));
+        detalles.setBackground(new Color(68, 68, 68));
+        detalles.setForeground(Color.WHITE);
+        detalles.setBorder(BorderFactory.createRaisedBevelBorder());
         detalles.setBounds(800, 300, 120, 30);
         detalles.addActionListener(controlador);
 
         abandonar = new JButton("ABANDONAR");
         abandonar.setName("ABANDONAR");
-        abandonar.setBackground(new Color(255,255,255));
-        abandonar.setBounds(15, 15, 120, 50);
+        abandonar.setBackground(new Color(68, 68, 68));
+        abandonar.setForeground(Color.WHITE);
+        abandonar.setBorder(BorderFactory.createRaisedBevelBorder());
+        abandonar.setBounds(15, 15, 120, 40);
         abandonar.addActionListener(controlador);
+        abandonar.setFocusPainted(false);
 
         nombreJugador = new JLabel(partida.getNombreJugador());
         nombreJugador.setBounds(890,65,200,50);
@@ -236,6 +267,7 @@ public class Mesa extends JFrame implements Observador{
         tradicional.setContentAreaFilled(false);
         tradicional.setBorderPainted(false);
         tradicional.setFocusPainted(false);
+        tradicional.setForeground(Color.WHITE);
 
         alternativo = new JRadioButton("Alternativo");
         alternativo.setName("ALTERNATIVO");
@@ -243,6 +275,7 @@ public class Mesa extends JFrame implements Observador{
         alternativo.setContentAreaFilled(false);
         alternativo.setBorderPainted(false);
         alternativo.setFocusPainted(false);
+        alternativo.setForeground(Color.WHITE);
 
         modo = new ButtonGroup();
         modo.add(tradicional);
