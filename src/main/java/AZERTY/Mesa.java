@@ -287,16 +287,17 @@ public class Mesa extends JFrame implements Observador{
         add(background);
 
         //crear();
+        setBounds(0,0,1200,900);
+        setLocationRelativeTo(null);
+        setVisible(true);
+        setResizable(false);
 
         partida.iniciarPartida();
     }
 
     public void crear(){
-        Mesa mesa = new Mesa(2, "nacho",true);
-        mesa.setBounds(0,0,1200,900);
-        mesa.setLocationRelativeTo(null);
-        mesa.setVisible(true);
-        mesa.setResizable(false);
+
+
     }
 
     @Override
