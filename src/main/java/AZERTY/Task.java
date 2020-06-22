@@ -5,10 +5,12 @@ import java.util.Random;
 public class Task implements Runnable{
     private AI ai;
     private int queHago;
+    private Partida partida;
 
-    public Task(AI ai) {
+    public Task(AI ai, Partida partida) {
         this.ai = ai;
         queHago = -1;
+        this.partida = partida;
     }
 
     @Override
@@ -48,6 +50,9 @@ public class Task implements Runnable{
         }
         else if(queHago == 9){
             ai.faltaEnvido();
+        }
+        else if(queHago == 10){
+            partida.iniciarMano();
         }
     }
 

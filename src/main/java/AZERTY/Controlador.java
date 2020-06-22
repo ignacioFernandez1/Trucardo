@@ -19,7 +19,7 @@ public class Controlador implements ActionListener {
         partida = p;
         mesa = m;
         executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
-        task = new Task(p.getJugador1());
+        task = new Task(p.getJugador1(), partida);
     }
 
     @Override

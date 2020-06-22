@@ -95,7 +95,7 @@ public class AI extends Jugador {
             }
         }
 
-        if(partida.getCartasJugadas() == 0){
+        if(partida.getCartasJugadas() == 0 || partida.getJugador0().getPila().size() == 0){
             partida.jugada("carta1",this);
         }
         else{

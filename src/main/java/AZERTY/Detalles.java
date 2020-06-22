@@ -44,7 +44,7 @@ public class Detalles extends JFrame implements Observador {
         nombreJugador.setBounds(70, 20, 150, 50);
         nombreJugador.setFont(new Font("Arial",0,20));
         nombreJugador.setForeground(new Color(0,0,0));
-        nombreAI = new JLabel("Troy");
+        nombreAI = new JLabel("AI");
         nombreAI.setBounds(70 + 255, 20, 150, 50);
         nombreAI.setFont(new Font("Arial",0,20));
         nombreAI.setForeground(new Color(0,0,0));
@@ -65,15 +65,14 @@ public class Detalles extends JFrame implements Observador {
     }
 
     public void abrir(){
-
         this.setVisible(true);
         this.toFront();
-
     }
     @Override
     public synchronized void actualizar() {
         if(partida.getManos() > i){
             i++;
+
             this.remove(fondo);
 
             this.truco0.add(new JLabel(""+partida.getEstadisticas().getTruco0()));

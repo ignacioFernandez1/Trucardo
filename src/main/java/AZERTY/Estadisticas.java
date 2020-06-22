@@ -7,6 +7,8 @@ public class Estadisticas {
     private int envido0;
     private int truco1;
     private int envido1;
+    private int penvi0;
+    private int penvi1;
 
     public Estadisticas() {
         puntos0 = 0;
@@ -21,8 +23,7 @@ public class Estadisticas {
         if(j == 0){
             if(truco){
                 truco0 = puntos;
-                envido0 = 0;
-                envido1 = 0;
+
             }
             else{envido0 = puntos;}
 
@@ -31,8 +32,6 @@ public class Estadisticas {
         else{
             if(truco){
                 truco1 = puntos;
-                envido1 = 0;
-                envido0 = 0;
             }
             else{envido1 = puntos;}
             puntos1 += puntos;
@@ -46,13 +45,21 @@ public class Estadisticas {
         else {return puntos0;}
     }
 
+    public void addPenvi(Jugador j, int p, int i){
+        if(j.getNombre().equals("AI")){
+            penvi1 = p;
+            penvi0 = i;
+        }
+
+
+
+    }
+
     public void addPuntos(Jugador j, int p,boolean truco){
         if(j.getNombre().equals("AI")){
             puntos1 += p;
             if(truco){
                 truco1 = p;
-                envido1 = 0;
-                envido0 = 0;
             }
             else{envido1 = p;}
         }
@@ -60,8 +67,6 @@ public class Estadisticas {
             puntos0 += p;
             if(truco){
                 truco0 = p;
-                envido0 = 0;
-                envido1 = 0;
             }
             else{envido0 = p;}
         }
@@ -81,5 +86,21 @@ public class Estadisticas {
 
     public int getEnvido1() {
         return envido1;
+    }
+
+    public void setEnvido0(int envido0) {
+        this.envido0 = envido0;
+    }
+
+    public void setEnvido1(int envido1) {
+        this.envido1 = envido1;
+    }
+
+    public int getPenvi0() {
+        return penvi0;
+    }
+
+    public int getPenvi1() {
+        return penvi1;
     }
 }

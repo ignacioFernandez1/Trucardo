@@ -29,6 +29,10 @@ public class PantallaConfig extends JFrame implements ActionListener{
         this.setLayout(null);
         this.setResizable(false);
 
+        ImageIcon icono = new ImageIcon("images/configIcon.png");
+        setIconImage(icono.getImage());
+        setTitle("Configuracion de partida");
+
         puntaje15 = new JRadioButton("15");
         puntaje30 = new JRadioButton("30");
         puntaje = new ButtonGroup();
@@ -109,11 +113,11 @@ public class PantallaConfig extends JFrame implements ActionListener{
                 JLabel mensaje = new JLabel("Por favor ingrese un nombre");
                 JOptionPane.showMessageDialog(null, mensaje);
             }
-            if(!puntaje15.isSelected() && !puntaje30.isSelected()){
+            else if(!puntaje15.isSelected() && !puntaje30.isSelected()){
                 JLabel mensaje = new JLabel("Por favor seleccione un puntaje maximo");
                 JOptionPane.showMessageDialog(null, mensaje);
             }
-            if(!florSi.isSelected() && !florNo.isSelected()){
+            else if(!florSi.isSelected() && !florNo.isSelected()){
                 JLabel mensaje = new JLabel("Por favor seleccione un modo de juego");
                 JOptionPane.showMessageDialog(null, mensaje);
             }
@@ -133,7 +137,6 @@ public class PantallaConfig extends JFrame implements ActionListener{
                 else {
                     florBool = false;
                 }
-
 
                 new Mesa(puntajeMax,name, florBool);
                 menu.dispose();
