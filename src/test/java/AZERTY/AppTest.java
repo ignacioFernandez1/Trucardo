@@ -134,6 +134,26 @@ public class AppTest
     }
 
     @Test
+    public void jugadaValidaRetrucoValeCuatro() {
+        AI ai = new AI(null);
+        Partida p = new Partida(15,"test",false, ai);
+        ai.setPartida(p);
+        p.iniciarMano();
+        p.jugada("TRUCO", p.getJugador0());
+        p.jugada("RETRUCO", p.getJugador1());
+        assertTrue(p.jugada("VALE CUATRO", p.getJugador0()));
+    }
+
+    @Test
+    public void jugadaValidaMeVoy() {
+        AI ai = new AI(null);
+        Partida p = new Partida(15,"test",false, ai);
+        ai.setPartida(p);
+        p.iniciarMano();
+        p.jugada("ME VOY", p.getJugador0());
+    }
+
+    @Test
     public void jugadaCantoEnCurso() {
         AI ai = new AI(null);
         Partida p = new Partida(15,"test",false, ai);
@@ -155,5 +175,45 @@ public class AppTest
         Reglas r = new ReglasAlt();
         int v = r.mayorCarta(new Carta (Carta.Valor.Siete, Carta.Palo.Basto),new Carta(Carta.Valor.Cuatro, Carta.Palo.Basto));
         assertEquals(1,v);
+    }
+
+    @Test
+    public void TresCartasEnMano() {
+        AI ai = new AI(null);
+        Partida p = new Partida(15,"test",false, ai);
+        ai.setPartida(p);
+        p.iniciarMano();
+        assertEquals(3,p.getJugador0().getMano().size());
+}
+
+    //TESTS DE INTEGRACION
+
+    @Test
+    public void testIntegracion001() {
+        AI ai = new AI(null);
+        Partida p = new Partida(15,"test",false, ai);
+        ai.setPartida(p);
+        p.iniciarMano();
+        assertEquals(3,p.getJugador0().getMano().size());
+        assertEquals(3,p.getJugador1().getMano().size());
+        assertNotNull(p.getJugador0().getCartaMano(0));
+        assertNotNull(p.getJugador0().getCartaMano(1));
+        assertNotNull(p.getJugador0().getCartaMano(2));
+        assertNotNull(p.getJugador1().getCartaMano(0));
+        assertNotNull(p.getJugador1().getCartaMano(1));
+        assertNotNull(p.getJugador1().getCartaMano(2));
+
+    }
+
+    @Test
+    public void testIntegracion002() {
+        AI ai = new AI(null);
+        Partida p = new Partida(15,"test",false, ai);
+        ai.setPartida(p);
+        p.iniciarMano();
+        p.setReglas(new ReglasTrad());
+        assertEquals(1,p.getReglas().mayorCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Copa), new Carta(Carta.Valor.Uno, Carta.Palo.Espada)));
+        p.setReglas(new ReglasAlt());
+        assertEquals(0,p.getReglas().mayorCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Copa), new Carta(Carta.Valor.Uno, Carta.Palo.Espada)));
     }
 }
