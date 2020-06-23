@@ -106,4 +106,11 @@ public class Estadisticas {
     public int getPenvi1() {
         return penvi1;
     }
+
+    public void reiniciarVar () {
+        envido0 = 0;
+        envido1 = 0;
+        truco0 = 0;
+        truco1 = 0;
+    }
 }

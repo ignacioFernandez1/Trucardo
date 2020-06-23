@@ -99,8 +99,7 @@ public class Partida implements Sujeto{
         }
         System.out.println(ronda);
         notificar();
-        estadisticas.setEnvido0(0);
-        estadisticas.setEnvido1(0);
+        estadisticas.reiniciarVar();
         available = true;
     }
     private void iniciarStack(){
