@@ -1,0 +1,64 @@
+Date : 2021-10-08 17:36:14
+Directory : c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo
+Total : 28 files,  2484 codes, 53 comments, 424 blanks, all 2961 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         19 |      2,219 |         45 |        369 |      2,633 |
+| XML      |          7 |        243 |          4 |          7 |        254 |
+| YAML     |          1 |         20 |          4 |         46 |         70 |
+| Markdown |          1 |          2 |          0 |          2 |          4 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                           | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                              |         28 |      2,484 |         53 |        424 |      2,961 |
+| .circleci                                                                                                      |          1 |         20 |          4 |         46 |         70 |
+| .idea                                                                                                          |          4 |        145 |          0 |          0 |        145 |
+| src                                                                                                            |         21 |      2,252 |         45 |        369 |      2,666 |
+| src\main                                                                                                       |         19 |      2,044 |         38 |        342 |      2,424 |
+| src\main\java                                                                                                  |         18 |      2,033 |         38 |        342 |      2,413 |
+| src\main\java\AZERTY                                                                                           |         18 |      2,033 |         38 |        342 |      2,413 |
+| src\test                                                                                                       |          2 |        208 |          7 |         27 |        242 |
+| src\test\java                                                                                                  |          1 |        186 |          7 |         27 |        220 |
+| src\test\java\AZERTY                                                                                           |          1 |        186 |          7 |         27 |        220 |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                       | language | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.circleci\config.yml                     | YAML     |         20 |          4 |         46 |         70 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.idea\misc.xml                           | XML      |          6 |          0 |          0 |          6 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.idea\modules.xml                        | XML      |          9 |          0 |          0 |          9 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.idea\uiDesigner.xml                     | XML      |        124 |          0 |          0 |        124 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.idea\vcs.xml                            | XML      |          6 |          0 |          0 |          6 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\README.md                                | Markdown |          2 |          0 |          2 |          4 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\pom.xml                                  | XML      |         65 |          4 |          7 |         76 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\AI.java             | Java     |        212 |          1 |         46 |        259 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\App.java            | Java     |          7 |          0 |          3 |         10 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Carta.java          | Java     |         43 |          0 |         15 |         58 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Controlador.java    | Java     |        154 |          2 |          8 |        164 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Detalles.java       | Java     |        129 |          0 |         24 |        153 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Estadisticas.java   | Java     |         97 |          0 |         20 |        117 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Jugador.java        | Java     |         97 |          1 |         31 |        129 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\MainMenu.java       | Java     |         87 |          1 |         11 |         99 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Mazo.java           | Java     |         43 |          8 |         16 |         67 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Mesa.java           | Java     |        345 |          5 |         62 |        412 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Observador.java     | Java     |          4 |          0 |          2 |          6 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\PantallaConfig.java | Java     |        130 |          1 |         20 |        151 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Partida.java        | Java     |        490 |         17 |         49 |        556 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Reglas.java         | Java     |          6 |          0 |          3 |          9 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\ReglasAlt.java      | Java     |         65 |          1 |         11 |         77 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\ReglasTrad.java     | Java     |         64 |          1 |         11 |         76 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Sujeto.java         | Java     |          6 |          0 |          2 |          8 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Task.java           | Java     |         54 |          0 |          8 |         62 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\main.iml                        | XML      |         11 |          0 |          0 |         11 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\test\java\AZERTY\AppTest.java        | Java     |        186 |          7 |         27 |        220 |
+| c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\test\test.iml                        | XML      |         22 |          0 |          0 |         22 |
+| Total                                                                                                          |          |      2,484 |         53 |        424 |      2,961 |
++----------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

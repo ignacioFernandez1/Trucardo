@@ -58,7 +58,6 @@ public class Mesa extends JFrame implements Observador{
         detalle = new Detalles(partida);
         ai.setPartida(partida);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(null);
         partida.registrar(this);
         setTitle("Trucardo");
         setBackground(Color.BLACK);
@@ -332,7 +331,6 @@ public class Mesa extends JFrame implements Observador{
         setBounds(0,0,1200,900);
         setLocationRelativeTo(null);
         setVisible(true);
-        setResizable(false);
 
         partida.iniciarPartida();
     }

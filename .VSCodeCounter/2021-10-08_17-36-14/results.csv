@@ -1,0 +1,30 @@
+"filename", "language", "XML", "Markdown", "Java", "YAML", "comment", "blank", "total"
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.circleci\config.yml", "YAML", 0, 0, 0, 20, 4, 46, 70
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.idea\misc.xml", "XML", 6, 0, 0, 0, 0, 0, 6
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.idea\modules.xml", "XML", 9, 0, 0, 0, 0, 0, 9
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.idea\uiDesigner.xml", "XML", 124, 0, 0, 0, 0, 0, 124
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\.idea\vcs.xml", "XML", 6, 0, 0, 0, 0, 0, 6
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\README.md", "Markdown", 0, 2, 0, 0, 0, 2, 4
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\pom.xml", "XML", 65, 0, 0, 0, 4, 7, 76
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\AI.java", "Java", 0, 0, 212, 0, 1, 46, 259
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\App.java", "Java", 0, 0, 7, 0, 0, 3, 10
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Carta.java", "Java", 0, 0, 43, 0, 0, 15, 58
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Controlador.java", "Java", 0, 0, 154, 0, 2, 8, 164
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Detalles.java", "Java", 0, 0, 129, 0, 0, 24, 153
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Estadisticas.java", "Java", 0, 0, 97, 0, 0, 20, 117
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Jugador.java", "Java", 0, 0, 97, 0, 1, 31, 129
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\MainMenu.java", "Java", 0, 0, 87, 0, 1, 11, 99
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Mazo.java", "Java", 0, 0, 43, 0, 8, 16, 67
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Mesa.java", "Java", 0, 0, 345, 0, 5, 62, 412
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Observador.java", "Java", 0, 0, 4, 0, 0, 2, 6
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\PantallaConfig.java", "Java", 0, 0, 130, 0, 1, 20, 151
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Partida.java", "Java", 0, 0, 490, 0, 17, 49, 556
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Reglas.java", "Java", 0, 0, 6, 0, 0, 3, 9
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\ReglasAlt.java", "Java", 0, 0, 65, 0, 1, 11, 77
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\ReglasTrad.java", "Java", 0, 0, 64, 0, 1, 11, 76
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Sujeto.java", "Java", 0, 0, 6, 0, 0, 2, 8
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\java\AZERTY\Task.java", "Java", 0, 0, 54, 0, 0, 8, 62
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\main\main.iml", "XML", 11, 0, 0, 0, 0, 0, 11
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\test\java\AZERTY\AppTest.java", "Java", 0, 0, 186, 0, 7, 27, 220
+"c:\Users\nacho\Documents\Facultad\4to\IngSW\Trucardo pruebas\Trucardo\src\test\test.iml", "XML", 22, 0, 0, 0, 0, 0, 22
+"Total", "-", 243, 2, 2219, 20, 53, 424, 2961

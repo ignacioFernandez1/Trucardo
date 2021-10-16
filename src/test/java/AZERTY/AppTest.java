@@ -2,6 +2,19 @@ package AZERTY;
 
 import AZERTY.Carta;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.Before;
+import java.util.Random;
+
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.powermock.api.mockito.PowerMockito; //***** cant find *****
+import org.powermock.core.classloader.annotations.PrepareForTest; //**** cant find ****
+import org.powermock.modules.junit4.PowerMockRunner; //***** cant find ****
+
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -10,6 +23,7 @@ import static org.junit.Assert.*;
 /**
  * Unit test for simple App.
  */
+@RunWith(PowerMockRunner.class)
 public class AppTest 
 {
     /**
@@ -215,5 +229,21 @@ public class AppTest
         assertEquals(1,p.getReglas().mayorCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Copa), new Carta(Carta.Valor.Uno, Carta.Palo.Espada)));
         p.setReglas(new ReglasAlt());
         assertEquals(0,p.getReglas().mayorCarta(new Carta(Carta.Valor.Cuatro, Carta.Palo.Copa), new Carta(Carta.Valor.Uno, Carta.Palo.Espada)));
+    }
+
+    @PrepareForTest(AI.class) // Preparing class under test.
+    @Test
+    public void testAIJugarCarta() {
+        // Setup mocks
+        PowerMockito.mockStatic(Math.class);
+        PowerMockito.when(Math.random()).thenReturn(0.5);
+
+        AI ai = new AI(null);
+        Partida p = new Partida(15,"test",false, ai);
+        ai.setPartida(p);
+        p.iniciarMano();
+        assertTrue(p.jugada("TRUCO", p.getJugador0()));
+        assertTrue(!p.jugada("RETRUCO",p.getJugador0())); // jugador0 no deberia poder cantar
+        assertTrue(p.jugada("RETRUCO",p.getJugador1())); // jugador1 deberia poder cantar
     }
 }
