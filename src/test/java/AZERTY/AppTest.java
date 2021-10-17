@@ -514,6 +514,28 @@ public class AppTest
     }
 
     @Test
+    public void testAINoQuieroEnvido() {
+        // Setup Mocks
+        Mesa mockMesa = Mockito.mock(Mesa.class);
+
+        AI ai = new AI(mockMesa);
+        Partida p = new Partida(15,"test",false, ai);
+        ai.setPartida(p);
+        p.iniciarMano();
+
+        ai.clearMano();
+        ai.addCarta(new Carta(Carta.Valor.Tres, Carta.Palo.Oro));
+        ai.addCarta(new Carta(Carta.Valor.Dos, Carta.Palo.Basto));
+        ai.addCarta(new Carta(Carta.Valor.Uno, Carta.Palo.Espada));
+        ai.puntos();
+
+        p.jugada("ENVIDO", p.getJugador0());
+        ai.envido();
+        assertTrue(p.getCantos().pop().equals("ENVIDO"));
+        assertTrue(p.getCantos().pop().equals("-"));
+    }
+
+    @Test
     public void testAIEnvidoEnvidoQuiero() {
         // Setup Mocks
         Mesa mockMesa = Mockito.mock(Mesa.class);
@@ -868,15 +890,15 @@ public class AppTest
 
     }
 
-    @PrepareForTest(AI.class) // Preparing class under test.
     @Test
     public void testAICantarEnvido() {
         // Setup Mocks
         Mesa mockMesa = Mockito.mock(Mesa.class);
-        PowerMockito.mockStatic(Math.class);
-        PowerMockito.when(Math.random()).thenReturn(0.6); // para que cante envido
+        RandomWrapper randGenerator = Mockito.mock(RandomWrapper.class);
+        Mockito.when(randGenerator.getFloat()).thenReturn((float) 0.6);
 
         AI ai = new AI(mockMesa);
+        ai.setRandomWrapper(randGenerator);
         Partida p = new Partida(15,"test",false, ai);
         ai.setPartida(p);
         p.iniciarMano();
@@ -887,33 +909,37 @@ public class AppTest
         ai.addCarta(new Carta(Carta.Valor.Seis, Carta.Palo.Espada));
         ai.addCarta(new Carta(Carta.Valor.Uno, Carta.Palo.Espada));
         ai.puntos();
+
         ai.jugarCarta();
-        System.out.println(p.getCantos());
+        assertTrue(p.getCantos().pop().equals("NECESITA RESPUESTA"));
+        assertTrue(p.getCantos().pop().equals("ENVIDO"));
     }
-//
-//
-//    @PrepareForTest(AI.class) // Preparing class under test.
-//    @Test
-//    public void testAICantarEnvidoMalTurno() {
-//        // Setup Mocks
-//        Mesa mockMesa = Mockito.mock(Mesa.class);
-//        PowerMockito.mockStatic(Math.class);
-//        PowerMockito.when(Math.random()).thenReturn(0.6); // para que cante envido
-//
-//        AI ai = new AI(mockMesa);
-//        Partida p = new Partida(15,"test",false, ai);
-//        ai.setPartida(p);
-//        p.iniciarMano();
-//         Puntos de envido para la AI
-//        ai.clearMano();
-//        ai.addCarta(new Carta(Carta.Valor.Siete, Carta.Palo.Espada));
-//        ai.addCarta(new Carta(Carta.Valor.Seis, Carta.Palo.Espada));
-//        ai.addCarta(new Carta(Carta.Valor.Uno, Carta.Palo.Espada));
-//        ai.puntos();
-//        ai.jugarCarta();
-//        assertTrue(p.getCantos().pop().equals("-")); // No se canto nada
-//    }
-//
+
+
+    @PrepareForTest(AI.class) // Preparing class under test.
+    @Test
+    public void testAICantarEnvidoMalTurno() {
+        // Setup Mocks
+        Mesa mockMesa = Mockito.mock(Mesa.class);
+        RandomWrapper randGenerator = Mockito.mock(RandomWrapper.class);
+        Mockito.when(randGenerator.getFloat()).thenReturn((float) 0.6); //para que cante envido
+
+        AI ai = new AI(mockMesa);
+        Partida p = new Partida(15,"test",false, ai);
+        ai.setPartida(p);
+        p.iniciarMano();
+        // Puntos de envido para la AI
+        // Puntos de envido para la AI
+        ai.clearMano();
+        ai.addCarta(new Carta(Carta.Valor.Siete, Carta.Palo.Espada));
+        ai.addCarta(new Carta(Carta.Valor.Seis, Carta.Palo.Espada));
+        ai.addCarta(new Carta(Carta.Valor.Uno, Carta.Palo.Espada));
+        ai.puntos();
+
+        ai.jugarCarta();
+        assertTrue(p.getCantos().pop().equals("-")); // No se canto nada
+    }
+
 //    @PrepareForTest(AI.class) // Preparing class under test.
 //    @Test
 //    public void testAICantarRealEnvido() {
