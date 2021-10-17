@@ -252,7 +252,6 @@ public class AI extends Jugador {
 //            System.out.println(getMano().get(i).toString());
 //        }
         valorCartas = valorC;
-
     }
 }
 
