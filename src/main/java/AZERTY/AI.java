@@ -236,9 +236,9 @@ public class AI extends Jugador {
 
     public void setValor(int valorC) {
         Carta aux;
-        for(int i  = 0; i < getMano().size(); i++){
-            System.out.println(getMano().get(i).toString());
-        }
+//        for(int i  = 0; i < getMano().size(); i++){
+//            System.out.println(getMano().get(i).toString());
+//        }
         for(int i = 0; i<getMano().size()-1;i++){
             for(int j = 0; j < getMano().size()-1; j++) {
                 if (partida.getReglas().mayorCarta(getMano().get(j), getMano().get(j + 1)) == 1) {
@@ -248,9 +248,9 @@ public class AI extends Jugador {
                 }
             }
         }
-        for(int i  = 0; i < getMano().size(); i++){
-            System.out.println(getMano().get(i).toString());
-        }
+//        for(int i  = 0; i < getMano().size(); i++){
+//            System.out.println(getMano().get(i).toString());
+//        }
         valorCartas = valorC;
 
     }

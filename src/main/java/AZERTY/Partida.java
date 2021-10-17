@@ -97,7 +97,6 @@ public class Partida implements Sujeto{
             task.setQueHago(3);
             executor.execute(task);
         }
-        System.out.println(ronda);
         notificar();
         estadisticas.reiniciarVar();
         available = true;
@@ -356,7 +355,6 @@ public class Partida implements Sujeto{
                         }
                     }
                     ronda++;
-                    System.out.println(ronda);
                     if(ronda == 4 || flag){
                         // aca se termina la mano
                         task.setQueHago(10);
