@@ -4,11 +4,14 @@ package AZERTY;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.*;
 
 public class AI extends Jugador {
     private Mesa mesa;
     private Partida partida;
     private int valorCartas;
+
+    private IRandomWrapper random = new RandomWrapper();
 
     private long intervalo;
 
@@ -16,6 +19,10 @@ public class AI extends Jugador {
         super("AI");
         mesa = m;
 
+    }
+
+    public void setRandomWrapper(IRandomWrapper random){
+        this.random = random;
     }
 
     public void setPartida(Partida p){partida = p;}
@@ -61,25 +68,25 @@ public class AI extends Jugador {
 
     public void jugarCarta(){
         if(!partida.getCantos().contains("ENVIDO") && !partida.getCantos().contains("REAL ENVIDO") && !partida.getCantos().contains("FALTA ENVIDO") && partida.getRonda() == 1){
-            if(Math.random() > 0.5 && getPuntos() >= 24){
+            if(random.getFloat() > 0.5 && getPuntos() >= 24){
                 if(partida.jugada("ENVIDO", this)){
                     mesa.log("AI: ENVIDO");
                 }
                 return;
             }
-            else if(Math.random() > 0.4 && getPuntos() >= 27 ){
+            else if(random.getFloat() > 0.4 && getPuntos() >= 27 ){
                 if(partida.jugada("REAL ENVIDO", this)){
                     mesa.log("AI: REAL ENVIDO");
                 }
                 return;
             }
-            else if(Math.random() > 0.5 && getPuntos() >= 32){
+            else if(random.getFloat() > 0.5 && getPuntos() >= 32){
                 if(partida.jugada("FALTA ENVIDO", this)){
                     mesa.log("AI: FAAAALTA ENVIDO");
                 }
                 return;
             }
-            else if (Math.random() > 0.9){
+            else if (random.getFloat() > 0.9){
                 if(partida.jugada("ENVIDO", this)){
                     mesa.log("AI: Y SI TE CANTO ENVIDO?");
                 }
@@ -87,7 +94,7 @@ public class AI extends Jugador {
             }
         }
         if(!partida.getCantos().contains("TRUCO")){
-            if(Math.random() > 0.5 && valorCartas > 20){
+            if(random.getFloat() > 0.5 && valorCartas > 20){
                 if(partida.jugada("TRUCO", this)){
                     mesa.log("AI: TRUCO CARAJO");
                 }

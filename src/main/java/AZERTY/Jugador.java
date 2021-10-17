@@ -21,6 +21,8 @@ public class Jugador {
         quieroT = false;
     }
 
+
+
     public boolean getQuieroT() {return quieroT;}
 
     public void switchQuieroT() {this.quieroT = !this.quieroT;}
