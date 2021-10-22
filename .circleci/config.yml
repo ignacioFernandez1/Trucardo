@@ -49,7 +49,7 @@ jobs: # a collection of steps
           name: checkstyle
           command: |
             mvn checkstyle:checkstyle
-            ls ./target/site/checkstyle
+            ls ./target/site
             xmlstarlet
 
 
