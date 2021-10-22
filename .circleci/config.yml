@@ -31,11 +31,6 @@ jobs: # a collection of steps
           key: circleci-Trucardo-{{ checksum "pom.xml" }}
 
 
-
-      - run: mvn dependency
-
-
-
       - save_cache: # saves the project dependencies
 
           paths:
