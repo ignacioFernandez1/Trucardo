@@ -1,6 +1,9 @@
 package AZERTY;
+
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -14,6 +17,7 @@ public class MainMenu extends JFrame implements ActionListener{
     private JButton botonSalir;
 
     public MainMenu(){
+        super("Trucardo");
         setLayout(null);
         setTitle("Trucardo");
         ImageIcon icono = new ImageIcon("images/MATIENZO_BIG.png");
@@ -22,6 +26,7 @@ public class MainMenu extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         botonJugar = new JButton("JUGAR");
+        botonJugar.setName("jugar");
         botonJugar.setHorizontalTextPosition(botonJugar.CENTER);
         botonJugar.setVerticalTextPosition(botonJugar.CENTER);
         botonJugar.setBounds(320-85,260-15,170,40);
@@ -34,6 +39,7 @@ public class MainMenu extends JFrame implements ActionListener{
         add(botonJugar);
 
         botonSalir = new JButton("SALIR");
+        botonSalir.setName("salir");
         botonSalir.setHorizontalTextPosition(botonSalir.CENTER);
         botonSalir.setVerticalAlignment(botonSalir.CENTER);
         botonSalir.setBounds(320-85, 330-15, 170, 40);
@@ -83,7 +89,7 @@ public class MainMenu extends JFrame implements ActionListener{
     }
 
 
-    public void crear(){
+    public MainMenu crear(){
         MainMenu menu = new MainMenu();
         menu.setBounds(0,0,640,960);
         menu.setVisible(true);
@@ -95,5 +101,6 @@ public class MainMenu extends JFrame implements ActionListener{
             e.printStackTrace();
         }
         menu.backgroundGIF.setVisible(false);
+        return menu;
     }
 }
