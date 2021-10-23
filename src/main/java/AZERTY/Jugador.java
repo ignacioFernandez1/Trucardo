@@ -7,7 +7,6 @@ public class Jugador {
     private ArrayList<Carta> mano;
     private ArrayList<Carta> pila;
     private int puntaje;
-    private Mazo mazo;
     private String nombre;
     private boolean quieroT;
     private boolean quieroE;
@@ -84,7 +83,6 @@ public class Jugador {
                     valor0 = mano.get(i).getValorint();
                 }
                 else if(mano.get(i).getValorint() > valor1){valor1 = mano.get(i).getValorint();}
-                else{}
             }
             puntos =  valor0 + valor1 + 20;
 

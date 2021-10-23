@@ -13,8 +13,6 @@ public class AI extends Jugador {
 
     private IRandomWrapper random = new RandomWrapper();
 
-    private long intervalo;
-
     public AI(Mesa m) {
         super("AI");
         mesa = m;

@@ -16,6 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <pmd.maxAllowedViolations>25</pmd.maxAllowedViolations>
   </properties>
 
   <dependencies>
@@ -107,6 +108,23 @@
             </configuration>
             <goals>
               <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <configuration>
+          <linkXRef>false</linkXRef>
+          <failOnViolation>true</failOnViolation>
+          <maxAllowedViolations>${pmd.maxAllowedViolations}</maxAllowedViolations>
+        </configuration>
+        <executions>
+          <execution>
+
+            <goals>
+              <goal>check</goal>
             </goals>
           </execution>
         </executions>

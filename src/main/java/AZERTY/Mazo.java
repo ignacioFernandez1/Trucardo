@@ -18,9 +18,6 @@ public class Mazo {
         Carta.Palo[] palos = Carta.Palo.values();
         cartasEnMazo = 0;
 
-        for (int i = 0; i < palos.length; i++) {
-            Carta.Palo palo = palos[i];
-        }
         for (Carta.Palo palo : palos) {
             for (int j = 0; j < 9; j++) {
                 mazo[cartasEnMazo++] = new Carta(Carta.Valor.getValor(j), palo);

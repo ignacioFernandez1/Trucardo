@@ -19,8 +19,6 @@ public class Detalles extends JFrame implements Observador {
     private ArrayList<JLabel> envido1;
     private ArrayList<JLabel> total1;
     private ArrayList<JLabel> rondas;
-    private Detalles d;
-    private JLabel tr01;
 
     public Detalles(Partida p) {
 
