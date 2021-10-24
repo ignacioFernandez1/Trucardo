@@ -12,6 +12,9 @@ import static org.assertj.swing.finder.WindowFinder.findFrame;
 import org.assertj.swing.core.AbstractComponentMatcher;
 import org.assertj.swing.core.GenericTypeMatcher;
 import org.assertj.swing.core.matcher.NamedComponentMatcherTemplate;
+import static org.assertj.swing.finder.WindowFinder.findFrame;
+import org.assertj.swing.timing.Pause;
+import static org.assertj.swing.core.MouseButton.LEFT_BUTTON;
 
 import org.junit.Test;
 
@@ -20,6 +23,7 @@ public class MainMenuTest extends AbstractUiTest {
     private JButtonFixture jugarButtonFixture;
     private JButtonFixture salirButtonFixture;
 
+
     @Override
     protected void onSetUp() {
         this.jugarButtonFixture = this.frame.button("jugar");
@@ -27,10 +31,15 @@ public class MainMenuTest extends AbstractUiTest {
     }
 
     @Test
-    public void testWithDifferingComponentMatchers() {
-        // use JTextComponentMatcher.any() as there is only one text input
-        this.jugarButtonFixture.requireVisible().requireEnabled().click();
-        this.salirButtonFixture.requireVisible().requireEnabled().click();
+    public void testBotonJugarMainMenu() {
+        this.jugarButtonFixture.requireVisible().requireEnabled().click(LEFT_BUTTON);;
+        //FrameFixture configFrame = findFrame(PantallaConfig.class).using(robot());
+        //configFrame.textBox("nombre").enterText("Franco");
+    }
+
+    @Test
+    public void testBotonSalirMainMenu() {
+        this.salirButtonFixture.requireVisible().requireEnabled().click(LEFT_BUTTON);
     }
 
     @Override

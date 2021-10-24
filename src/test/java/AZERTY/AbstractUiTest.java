@@ -13,6 +13,7 @@ import org.assertj.swing.fixture.*;
 import org.assertj.swing.fixture.AbstractButtonFixture;
 import org.assertj.swing.core.GenericTypeMatcher;
 import org.assertj.swing.core.matcher.NamedComponentMatcherTemplate;
+import org.assertj.swing.core.Settings;
 import java.awt.GraphicsEnvironment;
 import java.awt.Dimension;
 
@@ -63,7 +64,6 @@ public class AbstractUiTest extends AssertJSwingTestCaseTemplate {
         });
         this.frame = new FrameFixture(this.robot(), mainMenu);
         this.frame.show();
-        //this.frame.resizeTo(new Dimension(600, 600));
         onSetUp();
     }
 

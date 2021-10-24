@@ -22,8 +22,8 @@ public class PantallaConfig extends JFrame implements ActionListener{
 
     public PantallaConfig(MainMenu m) {
 
+        super("config");
         menu = m;
-
         //this.fuente = fuente;
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
@@ -72,12 +72,14 @@ public class PantallaConfig extends JFrame implements ActionListener{
         flor.add(florNo);
 
         nombre = new JTextField();
+        nombre.setName("nombre");
         nombre.setBounds(130+5, 110, 200,30);
         ingNombre = new JLabel("Nombre: ");
         ingNombre.setBounds(30+5, 110, 80,30);
         ingNombre.setForeground(new Color(255,255,255));
 
         aceptar = new JButton("ACEPTAR");
+        aceptar.setName("aceptar");
         aceptar.setBounds(160+5, 160, 100, 30);
         aceptar.addActionListener(this);
 
