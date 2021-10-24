@@ -17,7 +17,6 @@ public class Partida implements Sujeto{
     private Jugador jugadorMano;
     private int puntajeMaximo;
     private Mazo mazo;
-    private boolean flor;
     private int ronda; // ronda va de 1 a 3
     private int cartasJugadas; // si es == 2 se compara para ver quien gano y se resetea
     private boolean cantoEnCurso;
@@ -37,7 +36,9 @@ public class Partida implements Sujeto{
     public Partida(int puntajeMax, String nombre, boolean flor,AI ai) {
         manos = 0;
         puntajeMaximo = puntajeMax;
-        this.flor=flor;
+        if (flor){
+            System.out.println("Flor no implementada");
+        }
         mazo = new Mazo();
         jugador0 = new Jugador(nombre);
         jugador1 = ai;
@@ -110,12 +111,12 @@ public class Partida implements Sujeto{
         iniciarMano();
     }
 
-    public void cambiarJugador (){
+    synchronized public void cambiarJugador (){
         if(jugadorActual.equals(jugador0)){ jugadorActual = jugador1;}
         else { jugadorActual = jugador0;}
     }
 
-    public void cambiarJugadorTurno (){
+    synchronized public void cambiarJugadorTurno (){
         if(jugadorTurno.equals(jugador0)){ jugadorTurno = jugador1;}
         else { jugadorTurno = jugador0;}
     }
@@ -528,7 +529,6 @@ public class Partida implements Sujeto{
                     "Le ganaste al BOT "+estadisticas.getPuntos0()+" a "+estadisticas.getPuntos1(), "GANASTE",
                     JOptionPane.OK_OPTION);
             if (confirmed == JOptionPane.OK_OPTION) {
-                String[] args = {};
                 // No inicia el gif de trucardo
                 System.exit(0);
             }
@@ -539,7 +539,6 @@ public class Partida implements Sujeto{
                     "Perdiste contra el BOT "+estadisticas.getPuntos0()+" a "+estadisticas.getPuntos1(), "PERDISTE",
                     JOptionPane.YES_NO_OPTION);
             if (confirmed == JOptionPane.YES_OPTION) {
-                String[] args = {};
                 // No inicia el gif de trucardo
                 System.exit(0);
             }

@@ -112,9 +112,11 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.15.0</version>
         <configuration>
           <linkXRef>false</linkXRef>
           <failOnViolation>true</failOnViolation>
@@ -122,13 +124,31 @@
         </configuration>
         <executions>
           <execution>
-
             <goals>
               <goal>check</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.4</version>
+        <configuration>
+          <failOnError>true</failOnError>
+          <threshold>High</threshold>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 
@@ -137,7 +157,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>8.3.0</version>
+        <version>3.1.1</version>
         <reportSets>
           <reportSet>
             <reports>
@@ -145,6 +165,33 @@
             </reports>
           </reportSet>
         </reportSets>
+      </plugin>
+
+<!--      CPD -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.15.0</version>
+        <configuration>
+          <linkXref>true</linkXref>
+          <sourceEncoding>utf-8</sourceEncoding>
+          <minimumTokens>100</minimumTokens>
+          <targetJdk>1.8</targetJdk>
+        </configuration>
+        <reportSets>
+          <reportSet><!-- by default, id = "default" -->
+            <reports><!-- select non-aggregate reports -->
+              <report>cpd</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
+<!--      FindBugs report-->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.4</version>
       </plugin>
     </plugins>
   </reporting>

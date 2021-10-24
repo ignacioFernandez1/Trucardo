@@ -154,7 +154,6 @@ public class Controlador implements ActionListener {
                     "¿Estas seguro que queres salir?", "Salir",
                     JOptionPane.YES_NO_OPTION);
             if (confirmed == JOptionPane.YES_OPTION) {
-                String[] args = {};
                 // No inicia el gif de trucardo
                 System.exit(0);
             }
