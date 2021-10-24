@@ -7,4 +7,11 @@ public class App {
 
         new MainMenu().crear();
     }
+
+    public static MainMenu showWindow(){
+        MainMenu menu = new MainMenu();
+
+        return menu.crear();
+
+    }
 }
