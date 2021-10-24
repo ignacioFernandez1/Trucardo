@@ -29,8 +29,8 @@ public class ReglasAlt implements Reglas {
         orden.put("UnodeBasto",12 );
         orden.put("SietedeEspada",11);
         orden.put("SietedeOro",10);
-        orden.put("TresdeBasto",9 );
         orden.put("TresdeOro",9 );
+        orden.put("TresdeBasto",9 );
         orden.put("TresdeEspada",9 );
         orden.put("TresdeCopa",9 );
         orden.put("DosdeCopa",8 );
@@ -61,8 +61,6 @@ public class ReglasAlt implements Reglas {
         orden.put("CuatrodeBasto",1 );
         orden.put("CuatrodeEspada",1 );
         orden.put("CuatrodeOro",1 );
-
-
     }
 
     @Override

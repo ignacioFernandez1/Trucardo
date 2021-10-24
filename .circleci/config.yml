@@ -54,7 +54,7 @@ jobs: # a collection of steps
             if [[ $errors > 2524 ]]; then echo "too many Checkstyle errors"; exit 1; fi
       # 2524 es el valor que elegimos como max de errores para que no falle
 
-      # PMD, FindBugs and Jacoco
+      # PMD, CPD, FindBugs and Jacoco
       - run:
           name: verify PMD-FindBugs-Jacoco
           command: mvn clean verify
