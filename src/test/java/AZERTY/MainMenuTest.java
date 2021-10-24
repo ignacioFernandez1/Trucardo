@@ -33,13 +33,13 @@ public class MainMenuTest extends AbstractUiTest {
     @Test
     public void testBotonJugarMainMenu() {
         this.jugarButtonFixture.requireVisible().requireEnabled().click(LEFT_BUTTON);
-        //FrameFixture configFrame = findFrame(PantallaConfig.class).using(robot());
-        //configFrame.textBox("nombre").enterText("Franco");
+        System.out.println("boton jugar");
     }
 
     @Test
     public void testBotonSalirMainMenu() {
         this.salirButtonFixture.requireVisible().requireEnabled().click(LEFT_BUTTON);
+        System.out.println("boton salir");
     }
 
     @Override
